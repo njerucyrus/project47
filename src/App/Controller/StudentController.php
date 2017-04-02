@@ -21,7 +21,6 @@ class StudentController implements StudentInterface
      */
     public function createSingle(Student $student)
     {
-        // TODO: Implement createSingle() method.
         global $db, $conn;
         //get params
         $firstName = $student->getFirstName();
@@ -177,12 +176,57 @@ class StudentController implements StudentInterface
      */
     public function update(Student $student, $id)
     {
-        // TODO: Implement update() method.
+        global $db, $conn;
+        $firstName = $student->getFirstName();
+        $lastName = $student->getLastName();
+        $otherName = $student->getOtherName();
+        $regNo = $student->getRegNo();
+        $currentClass = $student->getCurrentClass();
+        $stream = $student->getStream();
+        $dob = $student->getDob();
+        $profileImage = $student->getProfileImage();
+        $parentName = $student->getParentName();
+        $occupation = $student->getOccupation();
+        $dateEnrolled = $student->getDateEnrolled();
+
+        $stmt = $conn->prepare("UPDATE students SET 
+                                                    first_name=:first_name,
+                                                    last_name=:last_name,
+                                                    other_name=:other_name,
+                                                    reg_no=:reg_no,
+                                                    current_class=:current_class,
+                                                    stream=:stream,
+                                                    dob=:dob,
+                                                    profile_image=:profile_image,
+                                                    parent_name=:parent_name,
+                                                    occupation=:occupation,
+                                                    date_enrolled=:date_enrolled
+                                                WHERE
+                                                    id=:id
+                                                ");
+
+
+        $stmt->bindParam(":id",$id);
+        $stmt->bindParam(":first_name",$firstName);
+        $stmt->bindParam(":last_name",$lastName);
+        $stmt->bindParam(":other_name",$otherName);
+        $stmt->bindParam(":reg_no",$regNo);
+        $stmt->bindParam(":current_class",$currentClass);
+        $stmt->bindParam(":stream", $stream);
+        $stmt->bindParam(":dob",$dob);
+        $stmt->bindParam(":profile_image", $profileImage);
+        $stmt->bindParam(":parent_name",$parentName);
+        $stmt->bindParam(":occupation",$occupation);
+        $stmt->bindParam(":date_enrolled",$dateEnrolled);
+
+        $stmt->execute();
+        $db->closeConnection();
+        return true;
     }
 
     /**
      * @param $id
-     * @return mixed
+     * @return bool
      */
     public static function delete($id)
     {
@@ -190,7 +234,7 @@ class StudentController implements StudentInterface
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public static function destroy()
     {
