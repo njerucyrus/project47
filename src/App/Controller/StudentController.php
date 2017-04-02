@@ -362,7 +362,11 @@ class StudentController implements StudentInterface
         }
     }
 
-    public static function getStudentObject($id)
+    /**
+     * @param $id
+     * @return Student|null
+     */
+    public static function getStudent($id)
     {
         global $db, $conn;
 

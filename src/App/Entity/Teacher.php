@@ -46,6 +46,11 @@ class Teacher
     private $gender;
 
     /**
+     * @var \DateTime
+     */
+    private $dateRegistered;
+
+    /**
      * @return int
      */
     public function getId()
@@ -172,4 +177,22 @@ class Teacher
     {
         $this->gender = $gender;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateRegistered()
+    {
+        return $this->dateRegistered;
+    }
+
+    /**
+     * @param \DateTime $dateRegistered
+     */
+    public function setDateRegistered($dateRegistered)
+    {
+        $this->dateRegistered = $dateRegistered;
+    }
+
+
 }
