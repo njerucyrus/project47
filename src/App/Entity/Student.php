@@ -11,6 +11,10 @@ namespace App\Entity;
 
 class Student
 {
+    /**
+     * @var int;
+     */
+    private $id;
 
     /**
      * @var string
@@ -24,6 +28,12 @@ class Student
      * @var string
      */
     private $otherName;
+
+    /**
+     * @var string
+     */
+    private $gender;
+
     /**
      * @var string
      */
@@ -61,6 +71,22 @@ class Student
      * @var \DateTime
      */
     private $dateEnrolled;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return string
@@ -108,6 +134,22 @@ class Student
     public function setOtherName($otherName)
     {
         $this->otherName = $otherName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
     }
 
     /**

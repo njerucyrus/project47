@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-require_once __DIR__.'/../DBManager/DB.php';
+require_once __DIR__ . '/../DBManager/DB.php';
 use App\AppInterface\StudentInterface;
 use App\Entity\Student;
 
@@ -26,6 +26,7 @@ class StudentController implements StudentInterface
         $firstName = $student->getFirstName();
         $lastName = $student->getLastName();
         $otherName = $student->getOtherName();
+        $gender = $student->getGender();
         $regNo = $student->getRegNo();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
@@ -35,11 +36,12 @@ class StudentController implements StudentInterface
         $occupation = $student->getOccupation();
         $dateEnrolled = $student->getDateEnrolled();
 
-        try{
+        try {
             $stmt = $conn->prepare("INSERT INTO students (
                                                             first_name,
                                                             last_name,
                                                             other_name,
+                                                            gender,
                                                             reg_no,
                                                             current_class,
                                                             stream,
@@ -54,6 +56,7 @@ class StudentController implements StudentInterface
                                                             :first_name,
                                                             :last_name,
                                                             :other_name,
+                                                            :gender,
                                                             :reg_no,
                                                             :current_class,
                                                             :stream,
@@ -64,23 +67,24 @@ class StudentController implements StudentInterface
                                                             :date_enrolled
                                                            )");
 
-            $stmt->bindParam(":first_name",$firstName);
-            $stmt->bindParam(":last_name",$lastName);
-            $stmt->bindParam(":other_name",$otherName);
-            $stmt->bindParam(":reg_no",$regNo);
-            $stmt->bindParam(":current_class",$currentClass);
+            $stmt->bindParam(":first_name", $firstName);
+            $stmt->bindParam(":last_name", $lastName);
+            $stmt->bindParam(":other_name", $otherName);
+            $stmt->bindParam(":gender", $gender);
+            $stmt->bindParam(":reg_no", $regNo);
+            $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":stream", $stream);
-            $stmt->bindParam(":dob",$dob);
+            $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
-            $stmt->bindParam(":parent_name",$parentName);
-            $stmt->bindParam(":occupation",$occupation);
-            $stmt->bindParam(":date_enrolled",$dateEnrolled);
+            $stmt->bindParam(":parent_name", $parentName);
+            $stmt->bindParam(":occupation", $occupation);
+            $stmt->bindParam(":date_enrolled", $dateEnrolled);
 
             $stmt->execute();
             $db->closeConnection();
             return true;
 
-        } catch (\PDOException  $exception){
+        } catch (\PDOException  $exception) {
             echo $exception->getMessage();
             return false;
         }
@@ -91,14 +95,15 @@ class StudentController implements StudentInterface
      * @param array $students
      * @return mixed
      */
-    public function createMultiple($students)
+    public function createMultiple(array $students)
     {
         global $db, $conn;
-        try{
+        try {
             $stmt = $conn->prepare("INSERT INTO students (
                                                             first_name,
                                                             last_name,
                                                             other_name,
+                                                            gender,
                                                             reg_no,
                                                             current_class,
                                                             stream,
@@ -113,6 +118,7 @@ class StudentController implements StudentInterface
                                                             :first_name,
                                                             :last_name,
                                                             :other_name,
+                                                            :gender,
                                                             :reg_no,
                                                             :current_class,
                                                             :stream,
@@ -125,23 +131,25 @@ class StudentController implements StudentInterface
 
 
             // loop through the array and bind get param value
-            foreach ($students as $student){
+            foreach ($students as $student) {
 
-                $stmt->bindParam(":first_name",$firstName);
-                $stmt->bindParam(":last_name",$lastName);
-                $stmt->bindParam(":other_name",$otherName);
-                $stmt->bindParam(":reg_no",$regNo);
-                $stmt->bindParam(":current_class",$currentClass);
+                $stmt->bindParam(":first_name", $firstName);
+                $stmt->bindParam(":last_name", $lastName);
+                $stmt->bindParam(":other_name", $otherName);
+                $stmt->bindParam(":gender", $gender);
+                $stmt->bindParam(":reg_no", $regNo);
+                $stmt->bindParam(":current_class", $currentClass);
                 $stmt->bindParam(":stream", $stream);
-                $stmt->bindParam(":dob",$dob);
+                $stmt->bindParam(":dob", $dob);
                 $stmt->bindParam(":profile_image", $profileImage);
-                $stmt->bindParam(":parent_name",$parentName);
-                $stmt->bindParam(":occupation",$occupation);
-                $stmt->bindParam(":date_enrolled",$dateEnrolled);
+                $stmt->bindParam(":parent_name", $parentName);
+                $stmt->bindParam(":occupation", $occupation);
+                $stmt->bindParam(":date_enrolled", $dateEnrolled);
 
                 $firstName = $student['first_name'];
                 $lastName = $student['last_name'];
                 $otherName = $student['other_name'];
+                $gender = $student['gender'];
                 $regNo = $student['reg_no'];
                 $currentClass = $student['current_class'];
                 $stream = $student['stream'];
@@ -156,15 +164,13 @@ class StudentController implements StudentInterface
             }
 
 
-
             $db->closeConnection();
             return true;
 
-        } catch (\PDOException  $exception){
+        } catch (\PDOException  $exception) {
             echo $exception->getMessage();
             return false;
         }
-
 
 
     }
@@ -180,6 +186,7 @@ class StudentController implements StudentInterface
         $firstName = $student->getFirstName();
         $lastName = $student->getLastName();
         $otherName = $student->getOtherName();
+        $gender = $student->getGender();
         $regNo = $student->getRegNo();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
@@ -194,6 +201,7 @@ class StudentController implements StudentInterface
                                                     first_name=:first_name,
                                                     last_name=:last_name,
                                                     other_name=:other_name,
+                                                    gender=:gender,
                                                     reg_no=:reg_no,
                                                     current_class=:current_class,
                                                     stream=:stream,
@@ -236,14 +244,15 @@ class StudentController implements StudentInterface
     public static function delete($id)
     {
         global $db, $conn;
-        try{
+        try {
             $stmt = $conn->prepare("DELETE FROM students WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $db->closeConnection();
             return true;
-        } catch (\PDOException $exception){
-
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
         }
 
     }
@@ -253,23 +262,140 @@ class StudentController implements StudentInterface
      */
     public static function destroy()
     {
-        // TODO: Implement destroy() method.
+        global $db, $conn;
+        try {
+            $stmt = $conn->prepare("DELETE FROM students");
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
     /**
-     * @return mixed
+     * @param int $id
+     * @return array
      */
-    public static function getId()
+    public static function getId($id)
     {
-        // TODO: Implement getId() method.
+        global $db, $conn;
+
+        try {
+            $stmt = $conn->prepare("SELECT * FROM students WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            if ($stmt->rowCount() == 1) {
+
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+                $student = array(
+                    "id" => $row['id'],
+                    "first_name" => $row['first_name'],
+                    "last_name" => $row['last_name'],
+                    "other_name" => $row['other_name'],
+                    "gender" =>$row['gender'],
+                    "reg_no" => $row['reg_no'],
+                    "current_class" => $row['current_class'],
+                    "stream" => $row['stream'],
+                    "dob" => $row['dob'],
+                    "profile_image" => $row['profile_image'],
+                    "parent_name" => $row['parent_name'],
+                    "occupation" => $row['occupation'],
+                    "date_enrolled" => $row['date_enrolled']
+
+                );
+                $db->closeConnection();
+
+                return $student;
+            } else {
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
     }
 
+
     /**
-     * @return mixed
+     * @return array
      */
     public static function all()
     {
-        // TODO: Implement all() method.
+        global $db, $conn;
+
+        try {
+            $stmt = $conn->prepare("SELECT * FROM  students WHERE 1");
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                $students = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                    $student = array(
+                        "id" => $row['id'],
+                        "first_name" => $row['first_name'],
+                        "last_name" => $row['last_name'],
+                        "other_name" => $row['other_name'],
+                        "gender" => $row['gender'],
+                        "reg_no" => $row['reg_no'],
+                        "current_class" => $row['current_class'],
+                        "stream" => $row['stream'],
+                        "dob" => $row['dob'],
+                        "profile_image" => $row['profile_image'],
+                        "parent_name" => $row['parent_name'],
+                        "occupation" => $row['occupation'],
+                        "date_enrolled" => $row['date_enrolled']
+                    );
+                    $students[] = $student;
+                }
+                $db->closeConnection();
+                return $students;
+            }
+            else{
+                return [];
+            }
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
+    public static function getStudentObject($id)
+    {
+        global $db, $conn;
+
+        try {
+            $stmt = $conn->prepare("SELECT * FROM students WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            if ($stmt->rowCount() == 1) {
+                $student = new Student();
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $student->setId($row['id']);
+                $student->setFirstName($row['first_name']);
+                $student->setLastName($row['last_name']);
+                $student->setOtherName($row['other_name']);
+                $student->setGender($row['gender']);
+                $student->setRegNo($row['reg_no']);
+                $student->setCurrentClass($row['current_class']);
+                $student->setStream($row['stream']);
+                $student->setDob($row['dob']);
+                $student->setProfileImage($row['profile_image']);
+                $student->setParentName($row['parent_name']);
+                $student->setOccupation($row['occupation']);
+                $student->setDateEnrolled($row['date_enrolled']);
+                $db->closeConnection();
+                return $student;
+            } else {
+                return null;
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return null;
+        }
     }
 
 }

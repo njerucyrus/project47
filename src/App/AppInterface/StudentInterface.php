@@ -12,10 +12,10 @@ use App\Entity\Student;
 interface StudentInterface
 {
     public function createSingle(Student $student);
-    public function createMultiple($students);
+    public function createMultiple(array $students);
     public function update(Student $student, $id);
     public static function delete($id);
     public static function destroy();
-    public static function getId();
+    public static function getId($id);
     public static function all();
 }
