@@ -189,7 +189,8 @@ class StudentController implements StudentInterface
         $occupation = $student->getOccupation();
         $dateEnrolled = $student->getDateEnrolled();
 
-        $stmt = $conn->prepare("UPDATE students SET 
+        try {
+            $stmt = $conn->prepare("UPDATE students SET 
                                                     first_name=:first_name,
                                                     last_name=:last_name,
                                                     other_name=:other_name,
@@ -206,22 +207,26 @@ class StudentController implements StudentInterface
                                                 ");
 
 
-        $stmt->bindParam(":id",$id);
-        $stmt->bindParam(":first_name",$firstName);
-        $stmt->bindParam(":last_name",$lastName);
-        $stmt->bindParam(":other_name",$otherName);
-        $stmt->bindParam(":reg_no",$regNo);
-        $stmt->bindParam(":current_class",$currentClass);
-        $stmt->bindParam(":stream", $stream);
-        $stmt->bindParam(":dob",$dob);
-        $stmt->bindParam(":profile_image", $profileImage);
-        $stmt->bindParam(":parent_name",$parentName);
-        $stmt->bindParam(":occupation",$occupation);
-        $stmt->bindParam(":date_enrolled",$dateEnrolled);
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":first_name", $firstName);
+            $stmt->bindParam(":last_name", $lastName);
+            $stmt->bindParam(":other_name", $otherName);
+            $stmt->bindParam(":reg_no", $regNo);
+            $stmt->bindParam(":current_class", $currentClass);
+            $stmt->bindParam(":stream", $stream);
+            $stmt->bindParam(":dob", $dob);
+            $stmt->bindParam(":profile_image", $profileImage);
+            $stmt->bindParam(":parent_name", $parentName);
+            $stmt->bindParam(":occupation", $occupation);
+            $stmt->bindParam(":date_enrolled", $dateEnrolled);
 
-        $stmt->execute();
-        $db->closeConnection();
-        return true;
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
     /**
@@ -230,7 +235,17 @@ class StudentController implements StudentInterface
      */
     public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        global $db, $conn;
+        try{
+            $stmt = $conn->prepare("DELETE FROM students WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception){
+
+        }
+
     }
 
     /**
