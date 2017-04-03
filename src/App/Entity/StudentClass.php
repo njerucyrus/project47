@@ -35,6 +35,9 @@ class StudentClass
     /**
      * @return int
      */
+
+    private $classTeacher;
+
     public function getId()
     {
         return $this->id;
