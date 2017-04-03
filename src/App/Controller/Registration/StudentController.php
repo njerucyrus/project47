@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-require_once __DIR__ . '/../DBManager/DB.php';
+require_once __DIR__ . '/../../DBManager/DB.php';
 use App\AppInterface\StudentInterface;
 use App\Entity\Student;
 

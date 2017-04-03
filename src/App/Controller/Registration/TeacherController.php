@@ -6,7 +6,7 @@
  * Time: 6:08 PM
  */
 
-namespace App\Controller;
+namespace App\Controller\Registration;
 
 
 use App\AppInterface\TeacherInterface;
