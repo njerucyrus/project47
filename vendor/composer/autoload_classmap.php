@@ -6,10 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controller\\Registration\\TeacherController' => $baseDir . '/src/Hudutech/Controller/TeacherController.php',
     'Hudutech\\AppInterface\\StudentInterface' => $baseDir . '/src/Hudutech/AppInterface/StudentInterface.php',
     'Hudutech\\AppInterface\\TeacherInterface' => $baseDir . '/src/Hudutech/AppInterface/TeacherInterface.php',
     'Hudutech\\Controller\\StudentController' => $baseDir . '/src/Hudutech/Controller/StudentController.php',
+    'Hudutech\\Controller\\TeacherController' => $baseDir . '/src/Hudutech/Controller/TeacherController.php',
     'Hudutech\\DBManager\\DB' => $baseDir . '/src/Hudutech/DBManager/DB.php',
     'Hudutech\\Entity\\Student' => $baseDir . '/src/Hudutech/Entity/Student.php',
     'Hudutech\\Entity\\StudentClass' => $baseDir . '/src/Hudutech/Entity/StudentClass.php',

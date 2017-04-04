@@ -46,6 +46,11 @@ class Student
     /**
      * @var string
      */
+    private $classJoined;
+
+    /**
+     * @var string
+     */
     private $stream;
 
     /**
@@ -63,6 +68,22 @@ class Student
      * @var string
      */
     private $parentName;
+
+    /**
+     * @var string
+     */
+    private $phoneNumber;
+
+    /**
+     * @var string
+     */
+    private $email;
+
+    /**
+     * @var string
+     */
+    private $address;
+
     /**
      * @var string
      */
@@ -71,6 +92,11 @@ class Student
      * @var \DateTime
      */
     private $dateEnrolled;
+
+    /**
+     * @var string
+     */
+    private $status;
 
     /**
      * @return int
@@ -284,6 +310,85 @@ class Student
         $this->dateEnrolled = $dateEnrolled;
     }
 
+    /**
+     * @return string
+     */
+    public function getClassJoined()
+    {
+        return $this->classJoined;
+    }
+
+    /**
+     * @param string $classJoined
+     */
+    public function setClassJoined($classJoined)
+    {
+        $this->classJoined = $classJoined;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
 
 }

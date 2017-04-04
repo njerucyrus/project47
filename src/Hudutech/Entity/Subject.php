@@ -26,6 +26,11 @@ class Subject
     private $subjectGroup;
 
     /**
+     * @var int
+     */
+    private $subjectCode;
+
+    /**
      * @return int
      */
     public function getId()
@@ -71,6 +76,22 @@ class Subject
     public function setSubjectGroup($subjectGroup)
     {
         $this->subjectGroup = $subjectGroup;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSubjectCode()
+    {
+        return $this->subjectCode;
+    }
+
+    /**
+     * @param int $subjectCode
+     */
+    public function setSubjectCode($subjectCode)
+    {
+        $this->subjectCode = $subjectCode;
     }
 
 

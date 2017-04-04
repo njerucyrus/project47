@@ -29,13 +29,19 @@ class StudentController implements StudentInterface
         $otherName = $student->getOtherName();
         $gender = $student->getGender();
         $regNo = $student->getRegNo();
+        $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
+        $phoneNumber = $student->getPhoneNumber();
+        $address = $student->getAddress();
+        $email = $student->getEmail();
         $occupation = $student->getOccupation();
         $dateEnrolled = $student->getDateEnrolled();
+        $status = $student->getStatus();
+
 
         try {
             $stmt = $conn->prepare("INSERT INTO students (
@@ -44,13 +50,18 @@ class StudentController implements StudentInterface
                                                             other_name,
                                                             gender,
                                                             reg_no,
+                                                            class_joined,
                                                             current_class,
                                                             stream,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
+                                                            phone_number,
+                                                            address,
+                                                            email,
                                                             occupation,
-                                                            date_enrolled
+                                                            date_enrolled,
+                                                            status
                                                           )
                                                           VALUES
                                                            (
@@ -59,13 +70,18 @@ class StudentController implements StudentInterface
                                                             :other_name,
                                                             :gender,
                                                             :reg_no,
+                                                            :class_joined,
                                                             :current_class,
                                                             :stream,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
+                                                            :phone_number,
+                                                            :address,
+                                                            :email,
                                                             :occupation,
-                                                            :date_enrolled
+                                                            :date_enrolled,
+                                                            :status
                                                            )");
 
             $stmt->bindParam(":first_name", $firstName);
@@ -74,12 +90,17 @@ class StudentController implements StudentInterface
             $stmt->bindParam(":gender", $gender);
             $stmt->bindParam(":reg_no", $regNo);
             $stmt->bindParam(":current_class", $currentClass);
+            $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
+            $stmt->bindParam(":phone_number", $phoneNumber);
+            $stmt->bindParam(":address", $address);
+            $stmt->bindParam(":email", $email);
             $stmt->bindParam(":occupation", $occupation);
             $stmt->bindParam(":date_enrolled", $dateEnrolled);
+            $stmt->bindParam(":status", $status);
 
             $stmt->execute();
             $db->closeConnection();
@@ -107,13 +128,18 @@ class StudentController implements StudentInterface
                                                             other_name,
                                                             gender,
                                                             reg_no,
+                                                            class_joined,
                                                             current_class,
                                                             stream,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
+                                                            phone_number,
+                                                            address,
+                                                            email,
                                                             occupation,
-                                                            date_enrolled
+                                                            date_enrolled,
+                                                            status
                                                           )
                                                           VALUES
                                                            (
@@ -122,13 +148,18 @@ class StudentController implements StudentInterface
                                                             :other_name,
                                                             :gender,
                                                             :reg_no,
+                                                            :class_joined,
                                                             :current_class,
                                                             :stream,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
+                                                            :phone_number,
+                                                            :address,
+                                                            :email,
                                                             :occupation,
-                                                            :date_enrolled
+                                                            :date_enrolled,
+                                                            :status
                                                            )");
 
 
@@ -141,12 +172,17 @@ class StudentController implements StudentInterface
                 $stmt->bindParam(":gender", $gender);
                 $stmt->bindParam(":reg_no", $regNo);
                 $stmt->bindParam(":current_class", $currentClass);
+                $stmt->bindParam(":class_joined", $classJoined);
                 $stmt->bindParam(":stream", $stream);
                 $stmt->bindParam(":dob", $dob);
                 $stmt->bindParam(":profile_image", $profileImage);
                 $stmt->bindParam(":parent_name", $parentName);
+                $stmt->bindParam(":phone_number", $phoneNumber);
+                $stmt->bindParam(":address", $address);
+                $stmt->bindParam(":email", $email);
                 $stmt->bindParam(":occupation", $occupation);
                 $stmt->bindParam(":date_enrolled", $dateEnrolled);
+                $stmt->bindParam(":status", $status);
 
                 $firstName = $student['first_name'];
                 $lastName = $student['last_name'];
@@ -154,12 +190,17 @@ class StudentController implements StudentInterface
                 $gender = $student['gender'];
                 $regNo = $student['reg_no'];
                 $currentClass = $student['current_class'];
+                $classJoined = $student['class_joined'];
                 $stream = $student['stream'];
                 $dob = $student['dob'];
                 $profileImage = $student['profile_image'];
                 $parentName = $student['parent_name'];
+                $phoneNumber = $student['phone_number'];
+                $address = $student['address'];
+                $email = $student['email'];
                 $occupation = $student['occupation'];
                 $dateEnrolled = $student['date_enrolled'];
+                $status = $student['status'];
                 $stmt->execute();
             }
 
@@ -189,13 +230,18 @@ class StudentController implements StudentInterface
         $otherName = $student->getOtherName();
         $gender = $student->getGender();
         $regNo = $student->getRegNo();
+        $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
+        $phoneNumber = $student->getPhoneNumber();
+        $address = $student->getAddress();
+        $email = $student->getEmail();
         $occupation = $student->getOccupation();
         $dateEnrolled = $student->getDateEnrolled();
+        $status = $student->getStatus();
 
         try {
             $stmt = $conn->prepare("UPDATE students SET 
@@ -204,13 +250,18 @@ class StudentController implements StudentInterface
                                                     other_name=:other_name,
                                                     gender=:gender,
                                                     reg_no=:reg_no,
+                                                    class_joined=:class_joined,
                                                     current_class=:current_class,
                                                     stream=:stream,
                                                     dob=:dob,
                                                     profile_image=:profile_image,
                                                     parent_name=:parent_name,
+                                                    phone_number=:phone_number,
+                                                    address=:address,
+                                                    email=:email,
                                                     occupation=:occupation,
-                                                    date_enrolled=:date_enrolled
+                                                    date_enrolled=:date_enrolled,
+                                                    status=:status
                                                 WHERE
                                                     id=:id
                                                 ");
@@ -223,12 +274,17 @@ class StudentController implements StudentInterface
             $stmt->bindParam(":gender", $gender);
             $stmt->bindParam(":reg_no", $regNo);
             $stmt->bindParam(":current_class", $currentClass);
+            $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
+            $stmt->bindParam(":phone_number", $phoneNumber);
+            $stmt->bindParam(":address", $address);
+            $stmt->bindParam(":email", $email);
             $stmt->bindParam(":occupation", $occupation);
             $stmt->bindParam(":date_enrolled", $dateEnrolled);
+            $stmt->bindParam(":status", $status);
 
             $stmt->execute();
             $db->closeConnection();
@@ -303,12 +359,17 @@ class StudentController implements StudentInterface
                     "gender" =>$row['gender'],
                     "reg_no" => $row['reg_no'],
                     "current_class" => $row['current_class'],
+                    "class_joined" => $row['class_joined'],
                     "stream" => $row['stream'],
                     "dob" => $row['dob'],
                     "profile_image" => $row['profile_image'],
                     "parent_name" => $row['parent_name'],
+                    "phone_number" => $row['phone_number'],
+                    "email" => $row['email'],
+                    "address" => $row['address'],
                     "occupation" => $row['occupation'],
-                    "date_enrolled" => $row['date_enrolled']
+                    "date_enrolled" => $row['date_enrolled'],
+                    "status" => $row['status']
 
                 );
                 $db->closeConnection();
@@ -344,15 +405,20 @@ class StudentController implements StudentInterface
                         "first_name" => $row['first_name'],
                         "last_name" => $row['last_name'],
                         "other_name" => $row['other_name'],
-                        "gender" => $row['gender'],
+                        "gender" =>$row['gender'],
                         "reg_no" => $row['reg_no'],
                         "current_class" => $row['current_class'],
+                        "class_joined" => $row['class_joined'],
                         "stream" => $row['stream'],
                         "dob" => $row['dob'],
                         "profile_image" => $row['profile_image'],
                         "parent_name" => $row['parent_name'],
+                        "phone_number" => $row['phone_number'],
+                        "email" => $row['email'],
+                        "address" => $row['address'],
                         "occupation" => $row['occupation'],
-                        "date_enrolled" => $row['date_enrolled']
+                        "date_enrolled" => $row['date_enrolled'],
+                        "status" => $row['status']
                     );
                     $students[] = $student;
                 }
@@ -374,7 +440,8 @@ class StudentController implements StudentInterface
      */
     public static function getStudent($id)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
 
         try {
             $stmt = $conn->prepare("SELECT * FROM students WHERE id=:id");
@@ -390,12 +457,17 @@ class StudentController implements StudentInterface
                 $student->setGender($row['gender']);
                 $student->setRegNo($row['reg_no']);
                 $student->setCurrentClass($row['current_class']);
+                $student->setClassJoined($row['class_joined']);
                 $student->setStream($row['stream']);
                 $student->setDob($row['dob']);
                 $student->setProfileImage($row['profile_image']);
                 $student->setParentName($row['parent_name']);
+                $student->setPhoneNumber($row['phone_number']);
+                $student->setAddress($row['address']);
+                $student->setEmail($row['email']);
                 $student->setOccupation($row['occupation']);
                 $student->setDateEnrolled($row['date_enrolled']);
+                $student->setStatus($row['status']);
                 $db->closeConnection();
                 return $student;
             } else {

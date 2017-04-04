@@ -6,9 +6,9 @@
  * Time: 6:08 PM
  */
 
-namespace App\Controller\Registration;
+namespace Hudutech\Controller;
 
-
+use Hudutech\DBManager\DB;
 use Hudutech\AppInterface\TeacherInterface;
 use Hudutech\Entity\Teacher;
 
@@ -20,7 +20,9 @@ class TeacherController implements TeacherInterface
      */
     public function createSingle(Teacher $teacher)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
+
         $sirName = $teacher->getSirName();
         $middleName = $teacher->getMiddleName();
         $lastName = $teacher->getLastName();
@@ -135,7 +137,9 @@ class TeacherController implements TeacherInterface
      */
     public function update(Teacher $teacher, $id)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
+
         $sirName = $teacher->getSirName();
         $middleName = $teacher->getMiddleName();
         $lastName = $teacher->getLastName();
@@ -184,7 +188,8 @@ class TeacherController implements TeacherInterface
      */
     public static function delete($id)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
 
         try {
 
@@ -228,7 +233,8 @@ class TeacherController implements TeacherInterface
      */
     public static function getId($id)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
         try {
             $stmt = $conn->prepare("SELECT * FROM teachers WHERE id=:id");
             $stmt->bindParam(":id", $id);
@@ -261,7 +267,8 @@ class TeacherController implements TeacherInterface
      */
     public static function all()
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
         try{
 
             $stmt = $conn->prepare("SELECT * FROM teachers WHERE id=:id");
@@ -300,7 +307,8 @@ class TeacherController implements TeacherInterface
      */
     public static function getTeacher($id)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
 
         try{
             $stmt = $conn->prepare("SELECT * FROM teachers WHERE id=:id");
