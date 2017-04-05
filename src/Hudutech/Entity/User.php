@@ -35,8 +35,24 @@ class User
 
     /**
      * @var string
+     * takes values => blocked, approved , active
      */
     private $status;
+
+    /**
+     * @var \DateTime
+     */
+    private $lastLogin;
+
+    /**
+     * @var string
+     */
+    private $ipAddress;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdAt;
 
     /**
      * @return int
@@ -83,7 +99,7 @@ class User
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
 
     /**
@@ -133,6 +149,55 @@ class User
     {
         $this->status = $status;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTime $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIpAddress()
+    {
+        return $this->ipAddress;
+    }
+
+    /**
+     * @param string $ipAddress
+     */
+    public function setIpAddress($ipAddress)
+    {
+        $this->ipAddress = $ipAddress;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
 
 
 

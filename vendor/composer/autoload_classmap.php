@@ -9,6 +9,7 @@ return array(
     'Hudutech\\AppInterface\\StudentInterface' => $baseDir . '/src/Hudutech/AppInterface/StudentInterface.php',
     'Hudutech\\AppInterface\\SubjectInterface' => $baseDir . '/src/Hudutech/AppInterface/SubjectInterface.php',
     'Hudutech\\AppInterface\\TeacherInterface' => $baseDir . '/src/Hudutech/AppInterface/TeacherInterface.php',
+    'Hudutech\\AppInterface\\UserInterface' => $baseDir . '/src/Hudutech/AppInterface/UserInterface.php',
     'Hudutech\\Controller\\StudentController' => $baseDir . '/src/Hudutech/Controller/StudentController.php',
     'Hudutech\\Controller\\SubjectController' => $baseDir . '/src/Hudutech/Controller/SubjectController.php',
     'Hudutech\\Controller\\TeacherController' => $baseDir . '/src/Hudutech/Controller/TeacherController.php',
