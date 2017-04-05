@@ -15,20 +15,21 @@ use Hudutech\DBManager\DB;
 
 class UserController implements UserInterface
 {
+
     public function createSingle(User $user)
     {
-       $db = new DB();
-       $conn = $db->connect();
+        $db = new DB();
+        $conn = $db->connect();
 
-       $username = $user->getUsername();
-       $password = $user->getPassword();
-       $roleId = $user->getRoleId();
-       $ipAddress = $user->getIpAddress();
-       $status = $user->getStatus();
-       $profileImage = $user->getProfileImage();
+        $username = $user->getUsername();
+        $password = $user->getPassword();
+        $roleId = $user->getRoleId();
+        $ipAddress = $user->getIpAddress();
+        $status = $user->getStatus();
+        $profileImage = $user->getProfileImage();
 
-       try{
-           $stmt = $conn->prepare("INSERT INTO users (
+        try {
+            $stmt = $conn->prepare("INSERT INTO users (
                                                         username,
                                                         password,
                                                         role_id,
@@ -46,19 +47,19 @@ class UserController implements UserInterface
                                                         :status
                                                   )");
 
-           $stmt->bindParam(":username", $username);
-           $stmt->bindParam(":password", $password);
-           $stmt->bindParam(":role_id", $roleId);
-           $stmt->bindParam(":ip_address", $ipAddress);
-           $stmt->bindParam(":status", $status);
-           $stmt->bindParam(":profile_image", $profileImage);
-           $stmt->execute();
-           $db->closeConnection();
-           return true;
-       } catch (\PDOException $exception){
-           echo $exception->getMessage();
-           return false;
-       }
+            $stmt->bindParam(":username", $username);
+            $stmt->bindParam(":password", $password);
+            $stmt->bindParam(":role_id", $roleId);
+            $stmt->bindParam(":ip_address", $ipAddress);
+            $stmt->bindParam(":status", $status);
+            $stmt->bindParam(":profile_image", $profileImage);
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
 
     }
 
@@ -75,7 +76,7 @@ class UserController implements UserInterface
         $status = $user->getStatus();
         $profileImage = $user->getProfileImage();
 
-        try{
+        try {
 
             $stmt = $conn->prepare("UPDATE users SET 
                                                     username=:username,
@@ -96,7 +97,7 @@ class UserController implements UserInterface
             $db->closeConnection();
             return true;
 
-        }catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
         }
@@ -108,14 +109,14 @@ class UserController implements UserInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("DELETE FROM users WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $db->closeConnection();
             return true;
 
-        } catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
         }
@@ -126,12 +127,12 @@ class UserController implements UserInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("DELETE FROM users");
             $stmt->execute();
             $db->closeConnection();
             return true;
-        } catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
         }
@@ -142,27 +143,26 @@ class UserController implements UserInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM users WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
 
-            if($stmt->rowCount() == 1){
+            if ($stmt->rowCount() == 1) {
                 $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-                $user =array(
-                    "id"=>$row['id'],
-                    "username" =>$row['username'],
-                    "role_id" =>$row['role_id'],
-                    "status" =>$row['status'],
-                    "profile_image"=>$row['profile_image']
+                $user = array(
+                    "id" => $row['id'],
+                    "username" => $row['username'],
+                    "role_id" => $row['role_id'],
+                    "status" => $row['status'],
+                    "profile_image" => $row['profile_image']
                 );
                 $db->closeConnection();
                 return $user;
-            }
-            else{
+            } else {
                 return [];
             }
-        } catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return [];
         }
@@ -174,14 +174,14 @@ class UserController implements UserInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("SELECT * FROM users WHERE 1");
 
             $stmt->execute();
 
-            if($stmt->rowCount() > 0){
+            if ($stmt->rowCount() > 0) {
                 $users = array();
-                while ( $row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     $user = array(
                         "id" => $row['id'],
                         "username" => $row['username'],
@@ -194,11 +194,10 @@ class UserController implements UserInterface
                 }
                 $db->closeConnection();
                 return $users;
-            }
-            else{
+            } else {
                 return [];
             }
-        } catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return [];
         }
@@ -206,22 +205,99 @@ class UserController implements UserInterface
 
     public static function getUser($id)
     {
-        // TODO: Implement getUser() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try {
+            $stmt = $conn->prepare("SELECT * FROM users WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            if ($stmt->rowCount() == 1) {
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $user = new User();
+                $user->setId($row['id']);
+                $user->setUsername($row['username']);
+                $user->setRoleId($row['role_id']);
+                $user->setStatus($row['status']);
+                $user->setProfileImage($row['profile_image']);
+                $user->setLastLogin($row['last_login']);
+                $user->setCreatedAt($row['created_at']);
+
+                $db->closeConnection();
+                return $user;
+            } else {
+                return [];
+            }
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
     }
 
     public static function approve($id)
     {
-        // TODO: Implement approve() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try {
+
+            $stmt = $conn->prepare("UPDATE users SET `status`='approved' WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
     public static function blockUnblock($id, $status)
     {
-        // TODO: Implement blockUnblock() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try {
+
+            $stmt = $conn->prepare("UPDATE users SET `status`='{$status}' WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
     public static function getRole($id)
     {
-        // TODO: Implement getRole() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try {
+
+            $stmt = $conn->prepare("SELECT role_id FROM users WHERE id=:id");
+            $stmt->execute();
+            if ($stmt->rowCount() == 1) {
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $role = array(
+                    "role_id" => $row['role_id']
+                );
+                return $role;
+            }
+            else{
+                return [];
+            }
+
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
     }
 
 }

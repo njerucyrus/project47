@@ -58,20 +58,23 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
                 <element signature="e#122#162#0#PHP" expanded="true" />
-                <marker date="1491421751724" expanded="true" signature="668:1728" ph="INSERT INTO users... " />
-                <marker date="1491421751724" expanded="true" signature="2684:2991" ph="UPDATE users... " />
-                <marker date="1491421751724" expanded="true" signature="2684:3140" ph="UPDATE users... " />
-                <marker date="1491421751724" expanded="true" signature="3900:3930" ph="DELETE FROM " />
-                <marker date="1491421751724" expanded="true" signature="4347:4364" ph="DELETE FROM " />
-                <marker date="1491421751724" expanded="true" signature="4347:4366" ph="DELETE FROM " />
-                <marker date="1491421751724" expanded="true" signature="4739:4771" ph="SELECT * FRO... users" />
-                <marker date="1491421751724" expanded="true" signature="5653:5678" ph="SELECT * FRO... users" />
-                <marker date="1491421751724" expanded="true" signature="5653:5680" ph="SELECT * FRO... users" />
-                <marker date="1491421751724" expanded="true" signature="5653:5682" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="680:1740" ph="INSERT INTO users... " />
+                <marker date="1491425501988" expanded="true" signature="2711:3167" ph="UPDATE users... " />
+                <marker date="1491425501988" expanded="true" signature="3930:3960" ph="DELETE FROM " />
+                <marker date="1491425501988" expanded="true" signature="4379:4396" ph="DELETE FROM " />
+                <marker date="1491425501988" expanded="true" signature="4379:4398" ph="DELETE FROM " />
+                <marker date="1491425501988" expanded="true" signature="4773:4805" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="5688:5713" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="5688:5715" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="5688:5717" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="6691:6723" ph="SELECT * FRO... users" />
+                <marker date="1491425501988" expanded="true" signature="7723:7772" ph="UPDATE users... " />
+                <marker date="1491425501988" expanded="true" signature="8209:8259" ph="UPDATE users... " />
+                <marker date="1491425501988" expanded="true" signature="8682:8720" ph="SELECT role_... users" />
               </folding>
             </state>
           </provider>
@@ -339,12 +342,12 @@
       <workItem from="1491322955725" duration="8325000" />
       <workItem from="1491334625159" duration="3553000" />
       <workItem from="1491372246741" duration="5546000" />
-      <workItem from="1491400033237" duration="8382000" />
+      <workItem from="1491400033237" duration="10279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33599000" />
+    <option name="totallyTimeSpent" value="35496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -402,12 +405,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Hudutech/Controller/UserController.php</url>
-          <line>44</line>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
@@ -811,20 +808,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="193" column="30" lean-forward="true" selection-start-line="193" selection-start-column="30" selection-end-line="193" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="e#122#162#0#PHP" expanded="true" />
-            <marker date="1491421751724" expanded="true" signature="668:1728" ph="INSERT INTO users... " />
-            <marker date="1491421751724" expanded="true" signature="2684:2991" ph="UPDATE users... " />
-            <marker date="1491421751724" expanded="true" signature="2684:3140" ph="UPDATE users... " />
-            <marker date="1491421751724" expanded="true" signature="3900:3930" ph="DELETE FROM " />
-            <marker date="1491421751724" expanded="true" signature="4347:4364" ph="DELETE FROM " />
-            <marker date="1491421751724" expanded="true" signature="4347:4366" ph="DELETE FROM " />
-            <marker date="1491421751724" expanded="true" signature="4739:4771" ph="SELECT * FRO... users" />
-            <marker date="1491421751724" expanded="true" signature="5653:5678" ph="SELECT * FRO... users" />
-            <marker date="1491421751724" expanded="true" signature="5653:5680" ph="SELECT * FRO... users" />
-            <marker date="1491421751724" expanded="true" signature="5653:5682" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="680:1740" ph="INSERT INTO users... " />
+            <marker date="1491425501988" expanded="true" signature="2711:3167" ph="UPDATE users... " />
+            <marker date="1491425501988" expanded="true" signature="3930:3960" ph="DELETE FROM " />
+            <marker date="1491425501988" expanded="true" signature="4379:4396" ph="DELETE FROM " />
+            <marker date="1491425501988" expanded="true" signature="4379:4398" ph="DELETE FROM " />
+            <marker date="1491425501988" expanded="true" signature="4773:4805" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="5688:5713" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="5688:5715" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="5688:5717" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="6691:6723" ph="SELECT * FRO... users" />
+            <marker date="1491425501988" expanded="true" signature="7723:7772" ph="UPDATE users... " />
+            <marker date="1491425501988" expanded="true" signature="8209:8259" ph="UPDATE users... " />
+            <marker date="1491425501988" expanded="true" signature="8682:8720" ph="SELECT role_... users" />
           </folding>
         </state>
       </provider>
