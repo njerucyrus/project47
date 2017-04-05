@@ -147,7 +147,7 @@ class UserController implements UserInterface
             $stmt->bindParam(":id", $id);
             $stmt->execute();
 
-            if($stmt->rowCount() == 0){
+            if($stmt->rowCount() == 1){
                 $row = $stmt->fetch(\PDO::FETCH_ASSOC);
                 $user =array(
                     "id"=>$row['id'],
@@ -171,7 +171,37 @@ class UserController implements UserInterface
 
     public static function all()
     {
+        $db = new DB();
+        $conn = $db->connect();
 
+        try{
+            $stmt = $conn->prepare("SELECT * FROM users WHERE 1");
+
+            $stmt->execute();
+
+            if($stmt->rowCount() > 0){
+                $users = array();
+                while ( $row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                    $user = array(
+                        "id" => $row['id'],
+                        "username" => $row['username'],
+                        "role_id" => $row['role_id'],
+                        "status" => $row['status'],
+                        "profile_image" => $row['profile_image']
+                    );
+                    $users[] = $user;
+
+                }
+                $db->closeConnection();
+                return $users;
+            }
+            else{
+                return [];
+            }
+        } catch (\PDOException $exception){
+            echo $exception->getMessage();
+            return [];
+        }
     }
 
     public static function getUser($id)
