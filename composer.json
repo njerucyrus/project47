@@ -3,5 +3,6 @@
     "psr-0": {
       "":"src/Hudutech/"
     }
-  }
+  },
+  "require": {"doctrine/orm": "v2.5.6"}
 }

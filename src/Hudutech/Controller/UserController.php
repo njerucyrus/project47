@@ -9,11 +9,12 @@
 namespace Hudutech\Controller;
 
 use Hudutech\AppInterface\UserInterface;
+use Hudutech\Auth\Auth;
 use Hudutech\Entity\User;
 use Hudutech\DBManager\DB;
 
 
-class UserController implements UserInterface
+class UserController extends Auth implements UserInterface
 {
 
     public function createSingle(User $user)
