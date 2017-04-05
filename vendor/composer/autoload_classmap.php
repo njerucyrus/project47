@@ -7,8 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Hudutech\\AppInterface\\StudentInterface' => $baseDir . '/src/Hudutech/AppInterface/StudentInterface.php',
+    'Hudutech\\AppInterface\\SubjectInterface' => $baseDir . '/src/Hudutech/AppInterface/SubjectInterface.php',
     'Hudutech\\AppInterface\\TeacherInterface' => $baseDir . '/src/Hudutech/AppInterface/TeacherInterface.php',
     'Hudutech\\Controller\\StudentController' => $baseDir . '/src/Hudutech/Controller/StudentController.php',
+    'Hudutech\\Controller\\SubjectController' => $baseDir . '/src/Hudutech/Controller/SubjectController.php',
     'Hudutech\\Controller\\TeacherController' => $baseDir . '/src/Hudutech/Controller/TeacherController.php',
     'Hudutech\\DBManager\\DB' => $baseDir . '/src/Hudutech/DBManager/DB.php',
     'Hudutech\\Entity\\Student' => $baseDir . '/src/Hudutech/Entity/Student.php',

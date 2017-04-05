@@ -12,8 +12,10 @@ class ComposerStaticInitd9036e3cb9307e8457c0881205f79da4
 
     public static $classMap = array (
         'Hudutech\\AppInterface\\StudentInterface' => __DIR__ . '/../..' . '/src/Hudutech/AppInterface/StudentInterface.php',
+        'Hudutech\\AppInterface\\SubjectInterface' => __DIR__ . '/../..' . '/src/Hudutech/AppInterface/SubjectInterface.php',
         'Hudutech\\AppInterface\\TeacherInterface' => __DIR__ . '/../..' . '/src/Hudutech/AppInterface/TeacherInterface.php',
         'Hudutech\\Controller\\StudentController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/StudentController.php',
+        'Hudutech\\Controller\\SubjectController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/SubjectController.php',
         'Hudutech\\Controller\\TeacherController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/TeacherController.php',
         'Hudutech\\DBManager\\DB' => __DIR__ . '/../..' . '/src/Hudutech/DBManager/DB.php',
         'Hudutech\\Entity\\Student' => __DIR__ . '/../..' . '/src/Hudutech/Entity/Student.php',

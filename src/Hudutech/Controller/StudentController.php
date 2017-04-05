@@ -203,8 +203,6 @@ class StudentController implements StudentInterface
                 $status = $student['status'];
                 $stmt->execute();
             }
-
-            $db->closeConnection();
             return true;
 
         } catch (\PDOException  $exception) {
@@ -479,5 +477,31 @@ class StudentController implements StudentInterface
             return null;
         }
     }
+
+    /**
+     * @param array $students
+     * @param $class
+     * @return bool
+     */
+    public function promoteToNextClass(array $students, $class)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $stmt = $conn->prepare("UPDATE students SET current_class='{$class}' WHERE reg_no=:reg_no");
+            foreach ($students as $regNo){
+                $stmt->bindParam(":reg_no", $regNo);
+                $stmt->execute();
+            }
+
+            return true;
+
+        } catch (\PDOException $exception){
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
 
 }
