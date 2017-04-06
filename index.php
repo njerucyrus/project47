@@ -7,7 +7,3 @@
  */
 
 require_once "vendor/autoload.php";
-
-$user = new \Hudutech\Controller\UserController();
-
-echo $user->generateToken();

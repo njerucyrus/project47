@@ -66,6 +66,13 @@ class ComposerStaticInitd9036e3cb9307e8457c0881205f79da4
     );
 
     public static $prefixesPsr0 = array (
+        'H' => 
+        array (
+            'Hudutech\\' => 
+            array (
+                0 => __DIR__ . '/../..' . '/src/Hudutech',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\ORM\\' => 
@@ -89,10 +96,6 @@ class ComposerStaticInitd9036e3cb9307e8457c0881205f79da4
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
             ),
         ),
-    );
-
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/../..' . '/src/Hudutech',
     );
 
     public static $classMap = array (
@@ -931,7 +934,6 @@ class ComposerStaticInitd9036e3cb9307e8457c0881205f79da4
             $loader->prefixLengthsPsr4 = ComposerStaticInitd9036e3cb9307e8457c0881205f79da4::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd9036e3cb9307e8457c0881205f79da4::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitd9036e3cb9307e8457c0881205f79da4::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInitd9036e3cb9307e8457c0881205f79da4::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInitd9036e3cb9307e8457c0881205f79da4::$classMap;
 
         }, null, ClassLoader::class);
