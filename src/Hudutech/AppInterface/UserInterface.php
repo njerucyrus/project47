@@ -23,5 +23,6 @@ interface UserInterface
     public static function getUser($id);
     public static function approve($id);
     public static function blockUnblock($id, $status);
-    public static function getRole($id);
+    public static function getRole($userId);
+    public static function getUserPermission($userId);
 }

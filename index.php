@@ -7,3 +7,8 @@
  */
 
 require_once "vendor/autoload.php";
+
+$ctrl = \Hudutech\Controller\UserController::getUserPermission(1);
+//$ctrl = \Hudutech\Controller\UserController::getRole(1);
+
+print_r($ctrl);

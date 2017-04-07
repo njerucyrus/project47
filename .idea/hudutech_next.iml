@@ -19,5 +19,6 @@
     </orderEntry>
     <orderEntry type="module" module-name="boards" />
     <orderEntry type="module" module-name="boards" />
+    <orderEntry type="module" module-name="kenyapesa" />
   </component>
 </module>
