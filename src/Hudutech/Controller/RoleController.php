@@ -43,6 +43,7 @@ class RoleController implements RoleInterface
         try {
             $stmt = $conn->prepare("UPDATE user_roles SET role_name=:role_name WHERE id=:id");
             $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":role_name", $roleName);
             $stmt->execute();
             $db->closeConnection();
             return true;
