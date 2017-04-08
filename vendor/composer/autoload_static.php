@@ -824,6 +824,7 @@ class ComposerStaticInitd9036e3cb9307e8457c0881205f79da4
         'Hudutech\\Controller\\SubjectController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/SubjectController.php',
         'Hudutech\\Controller\\TeacherController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/TeacherController.php',
         'Hudutech\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Hudutech/Controller/UserController.php',
+        'Hudutech\\DBManager\\ComplexQuery' => __DIR__ . '/../..' . '/src/Hudutech/DBManager/ComplexQuery.php',
         'Hudutech\\DBManager\\DB' => __DIR__ . '/../..' . '/src/Hudutech/DBManager/DB.php',
         'Hudutech\\Entity\\Permission' => __DIR__ . '/../..' . '/src/Hudutech/Entity/Permission.php',
         'Hudutech\\Entity\\Role' => __DIR__ . '/../..' . '/src/Hudutech/Entity/Role.php',

@@ -26,7 +26,8 @@ class ComplexQuery
      */
     public function customFilter($table, $tableColumns, $options)
     {
-        global $conn;
+        $db = new DB();
+        $conn = $db->connect();
 
         $order_by = '';
         $limit = '';
@@ -92,6 +93,7 @@ class ComplexQuery
                     while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                         $results[] = $row;
                     }
+                    $db->closeConnection();
                     return $results;
 
                 } else {
@@ -116,7 +118,8 @@ class ComplexQuery
     public static function search($table, array $tableColumns, $searchText)
     {
 
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
 
         $condition = '';
         for ($i = 0; $i < sizeof($tableColumns) - 1; $i++) {

@@ -731,6 +731,7 @@ return array(
     'Hudutech\\Controller\\SubjectController' => $baseDir . '/src/Hudutech/Controller/SubjectController.php',
     'Hudutech\\Controller\\TeacherController' => $baseDir . '/src/Hudutech/Controller/TeacherController.php',
     'Hudutech\\Controller\\UserController' => $baseDir . '/src/Hudutech/Controller/UserController.php',
+    'Hudutech\\DBManager\\ComplexQuery' => $baseDir . '/src/Hudutech/DBManager/ComplexQuery.php',
     'Hudutech\\DBManager\\DB' => $baseDir . '/src/Hudutech/DBManager/DB.php',
     'Hudutech\\Entity\\Permission' => $baseDir . '/src/Hudutech/Entity/Permission.php',
     'Hudutech\\Entity\\Role' => $baseDir . '/src/Hudutech/Entity/Role.php',

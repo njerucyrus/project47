@@ -119,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="32">
               <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
               <folding>
                 <element signature="e#122#158#0#PHP" expanded="true" />
@@ -163,14 +163,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComplexQuery.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ComplexQuery.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/DBManager/ComplexQuery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            <state relative-caret-position="66">
+              <caret line="95" column="43" lean-forward="false" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
               <folding>
-                <marker date="1491681418084" expanded="true" signature="2395:2434" ph="SELECT ${$ta... ${$table}" />
-                <marker date="1491681418084" expanded="true" signature="3528:3555" ph="SELECT * FRO... ${$table}" />
+                <marker date="1491681625176" expanded="true" signature="2429:2468" ph="SELECT ${$ta... ${$table}" />
+                <marker date="1491681625176" expanded="true" signature="3635:3662" ph="SELECT * FRO... ${$table}" />
               </folding>
             </state>
           </provider>
@@ -249,8 +249,8 @@
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/templates/student_list.php" />
         <option value="$PROJECT_DIR$/base.php" />
-        <option value="$PROJECT_DIR$/src/Hudutech/DBManager/ComplexQuery.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php" />
+        <option value="$PROJECT_DIR$/src/Hudutech/DBManager/ComplexQuery.php" />
       </list>
     </option>
   </component>
@@ -508,12 +508,12 @@
       <workItem from="1491544950453" duration="9470000" />
       <workItem from="1491582317501" duration="8296000" />
       <workItem from="1491630527098" duration="15000000" />
-      <workItem from="1491676939842" duration="4269000" />
+      <workItem from="1491676939842" duration="4476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106137000" />
+    <option name="totallyTimeSpent" value="106344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -526,7 +526,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.011217949" sideWeight="0.75099444" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46314102" sideWeight="0.75099444" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1020,20 +1020,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/DBManager/ComplexQuery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <marker date="1491681418084" expanded="true" signature="2395:2434" ph="SELECT ${$ta... ${$table}" />
-            <marker date="1491681418084" expanded="true" signature="3528:3555" ph="SELECT * FRO... ${$table}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="32">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding>
             <element signature="e#122#158#0#PHP" expanded="true" />
@@ -1046,6 +1035,17 @@
             <marker date="1491681418160" expanded="true" signature="16858:16889" ph="SELECT * FRO... students" />
             <marker date="1491681418160" expanded="true" signature="18708:18743" ph="SELECT * FRO... students" />
             <marker date="1491681418160" expanded="true" signature="20526:20591" ph="UPDATE stude... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/DBManager/ComplexQuery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="95" column="43" lean-forward="false" selection-start-line="95" selection-start-column="43" selection-end-line="95" selection-end-column="43" />
+          <folding>
+            <marker date="1491681625176" expanded="true" signature="2429:2468" ph="SELECT ${$ta... ${$table}" />
+            <marker date="1491681625176" expanded="true" signature="3635:3662" ph="SELECT * FRO... ${$table}" />
           </folding>
         </state>
       </provider>
