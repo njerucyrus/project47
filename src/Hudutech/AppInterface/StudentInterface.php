@@ -22,4 +22,6 @@ interface StudentInterface
     public static function getStudent($id);
     //end of crud functions
     public function promoteToNextClass(array $students, $class);
+    public static function assignSubject(array $studentId , $subjectId);
+    public static function removeSubject($studentId, array $subjectId);
 }

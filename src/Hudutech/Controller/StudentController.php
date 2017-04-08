@@ -355,7 +355,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                     "first_name" => $row['first_name'],
                     "last_name" => $row['last_name'],
                     "other_name" => $row['other_name'],
-                    "gender" =>$row['gender'],
+                    "gender" => $row['gender'],
                     "reg_no" => $row['reg_no'],
                     "current_class" => $row['current_class'],
                     "class_joined" => $row['class_joined'],
@@ -404,7 +404,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                         "first_name" => $row['first_name'],
                         "last_name" => $row['last_name'],
                         "other_name" => $row['other_name'],
-                        "gender" =>$row['gender'],
+                        "gender" => $row['gender'],
                         "reg_no" => $row['reg_no'],
                         "current_class" => $row['current_class'],
                         "class_joined" => $row['class_joined'],
@@ -423,8 +423,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                 }
                 $db->closeConnection();
                 return $students;
-            }
-            else{
+            } else {
                 return [];
             }
         } catch (\PDOException $exception) {
@@ -489,16 +488,38 @@ class StudentController extends ComplexQuery implements StudentInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("UPDATE students SET current_class='{$class}' WHERE reg_no=:reg_no");
-            foreach ($students as $regNo){
+            foreach ($students as $regNo) {
                 $stmt->bindParam(":reg_no", $regNo);
                 $stmt->execute();
             }
 
             return true;
 
-        } catch (\PDOException $exception){
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function assignSubject(array $students, $subjectId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try {
+
+            $stmt = $conn->prepare("INSERT INTO student_subjects(student_id, subject_id) VALUES (:student_id, :subject_id)");
+
+            foreach ($students as $studentId) {
+                $stmt->bindParam(":student_id", $studentId);
+                $stmt->bindParam(":subject_id", $subjectId);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
         }
