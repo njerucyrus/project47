@@ -525,5 +525,29 @@ class StudentController extends ComplexQuery implements StudentInterface
         }
     }
 
+    public static function removeSubject($studentId, array $subjects)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+
+            $stmt = $conn->prepare("DELETE FROM student_subjects WHERE student_id=:student_id AND subject_id=:subject_id");
+
+            foreach ($subjects as $subjectId){
+
+                $stmt->bindParam(":student_id", $studentId);
+                $stmt->bindParam(":subject_id", $subjectId);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception){
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
 
 }
