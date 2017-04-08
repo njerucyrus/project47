@@ -7,12 +7,13 @@
  */
 namespace Hudutech\Controller;
 
+use Hudutech\DBManager\ComplexQuery;
 use Hudutech\DBManager\DB;
 use Hudutech\AppInterface\StudentInterface;
 use Hudutech\Entity\Student;
 
 
-class StudentController implements StudentInterface
+class StudentController extends ComplexQuery implements StudentInterface
 {
     /**
      * @param Student $student
