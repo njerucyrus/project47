@@ -19,4 +19,7 @@ interface RoleInterface
     public static function destroy();
     public static function getId($id);
     public static function all();
+    public static function addPermission($roleId, array $permissionId);
+    public static function removePermission($roleId, array $permissionId);
+
 }

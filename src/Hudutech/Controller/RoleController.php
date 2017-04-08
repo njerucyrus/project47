@@ -139,4 +139,52 @@ class RoleController implements RoleInterface
         }
     }
 
+    public static function addPermission($roleId, array $permissionId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try{
+
+            $stmt = $conn->prepare("INSERT INTO user_permissions(role_id, permission_id)
+                                    VALUES (role_id=:role_id, permission_id=:permission_id)");
+
+            foreach ($permissionId as $perm_id){
+                $stmt->bindParam(":role_id", $roleId);
+                $stmt->bindParam(":permission_id", $perm_id);
+                $stmt->execute();
+            }
+
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function removePermission($roleId, array $permissionId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try{
+
+            $stmt = $conn->prepare("DELETE FROM  user_permissions WHERE  role_id=:role_id AND permission_id=:permission_id");
+
+            foreach ($permissionId as $perm_id){
+                $stmt->bindParam(":role_id", $roleId);
+                $stmt->bindParam(":permission_id", $perm_id);
+                $stmt->execute();
+            }
+
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+
 }
