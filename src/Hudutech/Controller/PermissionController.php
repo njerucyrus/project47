@@ -41,7 +41,7 @@ class PermissionController implements PermissionInterface
 
     public static function all()
     {
-        // TODO: Implement all() method.
+
     }
 
 }
