@@ -47,4 +47,13 @@ interface GradingSystemInterface
      *
      */
     public static function destroy();
+
+    /**
+     * @param $score
+     * @return array
+     * returns the array of grade_letter and comment
+     * eg ['grade_letter'=>'B+', 'comment'=>'excellent']
+     */
+    public static function getGrade($score);
+
 }

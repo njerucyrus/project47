@@ -150,4 +150,32 @@ class GradingSystemController implements GradingSystemInterface
         }
     }
 
+    public static function getGrade($score)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try {
+            $stmt = $conn->prepare("SELECT grade as grade_letter, comment FROM grading_system WHERE low_mark<=:score AND high_mark>=:score");
+            $stmt->bindParam(":score", $score);
+            $stmt->execute();
+            if($stmt->rowCount() == 1){
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $grade = array(
+                    "grade_letter"=> $row['grade_letter'],
+                    "comment" => $row['comment']
+                );
+                return $grade;
+            }
+            else{
+                return ["error"=> "Grade info not found within the range of 0-100"];
+            }
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return ["error"=> "Internal Server Error occurred"];
+        }
+
+    }
+
+
 }
