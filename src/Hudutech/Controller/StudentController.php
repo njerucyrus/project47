@@ -549,5 +549,39 @@ class StudentController extends ComplexQuery implements StudentInterface
         }
     }
 
+    public static function getStudentSubjects($studentId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $sql ="(SELECT subject.subject_code, subject.subject_name,student.reg_no FROM subjects subject, students student
+                   WHERE student.id =(SELECT student_id FROM student_subjects WHERE student_id =:student_id AND student_subjects.subject_id=subject.id LIMIT 1))";
+            $stmt= $conn->prepare($sql);
+            $stmt->bindParam(":student_id", $studentId);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0 ){
+                $subjects = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                    $subject = [
+                        "subject_code"=> $row['subject_code'],
+                        "subject_name"=> $row['subject_name'],
+                        "student_reg_no"=> $row['reg_no']
+                    ];
+
+                    $subjects[] = $subject;
+                }
+                return $subjects;
+            } else{
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+
+        }
+    }
+
 
 }
