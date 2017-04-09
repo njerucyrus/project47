@@ -141,7 +141,19 @@ class GradingSystemController implements GradingSystemInterface
 
     public static function destroy()
     {
-        // TODO: Implement destroy() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $stmt = $conn->prepare("DELETE FROM grading_system");
+            $stmt->execute();
+            $db->closeConnection();
+
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
 }
