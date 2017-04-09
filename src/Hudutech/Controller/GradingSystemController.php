@@ -123,7 +123,20 @@ class GradingSystemController implements GradingSystemInterface
 
     public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $stmt = $conn->prepare("DELETE FROM grading_system WHERE id=:id");
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+            $db->closeConnection();
+
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
     public static function destroy()
