@@ -101,20 +101,14 @@ class GradingSystemController implements GradingSystemInterface
                                                                 id=:id
                                                             ");
 
-            foreach ($grade as $gradeItem) {
-                $stmt->bindParam(":id", $gradeItem['id']);
-                $stmt->bindParam(":low_mark", $gradeItem['low_mark']);
-                $stmt->bindParam(":high_mark", $gradeItem['high_mark']);
-                $stmt->bindParam(":grade", $gradeItem['grade']);
-                $stmt->bindParam(":comment", $gradeItem['comment']);
-                $stmt->execute();
-            }
-
+            $stmt->bindParam(":id", $grade['id']);
+            $stmt->bindParam(":low_mark", $grade['low_mark']);
+            $stmt->bindParam(":high_mark", $grade['high_mark']);
+            $stmt->bindParam(":grade", $grade['grade']);
+            $stmt->bindParam(":comment", $grade['comment']);
+            $stmt->execute();
             $db->closeConnection();
             return true;
-
-
-
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
