@@ -325,7 +325,7 @@ class UserController extends Auth implements UserInterface
 
         try {
 
-            $stmt = $conn->prepare("SELECT role_id FROM users WHERE id=:id");
+            $stmt = $conn->prepare("SELECT  users.role_id FROM hudutech_next.users WHERE id=:id");
             $stmt->bindParam(":id", $userId);
             $stmt->execute();
             if ($stmt->rowCount() == 1) {

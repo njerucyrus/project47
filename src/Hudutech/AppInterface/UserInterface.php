@@ -26,4 +26,5 @@ interface UserInterface
     public static function getRole($userId);
     public static function getUserPermission($userId);
 
+
 }

@@ -336,5 +336,87 @@ class TeacherController implements TeacherInterface
         }
     }
 
+    public static function assignTeachingSubject($teacherId, array $subjectId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+
+            $stmt = $conn->prepare("INSERT INTO teacher_subjects(teacher_id, subject_id) VALUES (:teacher_id, :subject_id)");
+
+            foreach ($subjectId as $subId){
+                $stmt->bindParam(":teacher_id", $teacherId);
+                $stmt->bindParam(":subject_id", $subId);
+                $stmt->execute();
+            }
+
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function removeTeachingSubject($teacherId, array $subjectId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+
+            $stmt = $conn->prepare("DELETE FROM teacher_subjects WHERE teacher_id=:teacher_id AND  subject_id=:subject_id");
+
+            foreach ($subjectId as $subId){
+                $stmt->bindParam(":teacher_id", $teacherId);
+                $stmt->bindParam(":subject_id", $subId);
+                $stmt->execute();
+            }
+
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function getTeacherSubject($teacherId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $sql ="(SELECT subject.subject_code, subject.subject_name,teacher.sir_name, teacher.middle_name, teacher.last_name FROM subjects subject, teachers teacher
+                   WHERE teacher.id = (SELECT teacher_id FROM teacher_subjects WHERE teacher_id =:teacher_id AND teacher_subjects.subject_id=subject.id LIMIT 1))";
+            $stmt= $conn->prepare($sql);
+            $stmt->bindParam(":teacher_id", $teacherId);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0 ){
+                $subjects = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                    $subject = [
+                        "subject_code"=> $row['subject_code'],
+                        "subject_name"=> $row['subject_name'],
+                        "teacher_name"=> $row['sir_name']." ".$row['middle_name']." ".$row['last_name']
+                    ];
+
+                    $subjects[] = $subject;
+                }
+                $db->closeConnection();
+                return $subjects;
+            } else{
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+
+        }
+    }
+
+
 
 }

@@ -556,7 +556,7 @@ class StudentController extends ComplexQuery implements StudentInterface
 
         try{
             $sql ="(SELECT subject.subject_code, subject.subject_name,student.reg_no FROM subjects subject, students student
-                   WHERE student.id =(SELECT student_id FROM student_subjects WHERE student_id =:student_id AND student_subjects.subject_id=subject.id LIMIT 1))";
+                   WHERE student.id = (SELECT student_id FROM student_subjects WHERE student_id =:student_id AND student_subjects.subject_id=subject.id LIMIT 1))";
             $stmt= $conn->prepare($sql);
             $stmt->bindParam(":student_id", $studentId);
             $stmt->execute();
@@ -571,6 +571,7 @@ class StudentController extends ComplexQuery implements StudentInterface
 
                     $subjects[] = $subject;
                 }
+                $db->closeConnection();
                 return $subjects;
             } else{
                 return [];
