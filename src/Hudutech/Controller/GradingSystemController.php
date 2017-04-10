@@ -168,7 +168,7 @@ class GradingSystemController implements GradingSystemInterface
                 return $grade;
             }
             else{
-                return ["error"=> "Grade info not found within the range of 0-100"];
+                return ["error"=> "Grade info not found within the range of 0-100 marks"];
             }
         } catch (\PDOException $exception) {
             echo $exception->getMessage();

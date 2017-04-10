@@ -15,7 +15,9 @@ require_once __DIR__.'/vendor/autoload.php';
 //    array("low_mark"=>81, "high_mark"=>100, "grade"=>"A", "comment"=>"excellent")
 //);
 //
-$ctrl = \Hudutech\Controller\GradingSystemController::getGrade(101);
+//$ctrl = \Hudutech\Controller\GradingSystemController::getGrade(101);
+//
+//print_r($ctrl);
 
-print_r($ctrl);
+echo strtolower("HelloThere");
 
