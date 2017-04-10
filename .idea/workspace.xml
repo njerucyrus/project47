@@ -80,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -121,49 +121,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExamTableController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExamTableController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/ExamTableController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="33">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding>
                 <element signature="e#125#170#0#PHP" expanded="true" />
-                <marker date="1491812470082" expanded="true" signature="426:490" ph="SELECT subje... subjects" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.rate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../kenyapesa/models/class.rate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4767">
-              <caret line="227" column="102" lean-forward="false" selection-start-line="227" selection-start-column="102" selection-end-line="227" selection-end-column="104" />
-              <folding>
-                <marker date="1491501389000" expanded="true" signature="1647:1806" ph="INSERT INTO rates... " />
-                <marker date="1491501389000" expanded="true" signature="2621:2814" ph="UPDATE rates... " />
-                <marker date="1491501389000" expanded="true" signature="3495:3525" ph="DELETE FROM " />
-                <marker date="1491501389000" expanded="true" signature="4043:4075" ph="SELECT * FRO... rates" />
-                <marker date="1491501389000" expanded="true" signature="4552:4579" ph="SELECT * FRO... rates" />
-                <marker date="1491501389000" expanded="true" signature="5071:5154" ph="SELECT * FRO... rates" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.limits.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../kenyapesa/models/class.limits.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5607">
-              <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
-              <folding>
-                <marker date="1491501389000" expanded="true" signature="1367:1504" ph="INSERT INTO limits... " />
-                <marker date="1491501389000" expanded="true" signature="2281:2418" ph="UPDATE limit... " />
-                <marker date="1491501389000" expanded="true" signature="3096:3127" ph="DELETE FROM " />
-                <marker date="1491501389000" expanded="true" signature="3632:3665" ph="SELECT * FRO... limits" />
-                <marker date="1491501389000" expanded="true" signature="4262:4290" ph="SELECT * FRO... limits" />
-                <marker date="1491501389000" expanded="true" signature="4812:4840" ph="SELECT * FRO... limits" />
-                <marker date="1491501389000" expanded="true" signature="5541:5569" ph="SELECT * FRO... limits" />
+                <marker date="1491812547618" expanded="true" signature="426:490" ph="SELECT subje... subjects" />
               </folding>
             </state>
           </provider>
@@ -275,8 +240,8 @@
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/GradingSystemController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Hudutech/AppInterface/ExamTableInterface.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/ExamTableController.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -497,25 +462,25 @@
       <workItem from="1491735655292" duration="211000" />
       <workItem from="1491735936170" duration="6680000" />
       <workItem from="1491767548997" duration="12892000" />
-      <workItem from="1491807361407" duration="3803000" />
+      <workItem from="1491807361407" duration="3963000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139234000" />
+    <option name="totallyTimeSpent" value="139394000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25616547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24741448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.24900557" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19729514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19711539" sideWeight="0.75099444" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19711539" sideWeight="0.75099444" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -982,22 +947,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/ExamTableController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="33">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#125#170#0#PHP" expanded="true" />
+            <marker date="1491812547618" expanded="true" signature="426:490" ph="SELECT subje... subjects" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/ExamTableController.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding>
-            <element signature="e#125#170#0#PHP" expanded="true" />
-            <marker date="1491812470082" expanded="true" signature="426:490" ph="SELECT subje... subjects" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -26,7 +26,7 @@ class ExamTableController implements ExamTableInterface
                 $tableNames = array();
                 while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
                     $tableName = array(
-                        "table_name" => "std_".$row['subject_code']."_".$row['subject_name']."_marks",
+                        "table_name" => "std_".strtolower($row['subject_code'])."_".$row['subject_name']."_marks",
                         "has_pp3" => $row['has_pp3']
                     );
                     $tableNames[] = $tableName;
