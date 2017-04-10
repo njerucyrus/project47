@@ -19,6 +19,6 @@ require_once __DIR__.'/vendor/autoload.php';
 //
 //print_r($ctrl);
 
-$ctrl = \Hudutech\Controller\ExamTableController::fetchStandardExamTableNames();
+$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
 print_r($ctrl);
 
