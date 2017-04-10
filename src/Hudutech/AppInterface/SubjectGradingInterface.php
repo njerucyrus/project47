@@ -9,13 +9,19 @@
 namespace Hudutech\AppInterface;
 
 
-interface GradingSystemInterface
+interface SubjectGradingInterface
 {
     /**
      * @param array $grade
      * @return boolean
      * the grade is an array consisting N arrays where N=12
-     * grade = [array("low_mark"=>value, "high_mark"=>value, "comment"=>"comment text")]
+     * grade = [
+     *          array( "low_mark"=>value,
+     *                 "high_mark"=>value,
+     *                 "points"=>value,
+     *                 "comment"=>"comment text"
+     *              )
+     *        ]
      *
      */
     public static function batchCreate(array $grade);
