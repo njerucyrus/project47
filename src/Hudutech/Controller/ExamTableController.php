@@ -94,6 +94,21 @@ class ExamTableController implements ExamTableInterface
     public static function clearStandardExamTables()
     {
 
+        $db = new DB();
+        $conn = $db->connect();
+        $tableNames = self::fetchStandardExamTableNames();
+        try{
+            foreach ($tableNames as $tableName){
+                $table_name = $tableName['table_name'];
+                $sql = "DROP TABLE $table_name";
+                $conn->exec($sql);
+            }
+
+            return true;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
     }
 
 }

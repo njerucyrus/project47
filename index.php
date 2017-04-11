@@ -19,6 +19,7 @@ require_once __DIR__.'/vendor/autoload.php';
 //
 //print_r($ctrl);
 
-$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
-print_r($ctrl);
+//$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
+//$ctrl = \Hudutech\Controller\ExamTableController::clearStandardExamTables();
+//print_r($ctrl);
 
