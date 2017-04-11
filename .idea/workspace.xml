@@ -46,26 +46,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MarksGradingController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2037">
-              <caret line="102" column="77" lean-forward="false" selection-start-line="102" selection-start-column="77" selection-end-line="102" selection-end-column="77" />
-              <folding>
-                <marker date="1491832362354" expanded="true" signature="351:363" ph="INSERT INTO subject_grading_system... " />
-                <marker date="1491832362354" expanded="true" signature="351:1415" ph="INSERT INTO marks_grading_system... " />
-                <marker date="1491832362354" expanded="true" signature="2152:2714" ph="UPDATE marks... " />
-                <marker date="1491832362354" expanded="true" signature="3572:4069" ph="UPDATE marks... " />
-                <marker date="1491832362354" expanded="true" signature="4806:4851" ph="DELETE FROM " />
-                <marker date="1491832362354" expanded="true" signature="5270:5302" ph="DELETE FROM " />
-                <marker date="1491832362354" expanded="true" signature="5686:5796" ph="SELECT grade... marks_grading_system" />
-                <marker date="1491832362354" expanded="true" signature="5736:5796" ph="SELECT grade... subject_grading_system" />
-                <marker date="1491832362354" expanded="true" signature="5737:5796" ph="SELECT grade... grading_system" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ExamTableInterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamTableInterface.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,8 +69,8 @@
       <file leaf-file-name="ExamInterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -110,6 +90,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ExamController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/ExamController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="93" column="56" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
+              <folding>
+                <element signature="e#124#164#0#PHP" expanded="true" />
+                <marker date="1491907086208" expanded="true" signature="530:542" ph="INSERT INTO F... " />
+                <marker date="1491907086208" expanded="true" signature="530:955" ph="INSERT INTO exams... " />
+                <marker date="1491907086208" expanded="true" signature="530:1187" ph="INSERT INTO exams... " />
+                <marker date="1491907086208" expanded="true" signature="530:1481" ph="INSERT INTO F... " />
+                <marker date="1491907086208" expanded="true" signature="1546:1584" ph="update(Exam " />
+                <marker date="1491907086208" expanded="true" signature="1794:1832" ph="UPDATE exams... " />
+                <marker date="1491907086208" expanded="true" signature="1794:1856" ph="UPDATE exams... " />
+                <marker date="1491907086208" expanded="true" signature="1794:1872" ph="UPDATE exams... " />
+                <marker date="1491907086208" expanded="true" signature="1794:2210" ph="UPDATE exams... " />
+                <marker date="1491907086208" expanded="true" signature="2248:2282" ph="update() met... " />
+                <marker date="1491907086208" expanded="true" signature="2283:2309" ph="delete(${$id... " />
+                <marker date="1491907086208" expanded="true" signature="2406:2436" ph="DELETE FROM " />
+                <marker date="1491907086208" expanded="true" signature="2657:4665" ph="delete() met... " />
+                <marker date="1491907086208" expanded="true" signature="2813:2830" ph="DELETE FROM " />
+                <marker date="1491907086208" expanded="true" signature="2813:2833" ph="DELETE FROM " />
+                <marker date="1491907086208" expanded="true" signature="3169:3201" ph="SELECT * FRO... exams" />
+                <marker date="1491907086208" expanded="true" signature="3992:4028" ph="SELECT * FRO... exams" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TeacherInterface.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/TeacherInterface.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -123,7 +132,7 @@
       <file leaf-file-name="TeacherController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/TeacherController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6951">
+            <state relative-caret-position="319">
               <caret line="338" column="48" lean-forward="false" selection-start-line="338" selection-start-column="48" selection-end-line="338" selection-end-column="48" />
               <folding>
                 <marker date="1491774051271" expanded="true" signature="883:2296" ph="INSERT INTO teachers... " />
@@ -142,10 +151,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="714" column="15" lean-forward="false" selection-start-line="714" selection-start-column="15" selection-end-line="729" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="StudentController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11865">
+            <state relative-caret-position="319">
               <caret line="573" column="39" lean-forward="false" selection-start-line="573" selection-start-column="39" selection-end-line="573" selection-end-column="39" />
               <folding>
                 <marker date="1491773647939" expanded="true" signature="1368:4064" ph="INSERT INTO students... " />
@@ -164,11 +183,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="129">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -204,7 +223,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../kenyapesa/models/user.php" />
         <option value="$PROJECT_DIR$/../kenyapesa/admin/js.php" />
         <option value="$PROJECT_DIR$/../kenyapesa/admin/css.php" />
         <option value="$PROJECT_DIR$/../kenyapesa/admin/admin_reviews.php" />
@@ -251,10 +269,11 @@
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/SubjectGradingController.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Entity/Exam.php" />
-        <option value="$PROJECT_DIR$/src/Hudutech/AppInterface/ExamInterface.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/ExamTableController.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0528094f-7ddd-4cda-a19f-88d657b559cc/console.sql" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/src/Hudutech/AppInterface/ExamInterface.php" />
+        <option value="$PROJECT_DIR$/src/Hudutech/Controller/ExamController.php" />
       </list>
     </option>
   </component>
@@ -499,12 +518,12 @@
       <workItem from="1491767548997" duration="12892000" />
       <workItem from="1491807361407" duration="12652000" />
       <workItem from="1491830867633" duration="7305000" />
-      <workItem from="1491890764756" duration="2238000" />
+      <workItem from="1491890764756" duration="5673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157626000" />
+    <option name="totallyTimeSpent" value="161061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -521,12 +540,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29594272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.34049323" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19729514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31891027" sideWeight="0.15194908" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19729514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31891027" sideWeight="0.8528242" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31891027" sideWeight="0.8480509" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -534,11 +553,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="165" y="152" width="1101" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75801283" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.75801283" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.65950674" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.65950674" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63621795" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63621795" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.4972156" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -583,13 +602,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Builder/EntityListenerBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-572">
@@ -729,13 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="714" column="15" lean-forward="false" selection-start-line="714" selection-start-column="15" selection-end-line="729" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/partials/head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -747,6 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -775,6 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -935,29 +942,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php">
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamTableInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11865">
-          <caret line="573" column="39" lean-forward="false" selection-start-line="573" selection-start-column="39" selection-end-line="573" selection-end-column="39" />
-          <folding>
-            <marker date="1491773647939" expanded="true" signature="1368:4064" ph="INSERT INTO students... " />
-            <marker date="1491773647939" expanded="true" signature="5466:8162" ph="INSERT INTO students... " />
-            <marker date="1491773647939" expanded="true" signature="11394:12782" ph="UPDATE stude... " />
-            <marker date="1491773647939" expanded="true" signature="14247:14280" ph="DELETE FROM " />
-            <marker date="1491773647939" expanded="true" signature="14734:14754" ph="DELETE FROM " />
-            <marker date="1491773647939" expanded="true" signature="15190:15225" ph="SELECT * FRO... students" />
-            <marker date="1491773647939" expanded="true" signature="16859:16890" ph="SELECT * FRO... students" />
-            <marker date="1491773647939" expanded="true" signature="18699:18734" ph="SELECT * FRO... students" />
-            <marker date="1491773647939" expanded="true" signature="20518:20583" ph="UPDATE stude... " />
-            <marker date="1491773647939" expanded="true" signature="21073:21159" ph="INSERT INTO student_subjects... " />
-            <marker date="1491773647939" expanded="true" signature="21758:21842" ph="DELETE FROM " />
-          </folding>
+        <state relative-caret-position="231">
+          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/Entity/Exam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="73" column="1" lean-forward="false" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0528094f-7ddd-4cda-a19f-88d657b559cc/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/TeacherController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6951">
+        <state relative-caret-position="319">
           <caret line="338" column="48" lean-forward="false" selection-start-line="338" selection-start-column="48" selection-end-line="338" selection-end-column="48" />
           <folding>
             <marker date="1491774051271" expanded="true" signature="883:2296" ph="INSERT INTO teachers... " />
@@ -975,34 +986,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamTableInterface.php">
+    <entry file="file://$PROJECT_DIR$/base.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="70">
+          <caret line="714" column="15" lean-forward="false" selection-start-line="714" selection-start-column="15" selection-end-line="729" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/Entity/Exam.php">
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/StudentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="73" column="1" lean-forward="false" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="319">
+          <caret line="573" column="39" lean-forward="false" selection-start-line="573" selection-start-column="39" selection-end-line="573" selection-end-column="39" />
+          <folding>
+            <marker date="1491773647939" expanded="true" signature="1368:4064" ph="INSERT INTO students... " />
+            <marker date="1491773647939" expanded="true" signature="5466:8162" ph="INSERT INTO students... " />
+            <marker date="1491773647939" expanded="true" signature="11394:12782" ph="UPDATE stude... " />
+            <marker date="1491773647939" expanded="true" signature="14247:14280" ph="DELETE FROM " />
+            <marker date="1491773647939" expanded="true" signature="14734:14754" ph="DELETE FROM " />
+            <marker date="1491773647939" expanded="true" signature="15190:15225" ph="SELECT * FRO... students" />
+            <marker date="1491773647939" expanded="true" signature="16859:16890" ph="SELECT * FRO... students" />
+            <marker date="1491773647939" expanded="true" signature="18699:18734" ph="SELECT * FRO... students" />
+            <marker date="1491773647939" expanded="true" signature="20518:20583" ph="UPDATE stude... " />
+            <marker date="1491773647939" expanded="true" signature="21073:21159" ph="INSERT INTO student_subjects... " />
+            <marker date="1491773647939" expanded="true" signature="21758:21842" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamInterface.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0528094f-7ddd-4cda-a19f-88d657b559cc/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="129">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1019,11 +1034,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/AppInterface/ExamInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/ExamController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="93" column="56" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
+          <folding>
+            <element signature="e#124#164#0#PHP" expanded="true" />
+            <marker date="1491907086208" expanded="true" signature="530:542" ph="INSERT INTO F... " />
+            <marker date="1491907086208" expanded="true" signature="530:955" ph="INSERT INTO exams... " />
+            <marker date="1491907086208" expanded="true" signature="530:1187" ph="INSERT INTO exams... " />
+            <marker date="1491907086208" expanded="true" signature="530:1481" ph="INSERT INTO F... " />
+            <marker date="1491907086208" expanded="true" signature="1546:1584" ph="update(Exam " />
+            <marker date="1491907086208" expanded="true" signature="1794:1832" ph="UPDATE exams... " />
+            <marker date="1491907086208" expanded="true" signature="1794:1856" ph="UPDATE exams... " />
+            <marker date="1491907086208" expanded="true" signature="1794:1872" ph="UPDATE exams... " />
+            <marker date="1491907086208" expanded="true" signature="1794:2210" ph="UPDATE exams... " />
+            <marker date="1491907086208" expanded="true" signature="2248:2282" ph="update() met... " />
+            <marker date="1491907086208" expanded="true" signature="2283:2309" ph="delete(${$id... " />
+            <marker date="1491907086208" expanded="true" signature="2406:2436" ph="DELETE FROM " />
+            <marker date="1491907086208" expanded="true" signature="2657:4665" ph="delete() met... " />
+            <marker date="1491907086208" expanded="true" signature="2813:2830" ph="DELETE FROM " />
+            <marker date="1491907086208" expanded="true" signature="2813:2833" ph="DELETE FROM " />
+            <marker date="1491907086208" expanded="true" signature="3169:3201" ph="SELECT * FRO... exams" />
+            <marker date="1491907086208" expanded="true" signature="3992:4028" ph="SELECT * FRO... exams" />
+          </folding>
         </state>
       </provider>
     </entry>
