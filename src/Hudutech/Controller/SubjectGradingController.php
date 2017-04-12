@@ -8,8 +8,11 @@
 
 namespace Hudutech\Controller;
 
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Hudutech\AppInterface\SubjectGradingInterface;
 use Hudutech\DBManager\DB;
+use Hudutech\Controller\ExamTableController;
+
 
 class SubjectGradingController implements SubjectGradingInterface
 {
@@ -155,6 +158,72 @@ class SubjectGradingController implements SubjectGradingInterface
         }
     }
 
+    /**
+     * @param $config
+     * config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
+     * @return array
+     *
+     */
+    public static function getStandardExamTotal(array $config)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        $year = $config['year'];
+        $term = $config['term'];
+        $student_class = $config['student_class'];
+        $subject = $config['subject'];
+        $table_name = ExamTableController::getStandardExamTableName($config['subject']);
+
+
+
+        try {
+            $stmt = $conn->prepare("SELECT * FROM $table_name WHERE `year`='{$year}' AND `term`='{$term}' AND `student_class`='{$student_class}'");
+
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                $total_marks_info = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+                    $total = 0;
+                    if (strtolower($subject) == 'english') {
+                        $total = (int)(($row['pp1'] + $row['pp2'] + $row['pp3']) / 2);
+                    } elseif (strtolower($subject) == 'kiswahili') {
+                        $total = (int)(($row['pp1'] + $row['pp2'] + $row['pp3']) / 2);
+                    } elseif (strtolower($subject) == 'chemistry') {
+                        $pp12 = (($row['pp1'] + $row['pp2']) / 160) * 60;
+                        $total = (int)($pp12 + $row['pp3']);
+                    } elseif (strtolower($subject) == 'physics') {
+                        $pp12 = (($row['pp1'] + $row['pp2']) / 160) * 60;
+                        $total = (int)($pp12 + $row['pp3']);
+                    } elseif (strtolower($subject) == 'biology') {
+                        $pp12 = (($row['pp1'] + $row['pp2']) / 160) * 60;
+                        $total = (int)($pp12 + $row['pp3']);
+                    } else {
+                        $total = (int)(($row['pp1'] + $row['pp2']) / 2);
+                    }
+
+                    $grade = self::getGrade($total);
+
+                    array_push($total_marks_info, array(
+                        "reg_no" => $row['reg_no'],
+                        "total_mark" => $total,
+                        "grade_letter" => $grade['grade_letter'],
+                        "points" => $grade['points'],
+                        "comment"=>$grade['comment']
+                    ));
+                }
+                $db->closeConnection();
+                return $total_marks_info;
+
+            } else {
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
     public static function getGrade($score)
     {
         $db = new DB();
@@ -173,13 +242,52 @@ class SubjectGradingController implements SubjectGradingInterface
                 );
                 return $grade;
             } else {
-                return ["error" => "Grade info not found within the range of 0-100 marks"];
+                return [];
             }
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
-            return ["error" => "Internal Server Error occurred"];
+            return [];
         }
 
     }
+
+    public static function updateStandardExamTotals($config){
+
+        $db = new DB();
+        $conn = $db->connect();
+
+        $year = $config['year'];
+        $term = $config['term'];
+        $student_class = $config['student_class'];
+        $subject = $config['subject'];
+        $table_name = ExamTableController::getStandardExamTableName($subject);
+
+        try {
+            $totalMarkData = self::getStandardExamTotal($config);
+            if (!empty($totalMarkData)) {
+
+                $stmt = $conn->prepare("UPDATE $table_name SET total=:total, grade=:grade, points=:points, comment=:comment
+            WHERE reg_no=:reg_no AND `year`='{$year}' AND `term`='{$term}' AND `student_class`='{$student_class}'");
+                foreach ($totalMarkData as $total) {
+                    $stmt->bindParam(":reg_no", $total['reg_no']);
+                    $stmt->bindParam(":total", $total['total_mark']);
+                    $stmt->bindParam(":grade", $total['grade_letter']);
+                    $stmt->bindParam(":points", $total['points']);
+                    $stmt->bindParam(":comment", $total['comment']);
+                    $stmt->execute();
+
+                }
+                $db->closeConnection();
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (\PDOException $exception ){
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
 
 }

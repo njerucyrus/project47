@@ -61,19 +61,19 @@ class ExamTableController implements ExamTableInterface
                     $exam_paper_fields .= 'pp1 FLOAT , pp2 FLOAT , pp3 FLOAT ';
                 }
                 $sql = " CREATE TABLE IF NOT EXISTS $table_name(
-                                                            `id` INT(11),
-                                                            `student_id` INT(11),
+                                                            `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+                                                            `reg_no` VARCHAR(20),
                                                             `year` INT(4),
                                                             `term` VARCHAR(6),
                                                             `student_class` VARCHAR(6),
                                                              $exam_paper_fields,
+                                                            `total` FLOAT,
                                                             `grade` VARCHAR(2),
                                                             `points` INT(2),
                                                             `comment` VARCHAR(128),
-                                                            UNIQUE( `student_id`, `year`, `term`, `student_class`),
-                                                            PRIMARY KEY AUTO_INCREMENT(`id`),
-                                                            FOREIGN KEY (`student_id`)
-                                                            REFERENCES  `students`(`id`)
+                                                            UNIQUE( `reg_no`, `year`, `term`, `student_class`),     
+                                                            FOREIGN KEY (`reg_no`)
+                                                            REFERENCES  `students`(`reg_no`)
                                                             ON DELETE CASCADE
                                                             ON UPDATE CASCADE 
                                                             )";
@@ -97,8 +97,8 @@ class ExamTableController implements ExamTableInterface
         $db = new DB();
         $conn = $db->connect();
         $tableNames = self::fetchStandardExamTableNames();
-        try{
-            foreach ($tableNames as $tableName){
+        try {
+            foreach ($tableNames as $tableName) {
                 $table_name = $tableName['table_name'];
                 $sql = "DROP TABLE $table_name";
                 $conn->exec($sql);
@@ -108,6 +108,28 @@ class ExamTableController implements ExamTableInterface
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
+        }
+    }
+
+    public static function getStandardExamTableName($subject)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try {
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name=:subject_name");
+            $subj = strtolower($subject);
+            $stmt->bindParam(":subject_name", $subj);
+            $stmt->execute();
+            if ($stmt->rowCount() == 1) {
+                $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $table_name = "std_" . $row['subject_code'] . "_" . strtolower($row['subject_name']) . "_marks";
+                return $table_name;
+            } else {
+                return null;
+            }
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return null;
         }
     }
 

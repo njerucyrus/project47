@@ -21,5 +21,13 @@ require_once __DIR__.'/vendor/autoload.php';
 
 //$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
 //$ctrl = \Hudutech\Controller\ExamTableController::clearStandardExamTables();
-//print_r($ctrl);
+$config = array(
+    "year"=>2017,
+    "term"=>"TERM 1",
+    "student_class"=>"FORM 3",
+    "subject"=>"english"
+);
+$ctrl = \Hudutech\Controller\SubjectGradingController::getStandardExamTotal($config);
+$ctrl1 = \Hudutech\Controller\SubjectGradingController::updateStandardExamTotals($config);
+print_r($ctrl1);
 

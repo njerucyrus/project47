@@ -62,4 +62,11 @@ interface SubjectGradingInterface
      */
     public static function getGrade($score);
 
+    /**
+     * @param $config
+     * config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
+     * @return array
+     */
+    public static function getStandardExamTotal(array $config);
+
 }

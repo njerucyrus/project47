@@ -33,6 +33,7 @@ class StudentController extends ComplexQuery implements StudentInterface
         $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
+        $kcpe = $student->getKcpe();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
@@ -54,6 +55,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                                                             class_joined,
                                                             current_class,
                                                             stream,
+                                                            kcpe,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
@@ -74,6 +76,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                                                             :class_joined,
                                                             :current_class,
                                                             :stream,
+                                                            :kcpe,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
@@ -93,6 +96,7 @@ class StudentController extends ComplexQuery implements StudentInterface
             $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
+            $stmt->bindParam(":kcpe", $stream);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
@@ -132,6 +136,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                                                             class_joined,
                                                             current_class,
                                                             stream,
+                                                            kcpe,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
@@ -152,6 +157,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                                                             :class_joined,
                                                             :current_class,
                                                             :stream,
+                                                            :kcpe,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
@@ -175,6 +181,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                 $stmt->bindParam(":current_class", $currentClass);
                 $stmt->bindParam(":class_joined", $classJoined);
                 $stmt->bindParam(":stream", $stream);
+                $stmt->bindParam(":kcpe", $kcpe);
                 $stmt->bindParam(":dob", $dob);
                 $stmt->bindParam(":profile_image", $profileImage);
                 $stmt->bindParam(":parent_name", $parentName);
@@ -193,6 +200,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                 $currentClass = $student['current_class'];
                 $classJoined = $student['class_joined'];
                 $stream = $student['stream'];
+                $kcpe = $student['kcpe'];
                 $dob = $student['dob'];
                 $profileImage = $student['profile_image'];
                 $parentName = $student['parent_name'];
@@ -232,6 +240,7 @@ class StudentController extends ComplexQuery implements StudentInterface
         $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
+        $kcpe = $student->getKcpe();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
@@ -252,6 +261,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                                                     class_joined=:class_joined,
                                                     current_class=:current_class,
                                                     stream=:stream,
+                                                    kcpe=:kcpe,
                                                     dob=:dob,
                                                     profile_image=:profile_image,
                                                     parent_name=:parent_name,
@@ -275,6 +285,7 @@ class StudentController extends ComplexQuery implements StudentInterface
             $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
+            $stmt->bindParam(":kcpe", $kcpe);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
@@ -360,6 +371,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                     "current_class" => $row['current_class'],
                     "class_joined" => $row['class_joined'],
                     "stream" => $row['stream'],
+                    "kcpe" => $row['kcpe'],
                     "dob" => $row['dob'],
                     "profile_image" => $row['profile_image'],
                     "parent_name" => $row['parent_name'],
@@ -409,6 +421,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                         "current_class" => $row['current_class'],
                         "class_joined" => $row['class_joined'],
                         "stream" => $row['stream'],
+                        "kcpe" => $row['kcpe'],
                         "dob" => $row['dob'],
                         "profile_image" => $row['profile_image'],
                         "parent_name" => $row['parent_name'],
@@ -457,6 +470,7 @@ class StudentController extends ComplexQuery implements StudentInterface
                 $student->setCurrentClass($row['current_class']);
                 $student->setClassJoined($row['class_joined']);
                 $student->setStream($row['stream']);
+                $student->setKcpe($row['kcpe']);
                 $student->setDob($row['dob']);
                 $student->setProfileImage($row['profile_image']);
                 $student->setParentName($row['parent_name']);
@@ -556,7 +570,8 @@ class StudentController extends ComplexQuery implements StudentInterface
 
         try{
             $sql ="(SELECT subject.subject_code, subject.subject_name,student.reg_no FROM subjects subject, students student
-                   WHERE student.id = (SELECT student_id FROM student_subjects WHERE student_id =:student_id AND student_subjects.subject_id=subject.id LIMIT 1))";
+                   WHERE student.id = (SELECT student_id FROM student_subjects WHERE student_id =:student_id 
+                   AND student_subjects.subject_id=subject.id LIMIT 1))";
             $stmt= $conn->prepare($sql);
             $stmt->bindParam(":student_id", $studentId);
             $stmt->execute();
