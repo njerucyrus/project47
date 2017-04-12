@@ -134,31 +134,14 @@ class ComplexQuery
 
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
-                $boards = array();
+                $data = array();
                 while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     if (!empty($row)) {
-                        $board = array(
-                            "id" => $row['id'],
-                            "board_code" => $row['board_code'],
-                            "width" => $row['width'],
-                            "height" => $row['height'],
-                            "lat" => $row['lat'],
-                            "lgn" => $row['lgn'],
-                            "town" => $row['town'],
-                            "location" => $row['location'],
-                            "board_type" => $row['board_type'],
-                            "price" => $row['price'],
-                            "owned_by" => $row['owned_by'],
-                            "seen_by" => $row['seen_by'],
-                            "weekly_impressions" => $row['weekly_impressions'],
-                            "image" => $row['image'],
-                            "board_status" => $row['board_status']
-                        );
-                        $boards[] = $board;
+                      $data[] = $row;
                     }
                 }
                 $db->closeConnection();
-                return $boards;
+                return $data;
             } else {
                 return [];
             }

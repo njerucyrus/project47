@@ -11,7 +11,11 @@ namespace Hudutech\AppInterface;
 
 interface ExamTableInterface
 {
+
+    public static function fetchSubjectNames();
     public static function fetchStandardExamTableNames();
     public static function createStandardExamTables();
     public static function clearStandardExamTables();
+    public static function getStandardExamTableName($subject);
+    public static function createScoreSheetTables();
 }
