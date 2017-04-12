@@ -54,6 +54,11 @@ class Student
     private $stream;
 
     /**
+     * @var int
+     */
+    private $kcpe;
+
+    /**
      * @var \DateTime
      */
     private $dob;
@@ -226,7 +231,21 @@ class Student
         $this->stream = $stream;
     }
 
+    /**
+     * @return int
+     */
+    public function getKcpe()
+    {
+        return $this->kcpe;
+    }
 
+    /**
+     * @param int $kcpe
+     */
+    public function setKcpe($kcpe)
+    {
+        $this->kcpe = $kcpe;
+    }
 
     /**
      * @return \DateTime

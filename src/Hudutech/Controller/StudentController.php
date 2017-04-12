@@ -7,12 +7,13 @@
  */
 namespace Hudutech\Controller;
 
+use Hudutech\DBManager\ComplexQuery;
 use Hudutech\DBManager\DB;
 use Hudutech\AppInterface\StudentInterface;
 use Hudutech\Entity\Student;
 
 
-class StudentController implements StudentInterface
+class StudentController extends ComplexQuery implements StudentInterface
 {
     /**
      * @param Student $student
@@ -32,6 +33,7 @@ class StudentController implements StudentInterface
         $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
+        $kcpe = $student->getKcpe();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
@@ -53,6 +55,7 @@ class StudentController implements StudentInterface
                                                             class_joined,
                                                             current_class,
                                                             stream,
+                                                            kcpe,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
@@ -73,6 +76,7 @@ class StudentController implements StudentInterface
                                                             :class_joined,
                                                             :current_class,
                                                             :stream,
+                                                            :kcpe,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
@@ -92,6 +96,7 @@ class StudentController implements StudentInterface
             $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
+            $stmt->bindParam(":kcpe", $stream);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
@@ -131,6 +136,7 @@ class StudentController implements StudentInterface
                                                             class_joined,
                                                             current_class,
                                                             stream,
+                                                            kcpe,
                                                             dob,
                                                             profile_image,
                                                             parent_name,
@@ -151,6 +157,7 @@ class StudentController implements StudentInterface
                                                             :class_joined,
                                                             :current_class,
                                                             :stream,
+                                                            :kcpe,
                                                             :dob,
                                                             :profile_image,
                                                             :parent_name,
@@ -174,6 +181,7 @@ class StudentController implements StudentInterface
                 $stmt->bindParam(":current_class", $currentClass);
                 $stmt->bindParam(":class_joined", $classJoined);
                 $stmt->bindParam(":stream", $stream);
+                $stmt->bindParam(":kcpe", $kcpe);
                 $stmt->bindParam(":dob", $dob);
                 $stmt->bindParam(":profile_image", $profileImage);
                 $stmt->bindParam(":parent_name", $parentName);
@@ -192,6 +200,7 @@ class StudentController implements StudentInterface
                 $currentClass = $student['current_class'];
                 $classJoined = $student['class_joined'];
                 $stream = $student['stream'];
+                $kcpe = $student['kcpe'];
                 $dob = $student['dob'];
                 $profileImage = $student['profile_image'];
                 $parentName = $student['parent_name'];
@@ -231,6 +240,7 @@ class StudentController implements StudentInterface
         $classJoined = $student->getClassJoined();
         $currentClass = $student->getCurrentClass();
         $stream = $student->getStream();
+        $kcpe = $student->getKcpe();
         $dob = $student->getDob();
         $profileImage = $student->getProfileImage();
         $parentName = $student->getParentName();
@@ -251,6 +261,7 @@ class StudentController implements StudentInterface
                                                     class_joined=:class_joined,
                                                     current_class=:current_class,
                                                     stream=:stream,
+                                                    kcpe=:kcpe,
                                                     dob=:dob,
                                                     profile_image=:profile_image,
                                                     parent_name=:parent_name,
@@ -274,6 +285,7 @@ class StudentController implements StudentInterface
             $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
+            $stmt->bindParam(":kcpe", $kcpe);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
@@ -354,11 +366,12 @@ class StudentController implements StudentInterface
                     "first_name" => $row['first_name'],
                     "last_name" => $row['last_name'],
                     "other_name" => $row['other_name'],
-                    "gender" =>$row['gender'],
+                    "gender" => $row['gender'],
                     "reg_no" => $row['reg_no'],
                     "current_class" => $row['current_class'],
                     "class_joined" => $row['class_joined'],
                     "stream" => $row['stream'],
+                    "kcpe" => $row['kcpe'],
                     "dob" => $row['dob'],
                     "profile_image" => $row['profile_image'],
                     "parent_name" => $row['parent_name'],
@@ -403,11 +416,12 @@ class StudentController implements StudentInterface
                         "first_name" => $row['first_name'],
                         "last_name" => $row['last_name'],
                         "other_name" => $row['other_name'],
-                        "gender" =>$row['gender'],
+                        "gender" => $row['gender'],
                         "reg_no" => $row['reg_no'],
                         "current_class" => $row['current_class'],
                         "class_joined" => $row['class_joined'],
                         "stream" => $row['stream'],
+                        "kcpe" => $row['kcpe'],
                         "dob" => $row['dob'],
                         "profile_image" => $row['profile_image'],
                         "parent_name" => $row['parent_name'],
@@ -422,8 +436,7 @@ class StudentController implements StudentInterface
                 }
                 $db->closeConnection();
                 return $students;
-            }
-            else{
+            } else {
                 return [];
             }
         } catch (\PDOException $exception) {
@@ -457,6 +470,7 @@ class StudentController implements StudentInterface
                 $student->setCurrentClass($row['current_class']);
                 $student->setClassJoined($row['class_joined']);
                 $student->setStream($row['stream']);
+                $student->setKcpe($row['kcpe']);
                 $student->setDob($row['dob']);
                 $student->setProfileImage($row['profile_image']);
                 $student->setParentName($row['parent_name']);
@@ -488,18 +502,100 @@ class StudentController implements StudentInterface
         $db = new DB();
         $conn = $db->connect();
 
-        try{
+        try {
             $stmt = $conn->prepare("UPDATE students SET current_class='{$class}' WHERE reg_no=:reg_no");
-            foreach ($students as $regNo){
+            foreach ($students as $regNo) {
                 $stmt->bindParam(":reg_no", $regNo);
                 $stmt->execute();
             }
 
             return true;
 
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function assignSubject(array $students, $subjectId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try {
+
+            $stmt = $conn->prepare("INSERT INTO student_subjects(student_id, subject_id) VALUES (:student_id, :subject_id)");
+
+            foreach ($students as $studentId) {
+                $stmt->bindParam(":student_id", $studentId);
+                $stmt->bindParam(":subject_id", $subjectId);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    public static function removeSubject($studentId, array $subjects)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+
+            $stmt = $conn->prepare("DELETE FROM student_subjects WHERE student_id=:student_id AND subject_id=:subject_id");
+
+            foreach ($subjects as $subjectId){
+
+                $stmt->bindParam(":student_id", $studentId);
+                $stmt->bindParam(":subject_id", $subjectId);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+
         } catch (\PDOException $exception){
             echo $exception->getMessage();
             return false;
+        }
+    }
+
+    public static function getStudentSubjects($studentId)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $sql ="(SELECT subject.subject_code, subject.subject_name,student.reg_no FROM subjects subject, students student
+                   WHERE student.id = (SELECT student_id FROM student_subjects WHERE student_id =:student_id 
+                   AND student_subjects.subject_id=subject.id LIMIT 1))";
+            $stmt= $conn->prepare($sql);
+            $stmt->bindParam(":student_id", $studentId);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0 ){
+                $subjects = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                    $subject = [
+                        "subject_code"=> $row['subject_code'],
+                        "subject_name"=> $row['subject_name'],
+                        "student_reg_no"=> $row['reg_no']
+                    ];
+
+                    $subjects[] = $subject;
+                }
+                $db->closeConnection();
+                return $subjects;
+            } else{
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+
         }
     }
 

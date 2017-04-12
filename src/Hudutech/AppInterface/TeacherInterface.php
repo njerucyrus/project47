@@ -21,4 +21,7 @@ interface TeacherInterface
     public static function getId($id);
     public static function all();
     public static function getTeacher($id);
+    public static function assignTeachingSubject($teacherId, array $subjectId);
+    public static function removeTeachingSubject($teacherId, array $subjectId);
+    public static function getTeacherSubject($teacherId);
 }

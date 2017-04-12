@@ -1,117 +1,27 @@
-<?
+<?php
 /**
  * Created by PhpStorm.
  * User: hudutech
- * Date: 4/2/17
- * Time: 12:34 AM
+ * Date: 4/8/17
+ * Time: 11:31 PM
  */
 
-require_once "vendor/autoload.php";
+require_once __DIR__.'/vendor/autoload.php';
+//
+//$grade = array(
+//    array("low_mark"=>67, "high_mark"=>70, "grade"=>"B", "comment"=>"excellent"),
+//    array("low_mark"=>71, "high_mark"=>74, "grade"=>"B+", "comment"=>"excellent"),
+//    array("low_mark"=>75, "high_mark"=>80, "grade"=>"A-", "comment"=>"excellent"),
+//    array("low_mark"=>81, "high_mark"=>100, "grade"=>"A", "comment"=>"excellent")
+//);
+//
+//$ctrl = \Hudutech\Controller\GradingSystemController::getGrade(101);
+//
+//print_r($ctrl);
 
-//$student1 = array(
-//    "first_name" => "JOHN",
-//    "last_name" => "NJIIRI",
-//    "other_name" => "KIMEMIA",
-//    "gender" => "F",
-//    "reg_no"=> "C026-38373",
-//    "current_class"=> "FORM 1",
-//    "class_joined"=>"FORM 1",
-//    "stream"=>"EAST",
-//    "dob"=>date('Y-m-d'),
-//    "profile_image"=> "path/to/profile-photo/",
-//    "parent_name"=>"MR NJIIRI",
-//    "phone_number"=>"+254716254515",
-//    "address"=>"POBOX 47484 MURANG'A",
-//    "email"=>"mail@example.com",
-//    "occupation"=> "farmer",
-//    "date_enrolled"=>date('Y-m-d'),
-//    "status"=>"active"
-//);
-//
-//$student2 = array(
-//    "first_name" => "JOHN",
-//    "last_name" => "NJIIRI",
-//    "other_name" => "KIMEMIA",
-//    "gender" => "F",
-//    "reg_no"=> "C026-38373",
-//    "current_class"=> "FORM 1",
-//    "class_joined"=>"FORM 1",
-//    "stream"=>"EAST",
-//    "dob"=>date('Y-m-d'),
-//    "profile_image"=> "path/to/profile-photo/",
-//    "parent_name"=>"MR NJIIRI",
-//    "phone_number"=>"+254716254515",
-//    "address"=>"POBOX 47484 MURANG'A",
-//    "email"=>"mail@example.com",
-//    "occupation"=> "farmer",
-//    "date_enrolled"=>date('Y-m-d'),
-//    "status"=>"active"
-//);
-//
-//$student3 = array(
-//    "first_name" => "JOHN",
-//    "last_name" => "NJIIRI",
-//    "other_name" => "KIMEMIA",
-//    "gender" => "F",
-//    "reg_no"=> "C026-38373",
-//    "current_class"=> "FORM 1",
-//    "class_joined"=>"FORM 1",
-//    "stream"=>"EAST",
-//    "dob"=>date('Y-m-d'),
-//    "profile_image"=> "path/to/profile-photo/",
-//    "parent_name"=>"MR NJIIRI",
-//    "phone_number"=>"+254716254515",
-//    "address"=>"POBOX 47484 MURANG'A",
-//    "email"=>"mail@example.com",
-//    "occupation"=> "farmer",
-//    "date_enrolled"=>date('Y-m-d'),
-//    "status"=>"active"
-//);
-//$student4 = array(
-//    "first_name" => "JOHN",
-//    "last_name" => "NJIIRI",
-//    "other_name" => "KIMEMIA",
-//    "gender" => "F",
-//    "reg_no"=> "C026-38373",
-//    "current_class"=> "FORM 1",
-//    "class_joined"=>"FORM 1",
-//    "stream"=>"EAST",
-//    "dob"=>date('Y-m-d'),
-//    "profile_image"=> "path/to/profile-photo/",
-//    "parent_name"=>"MR NJIIRI",
-//    "phone_number"=>"+254716254515",
-//    "address"=>"POBOX 47484 MURANG'A",
-//    "email"=>"mail@example.com",
-//    "occupation"=> "farmer",
-//    "date_enrolled"=>date('Y-m-d'),
-//    "status"=>"active"
-//);
-//
-//$students = array();
-//array_push($students, $student1, $student2, $student3, $student4);
-//
-//$student_controller = new \Hudutech\Controller\StudentController();
-//$created = $student_controller->createMultiple($students);
-//
-//if ($created){
-//    echo "created multiple students";
-//
-//}
-//else{
-//    echo "en countered an error";
-//}
-$students = array("C026-01", "C026-02", "C026-03", "C026-04", "C026-05");
-$class = "FORM 4";
+//$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
+//$ctrl = \Hudutech\Controller\ExamTableController::clearStandardExamTables();
 
-//$student_controller = new \Hudutech\Controller\StudentController();
-//$promoted = $student_controller->promoteToNextClass($students, $class);
-//
-//if($promoted){
-//    echo "code doing fine";
-//}
-//else{
-//    echo "ko";
-//}
+$ctrl = \Hudutech\Controller\ExamTableController::createScoreSheetTables();
+print_r($ctrl);
 
-$students = \Hudutech\Controller\StudentController::all();
-print_r($students);
