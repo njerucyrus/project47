@@ -9,6 +9,10 @@
 namespace Hudutech\Entity;
 
 
+/**
+ * Class Subject
+ * @package Hudutech\Entity
+ */
 class Subject
 {
     /**
@@ -29,6 +33,16 @@ class Subject
      * @var int
      */
     private $subjectCode;
+
+    /**
+     * @var boolean
+     */
+    private $active;
+
+    /**
+     * @var boolean
+     */
+    private $compulsory;
 
     /**
      * @return int
@@ -93,6 +107,42 @@ class Subject
     {
         $this->subjectCode = $subjectCode;
     }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCompulsory()
+    {
+        return $this->compulsory;
+    }
+
+    /**
+     * @param bool $compulsory
+     */
+    public function setCompulsory($compulsory)
+    {
+        $this->compulsory = $compulsory;
+    }
+
+
+
+
 
 
 }
