@@ -177,7 +177,7 @@ class ExamController extends ComplexQuery implements ExamInterface
         );
         $options = array("current_class"=>$config['student_class']);
         $students = ComplexQuery::customFilter('students', $columns, $options);
-        //print_r($students);
+        print_r($students);
         $student_class = $config['student_class'];
         $tableName = '';
         if (strtolower($student_class) == 'form 1') {
@@ -190,26 +190,20 @@ class ExamController extends ComplexQuery implements ExamInterface
             $tableName = "form_four_score_sheet";
         }
 
-
-        echo $tableName.PHP_EOL;
-
         try {
 
-
-
-            foreach ($students as $student) {
-                $stmt = $conn->prepare("INSERT INTO `{$tableName}`(year, term, stream, reg_no, student_class ) VALUES (
-                                                    :year, :term, :stream, :reg_no, :student_class
+            $stmt = $conn->prepare("INSERT INTO `{$tableName}`(`year`, `term`, `stream`, `reg_no`) VALUES (
+                                                   :year, :term, :stream, :reg_no
                                                     )");
+            foreach ($students as $student) {
                 $stmt->bindParam(":year", $config['year']);
                 $stmt->bindParam(":term", $config['term']);
                 $stmt->bindParam(":stream", $student['stream']);
                 $stmt->bindParam(":reg_no", $student['reg_no']);
-                $stmt->bindParam(":student_class", $student['current_class']);
                 $stmt->execute();
             }
-            //$db->closeConnection();
-            //return true;
+            $db->closeConnection();
+            return true;
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;

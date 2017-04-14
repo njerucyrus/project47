@@ -96,7 +96,7 @@ class StudentController extends ComplexQuery implements StudentInterface
             $stmt->bindParam(":current_class", $currentClass);
             $stmt->bindParam(":class_joined", $classJoined);
             $stmt->bindParam(":stream", $stream);
-            $stmt->bindParam(":kcpe", $stream);
+            $stmt->bindParam(":kcpe", $kcpe);
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":profile_image", $profileImage);
             $stmt->bindParam(":parent_name", $parentName);
