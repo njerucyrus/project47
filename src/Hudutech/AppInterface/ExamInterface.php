@@ -19,5 +19,6 @@ interface ExamInterface
   public static function destroy();
   public static function getId($id);
   public static function getExams($term);
+  public static function enrollStudentForExam(array $config);
 
 }

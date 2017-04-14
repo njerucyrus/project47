@@ -8,14 +8,15 @@
 
 namespace Hudutech\Controller;
 
-use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Hudutech\AppInterface\SubjectGradingInterface;
 use Hudutech\DBManager\DB;
-use Hudutech\Controller\ExamTableController;
-
 
 class SubjectGradingController implements SubjectGradingInterface
 {
+    /**
+     * @param array $grade
+     * @return bool
+     */
     public static function batchCreate(array $grade)
     {
         $db = new DB();
@@ -58,6 +59,10 @@ class SubjectGradingController implements SubjectGradingInterface
     }
 
 
+    /**
+     * @param array $grade
+     * @return bool
+     */
     public static function batchUpdate(array $grade)
     {
         $db = new DB();
@@ -93,6 +98,10 @@ class SubjectGradingController implements SubjectGradingInterface
         }
     }
 
+    /**
+     * @param array $grade
+     * @return bool
+     */
     public static function updateSingle(array $grade)
     {
         $db = new DB();
@@ -123,6 +132,10 @@ class SubjectGradingController implements SubjectGradingInterface
         }
     }
 
+    /**
+     * @param $id
+     * @return bool
+     */
     public static function delete($id)
     {
         $db = new DB();
@@ -141,6 +154,9 @@ class SubjectGradingController implements SubjectGradingInterface
         }
     }
 
+    /**
+     * @return bool
+     */
     public static function destroy()
     {
         $db = new DB();
@@ -224,6 +240,10 @@ class SubjectGradingController implements SubjectGradingInterface
         }
     }
 
+    /**
+     * @param $score
+     * @return array
+     */
     public static function getGrade($score)
     {
         $db = new DB();
@@ -251,6 +271,12 @@ class SubjectGradingController implements SubjectGradingInterface
 
     }
 
+    /**
+     * @param $config
+     * config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
+     * @return boolean
+     *
+     */
     public static function updateStandardExamTotals($config){
 
         $db = new DB();
@@ -267,7 +293,7 @@ class SubjectGradingController implements SubjectGradingInterface
             if (!empty($totalMarkData)) {
 
                 $stmt = $conn->prepare("UPDATE $table_name SET total=:total, grade=:grade, points=:points, comment=:comment
-            WHERE reg_no=:reg_no AND `year`='{$year}' AND `term`='{$term}' AND `student_class`='{$student_class}'");
+                                        WHERE reg_no=:reg_no AND `year`='{$year}' AND `term`='{$term}' AND `student_class`='{$student_class}'");
                 foreach ($totalMarkData as $total) {
                     $stmt->bindParam(":reg_no", $total['reg_no']);
                     $stmt->bindParam(":total", $total['total_mark']);

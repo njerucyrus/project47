@@ -19,7 +19,7 @@ class ExamTableController implements ExamTableInterface
         $db = new DB();
         $conn = $db->connect();
         try {
-            $stmt = $conn->prepare("SELECT subject_name FROM subjects WHERE 1");
+            $stmt = $conn->prepare("SELECT subject_name FROM subjects WHERE is_active=1");
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 $subjectNames = array();
@@ -47,7 +47,7 @@ class ExamTableController implements ExamTableInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("SELECT subject_code, subject_name, has_pp3 FROM subjects WHERE 1");
+            $stmt = $conn->prepare("SELECT subject_code, subject_name, has_pp3 FROM subjects WHERE is_active=1");
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 $tableNames = array();
@@ -143,7 +143,7 @@ class ExamTableController implements ExamTableInterface
         $db = new DB();
         $conn = $db->connect();
         try {
-            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name=:subject_name");
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name=:subject_name AND is_active=1");
             $subj = strtolower($subject);
             $stmt->bindParam(":subject_name", $subj);
             $stmt->execute();
@@ -169,7 +169,7 @@ class ExamTableController implements ExamTableInterface
 
             $column_part = '';
             foreach ($subjectNames as $column) {
-                $column_part .= $column['subject_name'] . " VARCHAR(4), ".PHP_EOL;
+                $column_part .= $column['subject_name'] . " VARCHAR(6), ".PHP_EOL;
             }
 
             $form_1 = "CREATE TABLE IF NOT EXISTS form_one_score_sheet

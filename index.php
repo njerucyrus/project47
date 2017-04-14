@@ -22,6 +22,8 @@ require_once __DIR__.'/vendor/autoload.php';
 //$ctrl = \Hudutech\Controller\ExamTableController::createStandardExamTables();
 //$ctrl = \Hudutech\Controller\ExamTableController::clearStandardExamTables();
 
-$ctrl = \Hudutech\Controller\ExamTableController::createScoreSheetTables();
+//$ctrl = \Hudutech\Controller\ExamTableController::createScoreSheetTables();
+$config = array("student_class"=>"FORM 4", "term"=>"TERM 1", "year"=>2017);
+$ctrl = \Hudutech\Controller\ExamController::enrollStudentForExam($config);
 print_r($ctrl);
 

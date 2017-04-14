@@ -24,7 +24,7 @@ class ComplexQuery
      * order_by key is an array of columns used to order your
      * results eg order_by =>array("column1", column2")
      */
-    public function customFilter($table, $tableColumns, $options)
+    public static function customFilter($table, $tableColumns, $options)
     {
         $db = new DB();
         $conn = $db->connect();
