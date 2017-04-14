@@ -277,7 +277,7 @@ class SubjectGradingController implements SubjectGradingInterface
      * @return boolean
      *
      */
-    public static function updateStandardExamTotals($config){
+    public static function updateStandardExamTotals(array $config){
 
         $db = new DB();
         $conn = $db->connect();
@@ -310,6 +310,56 @@ class SubjectGradingController implements SubjectGradingInterface
                 return false;
             }
         } catch (\PDOException $exception ){
+            echo $exception->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * @param $config
+     * config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
+     * @return boolean
+     *
+     */
+
+    public static function updateScoreSheet(array $config)
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        $totals = self::getStandardExamTotal($config);
+        print_r($totals);
+
+        $student_class = strtolower($config['student_class']);
+        $subject = strtolower($config['subject']);
+        $tableName = '';
+        if ($student_class == 'form 1') {
+            $tableName = "form_one_score_sheet";
+        } elseif ($student_class == 'form 2') {
+            $tableName = "form_two_score_sheet";
+        } elseif ($student_class == 'form 3') {
+            $tableName = "form_three_score_sheet";
+        } elseif ($student_class == 'form 4') {
+            $tableName = "form_four_score_sheet";
+        }
+        echo $subject." == ".$tableName;
+        $stmt = $conn->prepare("UPDATE `{$tableName}` SET `{$subject}`=:total_mark WHERE `reg_no`=:reg_no AND `year`=:year AND `term` =:term");
+        try {
+            foreach ($totals as $total) {
+                $totalMark = $total['total_mark'] . " " . $total['grade_letter'];
+                $points = $total['points'];
+                $regNo = $total['reg_no'];
+                $year = $config['year'];
+                $term = $config['term'];
+                $stmt->bindParam(":total_mark", $totalMark);
+                $stmt->bindParam(":reg_no", $regNo);
+                $stmt->bindParam(":year", $year);
+                $stmt->bindParam(":term", $term);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
             echo $exception->getMessage();
             return false;
         }

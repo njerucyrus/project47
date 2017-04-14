@@ -170,14 +170,16 @@ class ExamController extends ComplexQuery implements ExamInterface
 
         $db = new DB();
         $conn = $db->connect();
+
         $columns = array(
             'reg_no',
             'stream',
             'current_class'
         );
+
         $options = array("current_class"=>$config['student_class']);
         $students = ComplexQuery::customFilter('students', $columns, $options);
-        print_r($students);
+
         $student_class = $config['student_class'];
         $tableName = '';
         if (strtolower($student_class) == 'form 1') {
