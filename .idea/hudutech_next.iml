@@ -20,5 +20,6 @@
     <orderEntry type="module" module-name="boards" />
     <orderEntry type="module" module-name="boards" />
     <orderEntry type="module" module-name="kenyapesa" />
+    <orderEntry type="module" module-name="paypalpayment" />
   </component>
 </module>

@@ -9,9 +9,10 @@
 namespace Hudutech\Controller;
 
 
+use Hudutech\AppInterface\MarksGradingInterface;
 use Hudutech\DBManager\DB;
 
-class MarksGradingController
+class MarksGradingController implements MarksGradingInterface
 {
 
 

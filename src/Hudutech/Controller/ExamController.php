@@ -180,15 +180,15 @@ class ExamController extends ComplexQuery implements ExamInterface
         $options = array("current_class"=>$config['student_class']);
         $students = ComplexQuery::customFilter('students', $columns, $options);
 
-        $student_class = $config['student_class'];
+        $student_class = strtolower($config['student_class']);
         $tableName = '';
-        if (strtolower($student_class) == 'form 1') {
+        if ($student_class == 'form 1') {
             $tableName = "form_one_score_sheet";
-        } elseif (strtolower($student_class) == 'form 2') {
+        } elseif ($student_class == 'form 2') {
             $tableName = "form_two_score_sheet";
-        } elseif (strtolower($student_class) == 'form 3') {
+        } elseif ($student_class == 'form 3') {
             $tableName = "form_three_score_sheet";
-        } elseif (strtolower($student_class) == 'form 4') {
+        } elseif ($student_class == 'form 4') {
             $tableName = "form_four_score_sheet";
         }
 

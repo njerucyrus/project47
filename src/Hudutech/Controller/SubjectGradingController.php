@@ -342,7 +342,7 @@ class SubjectGradingController implements SubjectGradingInterface
         } elseif ($student_class == 'form 4') {
             $tableName = "form_four_score_sheet";
         }
-        echo $subject." == ".$tableName;
+
         $stmt = $conn->prepare("UPDATE `{$tableName}` SET `{$subject}`=:total_mark WHERE `reg_no`=:reg_no AND `year`=:year AND `term` =:term");
         try {
             foreach ($totals as $total) {
