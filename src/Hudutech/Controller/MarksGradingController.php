@@ -63,20 +63,21 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("UPDATE marks_grading_system SET 
-                                                                low_mark=:low_mark,
-                                                                high_mark=:high_mark,
+            $stmt = $conn->prepare("UPDATE point_grading SET 
+                                                                low_point=:low_point,
+                                                                high_point=:high_point,
                                                                 grade=:grade,
                                                                 comment=:comment
-                                                                
                                                           WHERE 
                                                                 id=:id
                                                             ");
 
+
+
             foreach ($grade as $gradeItem) {
                 $stmt->bindParam(":id", $gradeItem['id']);
-                $stmt->bindParam(":low_mark", $gradeItem['low_mark']);
-                $stmt->bindParam(":high_mark", $gradeItem['high_mark']);
+                $stmt->bindParam(":low_point", $gradeItem['low_point']);
+                $stmt->bindParam(":high_point", $gradeItem['high_point']);
                 $stmt->bindParam(":grade", $gradeItem['grade']);
                 $stmt->bindParam(":comment", $gradeItem['comment']);
                 $stmt->execute();
@@ -98,9 +99,9 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("UPDATE marks_grading_system SET 
-                                                                low_mark=:low_mark,
-                                                                high_mark=:high_mark,
+            $stmt = $conn->prepare("UPDATE point_grading SET 
+                                                                low_point=:low_point,
+                                                                high_point=:high_point,
                                                                 grade=:grade,
                                                                 comment=:comment
                                                           WHERE 
@@ -108,8 +109,8 @@ class MarksGradingController implements MarksGradingInterface
                                                             ");
 
             $stmt->bindParam(":id", $grade['id']);
-            $stmt->bindParam(":low_mark", $grade['low_mark']);
-            $stmt->bindParam(":high_mark", $grade['high_mark']);
+            $stmt->bindParam(":low_point", $grade['low_point']);
+            $stmt->bindParam(":high_point", $grade['high_point']);
             $stmt->bindParam(":grade", $grade['grade']);
             $stmt->bindParam(":comment", $grade['comment']);
             $stmt->execute();
@@ -127,7 +128,7 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("DELETE FROM marks_grading_system WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM point_grading WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $db->closeConnection();
@@ -145,7 +146,7 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("DELETE FROM marks_grading_system");
+            $stmt = $conn->prepare("DELETE FROM point_grading");
             $stmt->execute();
             $db->closeConnection();
 
@@ -162,7 +163,7 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("SELECT grade AS grade_letter, `comment` FROM marks_grading_system WHERE low_mark<=:score AND high_mark>=:score");
+            $stmt = $conn->prepare("SELECT grade AS grade_letter, `comment` FROM point_grading WHERE low_point<=:score AND high_point>=:score");
             $stmt->bindParam(":score", $score);
             $stmt->execute();
             if ($stmt->rowCount() == 1) {
@@ -250,7 +251,6 @@ class MarksGradingController implements MarksGradingInterface
 
         $all_subjects = SubjectController::fetchAllSubjectNames();
         $compulsorySubjects = SubjectController::getCompulsorySubjects();
-        print_r($compulsorySubjects);
 
         $subject_without_compulsory = array_diff($all_subjects, $compulsorySubjects);
         $other_cols = rtrim(implode(',', $subject_without_compulsory), ',');
@@ -285,13 +285,24 @@ class MarksGradingController implements MarksGradingInterface
                 $stmt->bindParam(":reg_no", $regNo);
                 $stmt->bindParam(":year", $config['year']);
                 $stmt->bindParam(":term", $config['term']);
+                $stmt->execute();
 
                 $stmt2->bindParam(":reg_no", $regNo);
                 $stmt2->bindParam(":year", $config['year']);
                 $stmt2->bindParam(":term", $config['term']);
                 $stmt2->execute();
 
+                $markArray = array();
+                $markArray['reg_no'] = $regNo;
+                $markArray['term'] = $config['term'];
+                $markArray['year'] = $config['year'];
+                $markArray['student_class'] = $config['student_class'];
+
+
+
+
                 if ($stmt->rowCount() > 0) {
+
                     while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 
                         $science = array(
@@ -299,6 +310,7 @@ class MarksGradingController implements MarksGradingInterface
                             (float)$row['biology'],
                             (float)$row['physics']
                         );
+
 
                         $humanity = array();
                         $technical = array();
@@ -326,19 +338,23 @@ class MarksGradingController implements MarksGradingInterface
                         rsort($humanity);
                         rsort($technical);
 
+
                         $best2_science = $science[0] + $science[1];
                         $best_humanity = $humanity[0];
                         $best_technical = $technical[0];
 
 
-                        if (sizeof($compulsorySubjects) < 4) {
+
+                        if (sizeof($compulsorySubjects) <= 3) {
                             $total = (float)($row['compulsory_total'] + $best2_science + $best_technical);
                         } else {
                             $total = (float)($row['compulsory_total'] + $best2_science + $best_humanity + $best_technical);
 
                         }
-                        $grade = self::getGrade($total);
-                        print_r($grade);
+                        $markArray['total_mark'] = $total;
+
+
+
                     }
                 }
 
@@ -506,15 +522,34 @@ class MarksGradingController implements MarksGradingInterface
 
                         }
 
-                       echo $totalPoints.PHP_EOL;
 
+                       $pointGrade = self::getGrade($totalPoints);
+                        $grade_letter = '';
+                        $comment = '';
+                        if (!empty($pointGrade)){
+                            $grade_letter = $pointGrade['grade_letter'];
+                            $comment = $pointGrade['comment'];
+
+                        }
+
+                        $markArray['total_points'] = $totalPoints;
+                        $markArray['grade'] = $grade_letter;
+                        $markArray['$comment'] = $comment;
+
+                        //push all data to final array of total marks
+                        array_push($totalMark, $markArray);
 
 
 
                     }
                 }
 
+
+
             }
+            print_r($totalMark);
+
+
 
 
         } catch (\PDOException $exception) {
