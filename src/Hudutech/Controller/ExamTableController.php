@@ -155,7 +155,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -175,7 +176,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -195,7 +197,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -215,7 +218,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),

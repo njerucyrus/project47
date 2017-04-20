@@ -299,8 +299,6 @@ class MarksGradingController implements MarksGradingInterface
                 $markArray['student_class'] = $config['student_class'];
 
 
-
-
                 if ($stmt->rowCount() > 0) {
 
                     while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
@@ -489,11 +487,11 @@ class MarksGradingController implements MarksGradingInterface
                                 }
                             }
                         }
+                        //reverse sort to get the highest value first
                         rsort($sciencePoints);
                         rsort($humanityPoints);
                         rsort($technicalPoints);
 
-//
                         $compulsoryPointSum = array_sum($compulsoryPoints);
                         $best_2_science_point = 0;
                         $best_humanity_point = 0;
@@ -532,25 +530,19 @@ class MarksGradingController implements MarksGradingInterface
 
                         }
 
-                        $markArray['total_points'] = $totalPoints;
+                        $markArray['total_point'] = $totalPoints;
                         $markArray['grade'] = $grade_letter;
                         $markArray['$comment'] = $comment;
 
                         //push all data to final array of total marks
                         array_push($totalMark, $markArray);
 
-
-
                     }
                 }
 
-
-
             }
-            print_r($totalMark);
-
-
-
+            $db->closeConnection();
+            return $totalMark;
 
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
@@ -568,7 +560,51 @@ class MarksGradingController implements MarksGradingInterface
 
     public static function updateScoreSheetTotals(array $config)
     {
-        // TODO: Implement updateScoreSheetTotals() method.
+        $db = new DB();
+        $conn = $db->connect();
+        $totalMarks = self::getScoreSheetTotal($config);
+        try {
+
+            $student_class = strtolower($config['student_class']);
+            $tableName = '';
+            if ($student_class == 'form 1') {
+                $tableName = "form_one_score_sheet";
+            } elseif ($student_class == 'form 2') {
+                $tableName = "form_two_score_sheet";
+            } elseif ($student_class == 'form 3') {
+                $tableName = "form_three_score_sheet";
+            } elseif ($student_class == 'form 4') {
+                $tableName = "form_four_score_sheet";
+            }
+
+            $stmt = $conn->prepare("UPDATE `{$tableName}` SET 
+                                                            `total_point`=:total_point,
+                                                            `total_mark`=:total_mark,
+                                                            `grade`=:grade,
+                                                            `comment`=:comment
+                                                          WHERE
+                                                            `reg_no`=:reg_no AND
+                                                            `term` =:term AND
+                                                            `year` =:year
+                                                            ");
+
+            foreach ($totalMarks as $totalMark) {
+                $stmt->bindParam(":reg_no", $totalMark['reg_no']);
+                $stmt->bindParam(":year", $totalMark['year']);
+                $stmt->bindParam(":term", $totalMark['term']);
+                $stmt->bindParam(":total_mark", $totalMark['total_mark']);
+                $stmt->bindParam(":total_point", $totalMark['total_point']);
+                $stmt->bindParam(":grade", $totalMark['grade']);
+                $stmt->bindParam(":comment", $totalMark['comment']);
+                $stmt->execute();
+            }
+            $db->closeConnection();
+            return true;
+        } catch (\PDOException $exception) {
+            echo  $exception->getMessage();
+            return false;
+        }
+
     }
 
 
