@@ -29,9 +29,9 @@ $config = array("year"=>2017, "term"=>"TERM 1", "student_class"=>"FORM 4","subje
 //$ctrl = \Hudutech\Controller\SubjectGradingController::updateScoreSheet($config);
 //print_r($ctrl);
 
-//$ctrl = \Hudutech\Controller\MarksGradingController::getScoreSheetTotal($config);
+$ctrl = \Hudutech\Controller\MarksGradingController::getScoreSheetTotal($config);
 
-$ctrl = \Hudutech\Controller\SubjectGradingController::updateStandardExamTotals($config);
+//$ctrl = \Hudutech\Controller\SubjectGradingController::updateStandardExamTotals($config);
 //
 //$a = array(130, 1805, 1337);
 //arsort($a);

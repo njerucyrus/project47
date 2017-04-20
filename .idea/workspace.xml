@@ -82,7 +82,43 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MarksGradingController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+              <folding>
+                <marker date="1492712775318" expanded="true" signature="433:1494" ph="INSERT INTO marks_grading_system... " />
+                <marker date="1492712775318" expanded="true" signature="2235:2797" ph="UPDATE marks... " />
+                <marker date="1492712775318" expanded="true" signature="3655:4152" ph="UPDATE marks... " />
+                <marker date="1492712775318" expanded="true" signature="4889:4934" ph="DELETE FROM " />
+                <marker date="1492712775318" expanded="true" signature="5353:5385" ph="DELETE FROM " />
+                <marker date="1492712775318" expanded="true" signature="5769:5879" ph="SELECT grade... marks_grading_system" />
+                <marker date="1492712775318" expanded="true" signature="7087:7108" ph="SELECT reg_n... ${$tableName}" />
+                <marker date="1492712775318" expanded="true" signature="7087:7111" ph="SELECT reg_n... $" />
+                <marker date="1492712775318" expanded="true" signature="7087:7381" ph="SELECT reg_n... ${{$tableName}}" />
+                <marker date="1492712775318" expanded="true" signature="7087:7412" ph="SELECT `reg_... ${{$tableName}}" />
+                <marker date="1492712775318" expanded="true" signature="9437:9819" ph="SELECT `year... " />
+                <marker date="1492712775318" expanded="true" signature="9907:9921" ph="SELECT * FRO... $" />
+                <marker date="1492712775318" expanded="true" signature="9907:9933" ph="SELECT * FRO... " />
+                <marker date="1492712775318" expanded="true" signature="9907:10090" ph="SELECT * FRO... $" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="33" column="2" lean-forward="false" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -104,12 +140,14 @@
       <find>$amount</find>
       <find>getMessage</find>
       <find>$totalInfo</find>
+      <find>compasory</find>
     </findStrings>
     <replaceStrings>
       <replace>marks_grading_system</replace>
       <replace>subject_grading_system</replace>
       <replace>$isCompulsory</replace>
       <replace>$row</replace>
+      <replace>compulsory</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -167,9 +205,9 @@
         <option value="dbtable:/517adc78/0528094f-7ddd-4cda-a19f-88d657b559cc/hudutech_next.form_four_score_sheet" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0528094f-7ddd-4cda-a19f-88d657b559cc/console.sql" />
         <option value="$PROJECT_DIR$/../paypalpayment/src/App/Controller/PaymentController.php" />
-        <option value="$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php" />
         <option value="$PROJECT_DIR$/src/Hudutech/Controller/SubjectGradingController.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php" />
       </list>
     </option>
   </component>
@@ -211,6 +249,34 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kenyapesa" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hudutech_next" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hudutech_next" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hudutech_next" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hudutech_next" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hudutech" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,12 +419,12 @@
       <workItem from="1492448686971" duration="464000" />
       <workItem from="1492533635906" duration="5297000" />
       <workItem from="1492577891971" duration="30213000" />
-      <workItem from="1492665918245" duration="21448000" />
+      <workItem from="1492665918245" duration="33859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275475000" />
+    <option name="totallyTimeSpent" value="287886000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,16 +437,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22593476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20206842" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5" sideWeight="0.25696102" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19729514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980111" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.74303895" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.74303895" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -850,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="27" column="95" lean-forward="false" selection-start-line="27" selection-start-column="95" selection-end-line="27" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/SubjectGradingController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1084">
@@ -876,26 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="273" column="0" lean-forward="true" selection-start-line="273" selection-start-column="0" selection-end-line="273" selection-end-column="0" />
-          <folding>
-            <marker date="1492688072973" expanded="true" signature="433:1497" ph="INSERT INTO marks_grading_system... " />
-            <marker date="1492688072973" expanded="true" signature="2234:2796" ph="UPDATE marks... " />
-            <marker date="1492688072973" expanded="true" signature="3654:4151" ph="UPDATE marks... " />
-            <marker date="1492688072973" expanded="true" signature="4888:4933" ph="DELETE FROM " />
-            <marker date="1492688072973" expanded="true" signature="5352:5384" ph="DELETE FROM " />
-            <marker date="1492688072973" expanded="true" signature="5768:5878" ph="SELECT grade... marks_grading_system" />
-            <marker date="1492688072973" expanded="true" signature="7086:7107" ph="SELECT reg_n... ${$tableName}" />
-            <marker date="1492688072973" expanded="true" signature="7086:7110" ph="SELECT reg_n... $" />
-            <marker date="1492688072973" expanded="true" signature="7086:7380" ph="SELECT reg_n... ${{$tableName}}" />
-            <marker date="1492688072973" expanded="true" signature="7086:7411" ph="SELECT `reg_... ${{$tableName}}" />
-            <marker date="1492688072973" expanded="true" signature="9398:9780" ph="SELECT `year... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../paypalpayment/vendor/composer/autoload_psr4.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -909,6 +947,37 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="33" column="2" lean-forward="false" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Hudutech/Controller/MarksGradingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+          <folding>
+            <marker date="1492712775318" expanded="true" signature="433:1494" ph="INSERT INTO marks_grading_system... " />
+            <marker date="1492712775318" expanded="true" signature="2235:2797" ph="UPDATE marks... " />
+            <marker date="1492712775318" expanded="true" signature="3655:4152" ph="UPDATE marks... " />
+            <marker date="1492712775318" expanded="true" signature="4889:4934" ph="DELETE FROM " />
+            <marker date="1492712775318" expanded="true" signature="5353:5385" ph="DELETE FROM " />
+            <marker date="1492712775318" expanded="true" signature="5769:5879" ph="SELECT grade... marks_grading_system" />
+            <marker date="1492712775318" expanded="true" signature="7087:7108" ph="SELECT reg_n... ${$tableName}" />
+            <marker date="1492712775318" expanded="true" signature="7087:7111" ph="SELECT reg_n... $" />
+            <marker date="1492712775318" expanded="true" signature="7087:7381" ph="SELECT reg_n... ${{$tableName}}" />
+            <marker date="1492712775318" expanded="true" signature="7087:7412" ph="SELECT `reg_... ${{$tableName}}" />
+            <marker date="1492712775318" expanded="true" signature="9437:9819" ph="SELECT `year... " />
+            <marker date="1492712775318" expanded="true" signature="9907:9921" ph="SELECT * FRO... $" />
+            <marker date="1492712775318" expanded="true" signature="9907:9933" ph="SELECT * FRO... " />
+            <marker date="1492712775318" expanded="true" signature="9907:10090" ph="SELECT * FRO... $" />
+          </folding>
         </state>
       </provider>
     </entry>
