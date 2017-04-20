@@ -317,7 +317,7 @@ class SubjectGradingController implements SubjectGradingInterface
 
     /**
      * @param $config
-     * config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
+     * $config = array("year"=>value, "term"=>value, "student_class"=>value,"subject"=>value)
      * @return boolean
      *
      */
@@ -328,7 +328,6 @@ class SubjectGradingController implements SubjectGradingInterface
         $conn = $db->connect();
 
         $totals = self::getStandardExamTotal($config);
-        print_r($totals);
 
         $student_class = strtolower($config['student_class']);
         $subject = strtolower($config['subject']);

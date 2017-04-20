@@ -275,4 +275,56 @@ class SubjectController implements SubjectInterface
         }
     }
 
+    public static function getCompulsorySubjects()
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $stmt = $conn->prepare("SELECT `subject_name` FROM subjects WHERE `is_active`=1 AND `is_compulsory`=1");
+            $stmt->execute();
+            $compulsorySubjects = array();
+            if($stmt->rowCount()>0) {
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                    $subject = strtolower($row['subject_name']);
+                    // remove sciences from compulsory array to avoid adding its marks twice in
+                    // total computations(MarksGradingController)
+                    if ($subject !='biology' AND $subject !='chemistry' AND $subject !='physics') {
+                        $compulsorySubjects[] = $subject;
+                    }
+                }
+            }
+            return $compulsorySubjects;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
+    public static function fetchAllSubjectNames()
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try {
+            $stmt = $conn->prepare("SELECT subject_name FROM subjects WHERE is_active=1");
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                $subjectNames = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+
+                    $subjectNames[] = strtolower($row['subject_name']);;
+
+                }
+                return $subjectNames;
+            } else {
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
+
 }
