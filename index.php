@@ -25,12 +25,20 @@ require_once __DIR__.'/vendor/autoload.php';
 $ctrl = \Hudutech\Controller\ExamTableController::createScoreSheetTables();
 //$config = array("student_class"=>"FORM 4", "term"=>"TERM 1", "year"=>2017, "subject"=>"english");
 //$ctrl = \Hudutech\Controller\ExamController::enrollStudentForExam($config);
-$config = array("year"=>2017, "term"=>"TERM 1", "student_class"=>"FORM 4","subject"=>"Kiswahili", "reg_no"=>["C026-01", "C026-02", "C026-03"]);
+$config = array(
+    "year"=>2017,
+    "term"=>"TERM 1",
+    "student_class"=>"FORM 4",
+    "subject"=>"Kiswahili",
+    "reg_no"=> \Hudutech\Controller\MarksGradingController::getScoreSheetRegNo(2017, 'TERM 1', 'FORM 4')
+);
 //$ctrl = \Hudutech\Controller\SubjectGradingController::updateScoreSheet($config);
 //print_r($ctrl);
 
 //$ctrl = \Hudutech\Controller\MarksGradingController::getScoreSheetTotal($config);
-echo $ctrl = Hudutech\Controller\MarksGradingController::updateScoreSheetTotals($config);
+ echo $ctrl = \Hudutech\Controller\MarksGradingController::updateScoreSheetTotals($config);
+
+
 
 //$ctrl = \Hudutech\Controller\SubjectGradingController::updateStandardExamTotals($config);
 //

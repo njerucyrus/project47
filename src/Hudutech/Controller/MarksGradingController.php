@@ -73,7 +73,6 @@ class MarksGradingController implements MarksGradingInterface
                                                             ");
 
 
-
             foreach ($grade as $gradeItem) {
                 $stmt->bindParam(":id", $gradeItem['id']);
                 $stmt->bindParam(":low_point", $gradeItem['low_point']);
@@ -183,7 +182,14 @@ class MarksGradingController implements MarksGradingInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param $year
+     * @param term
+     * @param $student_class
+     * @return array
+     *
+     * this function returns an array of student reg_no that will be used as
+     * key in config param in updateScoreSheetTables method
+     * eg $config = array(... reg_no = \Hudutech\Controller\MarksGradingController::getScoreSheetRegNo)
      */
     public static function getScoreSheetRegNo($year, $term, $student_class)
     {
@@ -191,6 +197,7 @@ class MarksGradingController implements MarksGradingInterface
         $conn = $db->connect();
 
         $tableName = '';
+        $student_class = strtolower($student_class);
         if ($student_class == 'form 1') {
             $tableName = "form_one_score_sheet";
         } elseif ($student_class == 'form 2') {
@@ -204,22 +211,24 @@ class MarksGradingController implements MarksGradingInterface
         try {
             $stmt = $conn->prepare("SELECT `reg_no` FROM `{$tableName}` 
                                                   WHERE
-                                                        `year`:year  AND
-                                                        `term`=:term AND
-                                                        `student_class`=:student_class
+                                                        `year`=:year AND
+                                                        `term`=:term 
+                                                        
                                                         ");
 
             $stmt->bindParam(":year", $year);
             $stmt->bindParam(":term", $term);
-            $stmt->bindParam(":student_class", $student_class);
+
             $stmt->execute();
             $regNos = array();
             if ($stmt->rowCount() > 0) {
+
                 while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                    $regNos[] = $row;
+                    $regNos[] = $row['reg_no'];
                 }
             }
             return $regNos;
+
 
         } catch (\PDOException $exception) {
             echo $exception->getMessage();
@@ -342,7 +351,6 @@ class MarksGradingController implements MarksGradingInterface
                         $best_technical = $technical[0];
 
 
-
                         if (sizeof($compulsorySubjects) <= 3) {
                             $total = (float)($row['compulsory_total'] + $best2_science + $best_technical);
                         } else {
@@ -350,7 +358,6 @@ class MarksGradingController implements MarksGradingInterface
 
                         }
                         $markArray['total_mark'] = $total;
-
 
 
                     }
@@ -521,10 +528,10 @@ class MarksGradingController implements MarksGradingInterface
                         }
 
 
-                       $pointGrade = self::getGrade($totalPoints);
+                        $pointGrade = self::getGrade($totalPoints);
                         $grade_letter = '';
                         $comment = '';
-                        if (!empty($pointGrade)){
+                        if (!empty($pointGrade)) {
                             $grade_letter = $pointGrade['grade_letter'];
                             $comment = $pointGrade['comment'];
 
@@ -601,7 +608,7 @@ class MarksGradingController implements MarksGradingInterface
             $db->closeConnection();
             return true;
         } catch (\PDOException $exception) {
-            echo  $exception->getMessage();
+            echo $exception->getMessage();
             return false;
         }
 
