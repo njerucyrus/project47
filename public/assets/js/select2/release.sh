@@ -18,7 +18,7 @@ release="$name-$ver"
 tag="$ver"
 branch="build-$ver"
 curbranch=`git branch | grep "*" | sed "s/* //"`
-timestamp=$(date)
+timestamp=$(updatedAt)
 tokens="s/@@ver@@/$ver/g;s/\@@timestamp@@/$timestamp/g"
 remote="origin"
 

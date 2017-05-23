@@ -79,7 +79,8 @@ class TeacherController implements TeacherInterface
      */
     public function createMultiple(array $teachers)
     {
-        global $db, $conn;
+        $db = new DB();
+        $conn = $db->connect();
         try {
             $stmt = $conn->prepare("INSERT INTO teachers(
                                                             sir_name,
@@ -211,7 +212,8 @@ class TeacherController implements TeacherInterface
      */
     public static function destroy()
     {
-        global $db, $conn;
+       $db = new DB();
+       $conn = $db->connect();
 
         try {
 

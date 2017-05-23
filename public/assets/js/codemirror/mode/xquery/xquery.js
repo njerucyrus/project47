@@ -38,7 +38,7 @@ CodeMirror.defineMode("xquery", function() {
 
     // a list of types. For each add a property to kwObj with the value of
     // {type: "atom", style: "atom"}
-    var types = ['xs:string', 'xs:float', 'xs:decimal', 'xs:double', 'xs:integer', 'xs:boolean', 'xs:date', 'xs:dateTime',
+    var types = ['xs:string', 'xs:float', 'xs:decimal', 'xs:double', 'xs:integer', 'xs:boolean', 'xs:updatedAt', 'xs:dateTime',
     'xs:time', 'xs:duration', 'xs:dayTimeDuration', 'xs:time', 'xs:yearMonthDuration', 'numeric', 'xs:hexBinary',
     'xs:base64Binary', 'xs:anyURI', 'xs:QName', 'xs:byte','xs:boolean','xs:anyURI','xf:yearMonthDuration'];
     for(var i=0, l=types.length; i < l; i++) { kwObj[types[i]] = atom;};

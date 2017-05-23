@@ -4,7 +4,7 @@
 // This script reads event data from a JSON file and outputs those events which are within the range
 // supplied by the "start" and "end" GET parameters.
 //
-// An optional "timezone" GET parameter will force all ISO8601 date stings to a given timezone.
+// An optional "timezone" GET parameter will force all ISO8601 updatedAt stings to a given timezone.
 //
 // Requires PHP 5.2.0 or higher.
 //--------------------------------------------------------------------------------------------------
@@ -12,9 +12,9 @@
 // Require our Event class and datetime utilities
 require dirname(__FILE__) . '/utils.php';
 
-// Short-circuit if the client did not give us a date range.
+// Short-circuit if the client did not give us a updatedAt range.
 if (!isset($_GET['start']) || !isset($_GET['end'])) {
-	die("Please provide a date range.");
+	die("Please provide a updatedAt range.");
 }
 
 // Parse the start/end parameters.

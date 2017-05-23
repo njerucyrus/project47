@@ -294,6 +294,7 @@ class SubjectController implements SubjectInterface
                     }
                 }
             }
+            $db->closeConnection();
             return $compulsorySubjects;
         } catch (\PDOException $exception) {
             echo $exception->getMessage();

@@ -2,16 +2,16 @@
 
 ![Improvely.com](http://i.imgur.com/LbAMf3D.png)
 
-This date range picker component for Bootstrap creates a dropdown menu from which a user can
+This updatedAt range picker component for Bootstrap creates a dropdown menu from which a user can
 select a range of dates. I created it while building the UI for [Improvely](http://www.improvely.com), 
-which needed a way to select date ranges for reports.
+which needed a way to select updatedAt ranges for reports.
 
 If invoked with no options, it will present two calendars to choose a start 
-and end date from. Optionally, you can provide a list of date ranges the user can select from instead 
+and end updatedAt from. Optionally, you can provide a list of updatedAt ranges the user can select from instead 
 of choosing dates from the calendars. If attached to a text input, the selected dates will be inserted 
 into the text box. Otherwise, you can provide a custom callback function to receive the selection.
 
-The component can also be used as a single date picker by setting the `singleDatePicker` option to `true`.
+The component can also be used as a single updatedAt picker by setting the `singleDatePicker` option to `true`.
 
 **[View some examples](http://www.daterangepicker.com/)** or **[Try it in a live application](https://awio.iljmp.com/5/drpdemogh)**
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
 ```
 
 The constructor also takes an optional options object and callback function. The function will be called whenever 
-the selected date range has been changed by the user, and is passed the start and end dates (moment date objects)
+the selected updatedAt range has been changed by the user, and is passed the start and end dates (moment updatedAt objects)
 and the predefined range label chosen (if any), as parameters. It will not fire if the picker is closed without 
 any change to the selected dates.
 
@@ -51,20 +51,20 @@ $('input[name="daterange"]').daterangepicker(
     endDate: '2013-12-31'
   },
   function(start, end, label) {
-    alert('A date range was chosen: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+    alert('A updatedAt range was chosen: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
   }
 );
 ````
 
 ## Options
 
-`startDate`: (Date object, moment object or string) The start of the initially selected date range
+`startDate`: (Date object, moment object or string) The start of the initially selected updatedAt range
 
-`endDate`: (Date object, moment object or string) The end of the initially selected date range
+`endDate`: (Date object, moment object or string) The end of the initially selected updatedAt range
 
-`minDate`: (Date object, moment object or string) The earliest date a user may select
+`minDate`: (Date object, moment object or string) The earliest updatedAt a user may select
 
-`maxDate`: (Date object, moment object or string) The latest date a user may select
+`maxDate`: (Date object, moment object or string) The latest updatedAt a user may select
 
 `dateLimit`: (object) The maximum span between the selected start and end dates. Can have any property you can add to a moment object (i.e. days, months)
 
@@ -82,7 +82,7 @@ $('input[name="daterange"]').daterangepicker(
 
 `timePickerSeconds`: (boolean) Show seconds in the timePicker
 
-`ranges`: (object) Set predefined date ranges the user can select from. Each key is the label for the range, and its value an array with two dates representing the bounds of the range
+`ranges`: (object) Set predefined updatedAt ranges the user can select from. Each key is the label for the range, and its value an array with two dates representing the bounds of the range
 
 `opens`: (string: 'left'/'right'/'center') Whether the picker appears aligned to the left, to the right, or centered under the HTML element it's attached to
 
@@ -96,31 +96,31 @@ $('input[name="daterange"]').daterangepicker(
 
 `format`: (string) Date/time format string used by moment when parsing or displaying the selected dates
 
-`separator`: (string) Separator string to display between the start and end date when populating a text input the picker is attached to
+`separator`: (string) Separator string to display between the start and end updatedAt when populating a text input the picker is attached to
 
 `locale`: (object) Allows you to provide localized strings for buttons and labels, and the first day of week for the calendars
 
-`singleDatePicker`: (boolean) Show only a single calendar to choose one date, instead of a range picker with two calendars; the start and end dates provided to your callback will be the same single date chosen
+`singleDatePicker`: (boolean) Show only a single calendar to choose one updatedAt, instead of a range picker with two calendars; the start and end dates provided to your callback will be the same single updatedAt chosen
 
-`parentEl`: (string) jQuery selector of the parent element that the date range picker will be added to, if not provided this will be `'body'`
+`parentEl`: (string) jQuery selector of the parent element that the updatedAt range picker will be added to, if not provided this will be `'body'`
 
 ## Functions
 
 Several functions are provided for updating the picker's option and state after initialization:
 
-`setOptions(object, function)`: This function has the same signature and purpose as the date range picker's constructor: it sets the picker's options to their defaults, overrides them with any values in an options object you provide, and sets the callback for selection changes to whatever function you provide
+`setOptions(object, function)`: This function has the same signature and purpose as the updatedAt range picker's constructor: it sets the picker's options to their defaults, overrides them with any values in an options object you provide, and sets the callback for selection changes to whatever function you provide
 
-`setStartDate(Date/moment/string)`: Sets the date range picker's currently selected start date to the provided date
+`setStartDate(Date/moment/string)`: Sets the updatedAt range picker's currently selected start updatedAt to the provided updatedAt
 
-`setEndDate(Date/moment/string)`: Sets the date range picker's currently selected end date to the provided date
+`setEndDate(Date/moment/string)`: Sets the updatedAt range picker's currently selected end updatedAt to the provided updatedAt
 
 Example usage:
 
 ````
-//create a new date range picker
+//create a new updatedAt range picker
 $('#daterange').daterangepicker({ startDate: '2014-03-05', endDate: '2014-03-06' });
 
-//change the selected date range of that picker
+//change the selected updatedAt range of that picker
 $('#daterange').data('daterangepicker').setStartDate('2014-03-01');
 $('#daterange').data('daterangepicker').setEndDate('2014-03-31');
 ````
@@ -154,7 +154,7 @@ $('#daterange').on('cancel.daterangepicker', function(ev, picker) {
 });
 ````
 
-While passing in a callback to the constructor is the easiest way to listen for changes in the selected date range, you can also do something every time the apply button is clicked even if the selection hasn't changed:
+While passing in a callback to the constructor is the easiest way to listen for changes in the selected updatedAt range, you can also do something every time the apply button is clicked even if the selection hasn't changed:
 
 ````
 $('#daterange').daterangepicker();

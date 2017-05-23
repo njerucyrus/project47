@@ -10688,8 +10688,8 @@ DataReader.prototype = {
         // see implementations
     },
     /**
-     * Get the next date.
-     * @return {Date} the date.
+     * Get the next updatedAt.
+     * @return {Date} the updatedAt.
      */
     readDate: function() {
         var dostime = this.readInt(4);
@@ -98548,11 +98548,11 @@ window.pdfMake = window.pdfMake || {}; window.pdfMake.vfs = {"LICENSE.txt":"DQog
 	
 		/**
 		 * The type allows you to specify how the data for this column will be
-		 * ordered. Four types (string, numeric, date and html (which will strip
-		 * HTML tags before ordering)) are currently available. Note that only date
+		 * ordered. Four types (string, numeric, updatedAt and html (which will strip
+		 * HTML tags before ordering)) are currently available. Note that only updatedAt
 		 * formats understood by Javascript's Date() object will be accepted as type
-		 * date. For example: "Mar 26, 2008 5:03 PM". May take the values: 'string',
-		 * 'numeric', 'date' or 'html' (by default). Further types can be adding
+		 * updatedAt. For example: "Mar 26, 2008 5:03 PM". May take the values: 'string',
+		 * 'numeric', 'updatedAt' or 'html' (by default). Further types can be adding
 		 * through plug-ins.
 		 *  @type string
 		 *  @default null <i>Auto-detected from raw data</i>

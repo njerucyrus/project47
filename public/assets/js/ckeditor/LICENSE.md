@@ -142,7 +142,7 @@ distribute such modifications or work under the terms of Section 1
 above, provided that you also meet all of these conditions:
 
     a) You must cause the modified files to carry prominent notices
-    stating that you changed the files and the date of any change.
+    stating that you changed the files and the updatedAt of any change.
 
     b) You must cause any work that you distribute or publish, that in
     whole or in part contains or is derived from the Program or any
@@ -501,7 +501,7 @@ above, provided that you also meet all of these conditions:
     a) The modified work must itself be a software library.
 
     b) You must cause the files modified to carry prominent notices
-    stating that you changed the files and the date of any change.
+    stating that you changed the files and the updatedAt of any change.
 
     c) You must cause the whole of the work to be licensed at no
     charge to all third parties under the terms of this License.
@@ -892,7 +892,7 @@ Version 1.1
           Original Code (or portions thereof).
 
           (c) the licenses granted in this Section 2.1(a) and (b) are
-          effective on the date Initial Developer first distributes
+          effective on the updatedAt Initial Developer first distributes
           Original Code under the terms of this License.
 
           (d) Notwithstanding Section 2.1(b) above, no patent license is
@@ -922,7 +922,7 @@ Version 1.1
           Version (or portions of such combination).
 
           (c) the licenses granted in Sections 2.2(a) and 2.2(b) are
-          effective on the date Contributor first makes Commercial Use of
+          effective on the updatedAt Contributor first makes Commercial Use of
           the Covered Code.
 
           (d)    Notwithstanding Section 2.2(b) above, no patent license is
@@ -957,7 +957,7 @@ Version 1.1
      Electronic Distribution Mechanism to anyone to whom you made an
      Executable version available; and if made available via Electronic
      Distribution Mechanism, must remain available for at least twelve (12)
-     months after the date it initially became available, or at least six
+     months after the updatedAt it initially became available, or at least six
      (6) months after a subsequent version of that particular Modification
      has been made available to such recipients. You are responsible for
      ensuring that the Source Code version remains available even if the
@@ -966,7 +966,7 @@ Version 1.1
      3.3. Description of Modifications.
      You must cause all Covered Code to which You contribute to contain a
      file documenting the changes You made to create that Covered Code and
-     the date of any change. You must include a prominent statement that
+     the updatedAt of any change. You must include a prominent statement that
      the Modification is derived, directly or indirectly, from Original
      Code provided by the Initial Developer and including the name of the
      Initial Developer in (a) the Source Code, and (b) in any notice in an
@@ -1144,7 +1144,7 @@ Version 1.1
      (b)  any software, hardware, or device, other than such Participant's
      Contributor Version, directly or indirectly infringes any patent, then
      any rights granted to You by such Participant under Sections 2.1(b)
-     and 2.2(b) are revoked effective as of the date You first made, used,
+     and 2.2(b) are revoked effective as of the updatedAt You first made, used,
      sold, distributed, or had made, Modifications made by that
      Participant.
 

@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/../iclinic" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/../paypalpayment" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../rep_kenya" dialect="MySQL" />
   </component>
 </project>

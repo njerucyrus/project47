@@ -370,7 +370,7 @@ function Calendar(element, options, eventSources) {
 	function renderView(inc) {
 		if (
 			!currentView.start || // never rendered before
-			inc || date < currentView.start || date >= currentView.end // or new date range
+			inc || date < currentView.start || date >= currentView.end // or new updatedAt range
 		) {
 			if (elementVisible()) {
 				_renderView(inc);
@@ -1259,7 +1259,7 @@ function EventManager(options, _sources) {
 		}else{
 			event.className = [];
 		}
-		// TODO: if there is no start date, return false to indicate an invalid event
+		// TODO: if there is no start updatedAt, return false to indicate an invalid event
 	}
 	
 	
@@ -1527,7 +1527,7 @@ function parseTime(s) { // returns minutes since start of day
 
 /* Date Formatting
 -----------------------------------------------------------------------------*/
-// TODO: use same function formatDate(date, [date2], format, [options])
+// TODO: use same function formatDate(updatedAt, [date2], format, [options])
 
 
 function formatDate(date, format, options) {
@@ -1657,8 +1657,8 @@ fc.dateFormatters = dateFormatters;
 /* thanks jQuery UI (https://github.com/jquery/jquery-ui/blob/master/ui/jquery.ui.datepicker.js)
  * 
  * Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
- * `date` - the date to get the week for
- * `number` - the number of the week within the year that contains this date
+ * `updatedAt` - the updatedAt to get the week for
+ * `number` - the number of the week within the year that contains this updatedAt
  */
 function iso8601Week(date) {
 	var time;
@@ -2378,7 +2378,7 @@ function BasicView(element, calendar, viewName) {
 		html +=
 			"<td" +
 			" class='" + classNames.join(' ') + "'" +
-			" data-date='" + formatDate(date, 'yyyy-MM-dd') + "'" +
+			" data-updatedAt='" + formatDate(date, 'yyyy-MM-dd') + "'" +
 			">" +
 			"<div>";
 
@@ -3168,7 +3168,7 @@ function AgendaView(element, calendar, viewName) {
 	}
 
 
-	// TODO: data-date on the cells
+	// TODO: data-updatedAt on the cells
 
 	
 	
@@ -3452,7 +3452,7 @@ function AgendaView(element, calendar, viewName) {
 	
 	
 	// get the Y coordinate of the given time on the given day (both Date objects)
-	function timePosition(day, time) { // both date objects. day holds 00:00 of current day
+	function timePosition(day, time) { // both updatedAt objects. day holds 00:00 of current day
 		day = cloneDate(day, true);
 		if (time < addMinutes(cloneDate(day), minMinute)) {
 			return 0;
@@ -4819,16 +4819,16 @@ function View(element, calendar, viewName) {
 	// ====================================================================================================
 
 
-	// For determining how a given "cell" translates into a "date":
+	// For determining how a given "cell" translates into a "updatedAt":
 	//
 	// 1. Convert the "cell" (row and column) into a "cell offset" (the # of the cell, cronologically from the first).
 	//    Keep in mind that column indices are inverted with isRTL. This is taken into account.
 	//
 	// 2. Convert the "cell offset" to a "day offset" (the # of days since the first visible day in the view).
 	//
-	// 3. Convert the "day offset" into a "date" (a JavaScript Date object).
+	// 3. Convert the "day offset" into a "updatedAt" (a JavaScript Date object).
 	//
-	// The reverse transformation happens when transforming a date into a cell.
+	// The reverse transformation happens when transforming a updatedAt into a cell.
 
 
 	// exports
@@ -4897,8 +4897,8 @@ function View(element, calendar, viewName) {
 
 
 	// Keep incrementing the current day until it is no longer a hidden day.
-	// If the initial value of `date` is not a hidden day, don't do anything.
-	// Pass `isExclusive` as `true` if you are dealing with an end date.
+	// If the initial value of `updatedAt` is not a hidden day, don't do anything.
+	// Pass `isExclusive` as `true` if you are dealing with an end updatedAt.
 	// `inc` defaults to `1` (increment one day forward each time)
 	function skipHiddenDays(date, inc, isExclusive) {
 		inc = inc || 1;
@@ -4911,10 +4911,10 @@ function View(element, calendar, viewName) {
 
 
 	//
-	// TRANSFORMATIONS: cell -> cell offset -> day offset -> date
+	// TRANSFORMATIONS: cell -> cell offset -> day offset -> updatedAt
 	//
 
-	// cell -> date (combines all transformations)
+	// cell -> updatedAt (combines all transformations)
 	// Possible arguments:
 	// - row, col
 	// - { row:#, col: # }
@@ -4947,7 +4947,7 @@ function View(element, calendar, viewName) {
 
 	// cell offset -> day offset
 	function cellOffsetToDayOffset(cellOffset) {
-		var day0 = t.visStart.getDay(); // first date's day of week
+		var day0 = t.visStart.getDay(); // first updatedAt's day of week
 		cellOffset += dayToCellMap[day0]; // normlize cellOffset to beginning-of-week
 		return Math.floor(cellOffset / cellsPerWeek) * 7 // # of days from full weeks
 			+ cellToDayMap[ // # of days from partial last week
@@ -4956,7 +4956,7 @@ function View(element, calendar, viewName) {
 			- day0; // adjustment for beginning-of-week normalization
 	}
 
-	// day offset -> date (JavaScript Date object)
+	// day offset -> updatedAt (JavaScript Date object)
 	function dayOffsetToDate(dayOffset) {
 		var date = cloneDate(t.visStart);
 		addDays(date, dayOffset);
@@ -4965,10 +4965,10 @@ function View(element, calendar, viewName) {
 
 
 	//
-	// TRANSFORMATIONS: date -> day offset -> cell offset -> cell
+	// TRANSFORMATIONS: updatedAt -> day offset -> cell offset -> cell
 	//
 
-	// date -> cell (combines all transformations)
+	// updatedAt -> cell (combines all transformations)
 	function dateToCell(date) {
 		var dayOffset = dateToDayOffset(date);
 		var cellOffset = dayOffsetToCellOffset(dayOffset);
@@ -4976,14 +4976,14 @@ function View(element, calendar, viewName) {
 		return cell;
 	}
 
-	// date -> day offset
+	// updatedAt -> day offset
 	function dateToDayOffset(date) {
 		return dayDiff(date, t.visStart);
 	}
 
 	// day offset -> cell offset
 	function dayOffsetToCellOffset(dayOffset) {
-		var day0 = t.visStart.getDay(); // first date's day of week
+		var day0 = t.visStart.getDay(); // first updatedAt's day of week
 		dayOffset += day0; // normalize dayOffset to beginning-of-week
 		return Math.floor(dayOffset / 7) * cellsPerWeek // # of cells from full weeks
 			+ dayToCellMap[ // # of cells from partial last week
@@ -5010,7 +5010,7 @@ function View(element, calendar, viewName) {
 
 
 	//
-	// Converts a date range into an array of segment objects.
+	// Converts a updatedAt range into an array of segment objects.
 	// "Segments" are horizontal stretches of time, sliced up by row.
 	// A segment object has the following properties:
 	// - row
@@ -5023,11 +5023,11 @@ function View(element, calendar, viewName) {
 		var colCnt = t.getColCnt();
 		var segments = []; // array of segments to return
 
-		// day offset for given date range
+		// day offset for given updatedAt range
 		var rangeDayOffsetStart = dateToDayOffset(startDate);
 		var rangeDayOffsetEnd = dateToDayOffset(endDate); // exclusive
 
-		// first and last cell offset for the given date range
+		// first and last cell offset for the given updatedAt range
 		// "last" implies inclusivity
 		var rangeCellOffsetFirst = dayOffsetToCellOffset(rangeDayOffsetStart);
 		var rangeCellOffsetLast = dayOffsetToCellOffset(rangeDayOffsetEnd) - 1;
@@ -5053,7 +5053,7 @@ function View(element, calendar, viewName) {
 				// view might be RTL, so order by leftmost column
 				var cols = [ segmentCellFirst.col, segmentCellLast.col ].sort();
 
-				// Determine if segment's first/last cell is the beginning/end of the date range.
+				// Determine if segment's first/last cell is the beginning/end of the updatedAt range.
 				// We need to compare "day offset" because "cell offsets" are often ambiguous and
 				// can translate to multiple days, and an edge case reveals itself when we the
 				// range's first cell is hidden (we don't want isStart to be true).
@@ -5730,7 +5730,7 @@ function DayEventRenderer() {
 					var origCellOffset = cellToCellOffset(origCell);
 					var cellOffset = cellToCellOffset(cell);
 
-					// don't let resizing move earlier than start date cell
+					// don't let resizing move earlier than start updatedAt cell
 					cellOffset = Math.max(cellOffset, minCellOffset);
 
 					dayDelta =
@@ -5824,7 +5824,7 @@ function segmentElementEach(segments, callback) { // TODO: use in AgendaView?
 function compareDaySegments(a, b) {
 	return (b.rightCol - b.leftCol) - (a.rightCol - a.leftCol) || // put wider events first
 		b.event.allDay - a.event.allDay || // if tie, put all-day events first (booleans cast to 0/1)
-		a.event.start - b.event.start || // if a tie, sort by event start date
+		a.event.start - b.event.start || // if a tie, sort by event start updatedAt
 		(a.event.title || '').localeCompare(b.event.title) // if a tie, sort by event title
 }
 

@@ -35,7 +35,7 @@
         // check for nodeJS
         hasModule = (typeof module !== 'undefined' && module && module.exports),
 
-        // ASP.NET json date format regex
+        // ASP.NET json updatedAt format regex
         aspNetJsonRegex = /^\/?Date\((\-?\d+)/i,
         aspNetTimeSpanJsonRegex = /(\-)?(?:(\d*)\.)?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/,
 
@@ -1059,7 +1059,7 @@
             return this._week.doy;
         },
 
-        _invalidDate: 'Invalid date',
+        _invalidDate: 'Invalid updatedAt',
         invalidDate: function () {
             return this._invalidDate;
         }
@@ -1097,7 +1097,7 @@
         };
     }
 
-    // format date using native date object
+    // format updatedAt using native updatedAt object
     function formatMoment(m, format) {
         if (!m.isValid()) {
             return m.localeData().invalidDate();
@@ -1235,7 +1235,7 @@
         return parts[0] === '+' ? minutes : -minutes;
     }
 
-    // function to convert string input to date
+    // function to convert string input to updatedAt
     function addTimeToArrayFromToken(token, input, config) {
         var a, datePartArray = config._a;
 
@@ -1256,7 +1256,7 @@
         case 'MMM' : // fall through to MMMM
         case 'MMMM' :
             a = config._locale.monthsParse(input, token, config._strict);
-            // if we didn't find a month name, mark the date as invalid.
+            // if we didn't find a month name, mark the updatedAt as invalid.
             if (a != null) {
                 datePartArray[MONTH] = a;
             } else {
@@ -1344,7 +1344,7 @@
         case 'ddd':
         case 'dddd':
             a = config._locale.weekdaysParse(input);
-            // if we didn't get a weekday name, mark the date as invalid
+            // if we didn't get a weekday name, mark the updatedAt as invalid
             if (a != null) {
                 config._w = config._w || {};
                 config._w['d'] = a;
@@ -1420,7 +1420,7 @@
         config._dayOfYear = temp.dayOfYear;
     }
 
-    // convert an array to a date.
+    // convert an array to a updatedAt.
     // the array should mirror the parameters below
     // note: all values past the year are optional and will default to the lowest possible value.
     // [year, month, day , hour, minute, second, millisecond]
@@ -1451,7 +1451,7 @@
             config._a[DATE] = date.getUTCDate();
         }
 
-        // Default to current date.
+        // Default to current updatedAt.
         // * if no year, month, day of month are given, default to today
         // * if day of month is given, default month and year
         // * if month is given, default only year
@@ -1520,7 +1520,7 @@
         }
     }
 
-    // date from string and format string
+    // updatedAt from string and format string
     function makeDateFromStringAndFormat(config) {
         if (config._f === moment.ISO_8601) {
             parseISO(config);
@@ -1592,7 +1592,7 @@
         return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
     }
 
-    // date from string and array of format strings
+    // updatedAt from string and array of format strings
     function makeDateFromStringAndArray(config) {
         var tempConfig,
             bestMoment,
@@ -1638,7 +1638,7 @@
         extend(config, bestMoment || tempConfig);
     }
 
-    // date from iso format
+    // updatedAt from iso format
     function parseISO(config) {
         var i, l,
             string = config._i,
@@ -1668,7 +1668,7 @@
         }
     }
 
-    // date from iso format or fallback
+    // updatedAt from iso format or fallback
     function makeDateFromString(config) {
         parseISO(config);
         if (config._isValid === false) {
@@ -1711,11 +1711,11 @@
     }
 
     function makeDate(y, m, d, h, M, s, ms) {
-        //can't just apply() to create a date:
+        //can't just apply() to create a updatedAt:
         //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
         var date = new Date(y, m, d, h, M, s, ms);
 
-        //the date constructor doesn't accept years < 1970
+        //the updatedAt constructor doesn't accept years < 1970
         if (y < 1970) {
             date.setFullYear(y);
         }
@@ -2733,7 +2733,7 @@
     moment.fn.hour = moment.fn.hours = makeAccessor('Hours', true);
     // moment.fn.month is defined separately
     moment.fn.date = makeAccessor('Date', true);
-    moment.fn.dates = deprecate('dates accessor is deprecated. Use date instead.', makeAccessor('Date', true));
+    moment.fn.dates = deprecate('dates accessor is deprecated. Use updatedAt instead.', makeAccessor('Date', true));
     moment.fn.year = makeAccessor('FullYear', true);
     moment.fn.years = deprecate('years accessor is deprecated. Use year instead.', makeAccessor('FullYear', true));
 
@@ -2795,7 +2795,7 @@
             days -= absRound(yearsToDays(years));
 
             // 30 days to a month
-            // TODO (iskren): Use anchor date (like 1st Jan) to compute this.
+            // TODO (iskren): Use anchor updatedAt (like 1st Jan) to compute this.
             months += absRound(days / 30);
             days %= 30;
 
@@ -2920,7 +2920,7 @@
 
             if (!this.asSeconds()) {
                 // this is the same as C#'s (Noda) and python (isodate)...
-                // but not other JS (goog.date)
+                // but not other JS (goog.updatedAt)
                 return 'P0D';
             }
 

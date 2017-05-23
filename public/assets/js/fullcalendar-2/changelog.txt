@@ -336,7 +336,7 @@ v1.6.0 (2013-03-18)
 - finer snapping granularity for agenda view events ([495], thx @ms-doodle-com)
 - `eventAfterAllRender` ([753], thx @pdrakeweb)
 - `eventDataTransform` (thx @joeyspo)
-- `data-date` attributes on cells (thx @Jae)
+- `data-updatedAt` attributes on cells (thx @Jae)
 - expose `$.fullCalendar.dateFormatters`
 - when clicking fast on buttons, prevent text selection
 - bundled with latest jQuery (1.9.1) and jQuery UI (1.10.2)
@@ -369,7 +369,7 @@ v1.5.3 (2012-02-06)
 v1.5.2 (2011-08-21)
 -------------------
 
-- correctly process UTC "Z" ISO8601 date strings ([750])
+- correctly process UTC "Z" ISO8601 updatedAt strings ([750])
 
 [750]: https://code.google.com/p/fullcalendar/issues/detail?id=750
 
@@ -377,7 +377,7 @@ v1.5.2 (2011-08-21)
 v1.5.1 (2011-04-09)
 -------------------
 
-- more flexible ISO8601 date parsing ([814])
+- more flexible ISO8601 updatedAt parsing ([814])
 - more flexible parsing of UNIX timestamps ([826])
 - FullCalendar now buildable from source on a Mac ([795])
 - FullCalendar QA'd in FF4 ([883])
@@ -516,8 +516,8 @@ v1.4.7 (2010-07-05)
 - bugfixes
 	- dragged & reverted events having wrong time text ([406])
 	- bug rendering events that have an endtime with seconds, but no hours/minutes ([477])
-	- gotoDate date overflow bug ([429])
-	- wrong date reported when clicking on edge of last column in agenda views [412]
+	- gotoDate updatedAt overflow bug ([429])
+	- wrong updatedAt reported when clicking on edge of last column in agenda views [412]
 - support newlines in event titles
 - select/unselect callbacks now passes native js event
 
@@ -542,7 +542,7 @@ v1.4.6 (2010-05-31)
 v1.4.5 (2010-02-21)
 -------------------
 
-- lazyFetching option, which can force the calendar to fetch events on every view/date change
+- lazyFetching option, which can force the calendar to fetch events on every view/updatedAt change
 - scroll state of agenda views are preserved when switching back to view
 - bugfixes
 	- calling methods on an uninitialized fullcalendar throws error
@@ -586,7 +586,7 @@ v1.4.2 (2009-12-02)
 -------------------
 
 - eventAfterRender trigger
-- getDate & getView methods
+- getUpdatedAt & getView methods
 - height & contentHeight options (explicitly sets the pixel height)
 - minTime & maxTime options (restricts shown hours in agenda view)
 - getters [for all options] and setters [for height, contentHeight, and aspectRatio ONLY! stay tuned..]
@@ -604,7 +604,7 @@ v1.4.1 (2009-10-31)
 - can exclude weekends with new 'weekends' option
 - gcal feed 'currentTimezone' option
 - bugfixes
-	- year/month/date option sometimes wouldn't set correctly (depending on current date)
+	- year/month/updatedAt option sometimes wouldn't set correctly (depending on current updatedAt)
 	- daylight savings issue caused agenda views to start at 1am (for BST users)
 - cleanup of gcal.js code
 
@@ -636,7 +636,7 @@ v1.3.2 (2009-10-13)
 
 - Bugfixes (please upgrade from 1.3.1!)
 	- squashed potential infinite loop when addMonths and addDays
-	  is called with an invalid date
+	  is called with an invalid updatedAt
 	- $.fullCalendar.parseDate() now correctly parses IETF format
 	- when switching views, the 'today' button sticks inactive, fixed
 - gotoDate now can accept a single Date argument
@@ -647,7 +647,7 @@ v1.3.1 (2009-09-30)
 -------------------
 
 - Important Bugfixes (please upgrade from 1.3!)
-	- When current date was late in the month, for long months, and prev/next buttons
+	- When current updatedAt was late in the month, for long months, and prev/next buttons
 	  were clicked in month-view, some months would be skipped/repeated
 	- In certain time zones, daylight savings time would cause certain days
 	  to be misnumbered in month-view
@@ -671,7 +671,7 @@ v1.3 (2009-09-21)
 	- new test suite for new features, uses firebug-lite
 - refactored docs
 - Options
-	- + date
+	- + updatedAt
 	- + defaultView
 	- + aspectRatio
 	- + disableResizing
@@ -713,7 +713,7 @@ v1.3 (2009-09-21)
 	- x getEventsByID     -> clientEvents
 - Utilities:
 	- 'formatDate' format string completely changed (inspired by jQuery UI datepicker + datejs)
-	- 'formatDates' added to support date-ranges
+	- 'formatDates' added to support updatedAt-ranges
 - Google Calendar Options:
 	- x draggable -> editable
 - Bugfixes
@@ -738,7 +738,7 @@ v1.2 (2009-05-31)
 	- 'source' CalEvent attribute
 	- dynamically get/add/remove/update events of current month
 	- locale improvements: change month/day name text
-	- better date formatting ($.fullCalendar.formatDate)
+	- better updatedAt formatting ($.fullCalendar.formatDate)
 	- multiple 'event sources' allowed
 		- dynamically add/remove event sources
 - options for prevYear and nextYear buttons
@@ -751,7 +751,7 @@ v1.2 (2009-05-31)
 	- events from previous months sticking when clicking prev/next quickly
 - Google Calendar API changed to work w/ multiple event sources
 	- can also provide 'className' and 'draggable' options
-- date utilties moved from $ to $.fullCalendar
+- updatedAt utilties moved from $ to $.fullCalendar
 - more documentation in source code
 - minified version of fullcalendar.js
 - test suit (available from svn)

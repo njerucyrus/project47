@@ -12656,11 +12656,11 @@
 	
 		/**
 		 * The type allows you to specify how the data for this column will be
-		 * ordered. Four types (string, numeric, date and html (which will strip
-		 * HTML tags before ordering)) are currently available. Note that only date
+		 * ordered. Four types (string, numeric, updatedAt and html (which will strip
+		 * HTML tags before ordering)) are currently available. Note that only updatedAt
 		 * formats understood by Javascript's Date() object will be accepted as type
-		 * date. For example: "Mar 26, 2008 5:03 PM". May take the values: 'string',
-		 * 'numeric', 'date' or 'html' (by default). Further types can be adding
+		 * updatedAt. For example: "Mar 26, 2008 5:03 PM". May take the values: 'string',
+		 * 'numeric', 'updatedAt' or 'html' (by default). Further types can be adding
 		 * through plug-ins.
 		 *  @type string
 		 *  @default null <i>Auto-detected from raw data</i>
@@ -14504,7 +14504,7 @@
 		{
 			// V8 will remove any unknown characters at the start and end of the
 			// expression, leading to false matches such as `$245.12` or `10%` being
-			// a valid date. See forum thread 18941 for detail.
+			// a valid updatedAt. See forum thread 18941 for detail.
 			if ( d && !(d instanceof Date) && ( ! _re_date_start.test(d) || ! _re_date_end.test(d) ) ) {
 				return null;
 			}

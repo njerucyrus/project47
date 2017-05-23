@@ -8,7 +8,6 @@
 
 namespace Hudutech\Controller;
 
-
 use Hudutech\AppInterface\ExamInterface;
 use Hudutech\DBManager\ComplexQuery;
 use Hudutech\DBManager\DB;
