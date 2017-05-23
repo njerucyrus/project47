@@ -6,7 +6,7 @@
  * Time: 3:42 PM
  */
 
-$student = new \Hudutech\Entity\Student();
+
 $errorMsg = '';
 $successMsg = '';
 
@@ -14,7 +14,7 @@ if (isset($_POST['first_name']) && isset($_POST['last_name'])
     && isset($_POST['gender']) && isset($_POST['reg_no'])
     && isset($_POST['kcpe']) && isset($_POST['stream']) && isset($_POST['class_joined'])
 ) {
-
+    $student = new \Hudutech\Entity\Student();
     $student->setFirstName($_POST['first_name']);
     $student->setLastName($_POST['last_name']);
     $student->setOtherName($_POST['other_name']);

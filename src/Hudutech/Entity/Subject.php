@@ -43,7 +43,10 @@ class Subject
      * @var boolean
      */
     private $compulsory;
-
+    /**
+     * @var bool
+     */
+    private $hasPP3;
     /**
      * @return int
      */
@@ -140,9 +143,21 @@ class Subject
         $this->compulsory = $compulsory;
     }
 
+    /**
+     * @return bool
+     */
+    public function isHasPP3()
+    {
+        return $this->hasPP3;
+    }
 
-
-
+    /**
+     * @param bool $hasPP3
+     */
+    public function setHasPP3($hasPP3)
+    {
+        $this->hasPP3 = $hasPP3;
+    }
 
 
 }
