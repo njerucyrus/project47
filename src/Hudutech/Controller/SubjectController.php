@@ -24,6 +24,7 @@ class SubjectController implements SubjectInterface
         $subjectCode = $subject->getSubjectCode();
         $isActive = $subject->isActive();
         $isCompulsory = $subject->isCompulsory();
+        $hasPP3 = $subject->isHasPP3();
 
         try {
 
@@ -32,7 +33,8 @@ class SubjectController implements SubjectInterface
                                                             subject_group,
                                                             subject_code,
                                                             is_active,
-                                                            is_compulsory
+                                                            is_compulsory,
+                                                            has_pp3
                                                         )
                                                         VALUES
                                                          (
@@ -40,7 +42,8 @@ class SubjectController implements SubjectInterface
                                                             :subject_group,
                                                             :subject_code,
                                                             :is_active,
-                                                            :is_compulsory
+                                                            :is_compulsory,
+                                                            :has_pp3
                                                             
                                                           )
                                                         ");
@@ -49,6 +52,7 @@ class SubjectController implements SubjectInterface
             $stmt->bindParam(":subject_code", $subjectCode);
             $stmt->bindParam(":is_active", $isActive);
             $stmt->bindParam(":is_compulsory", $isCompulsory);
+            $stmt->bindParam(":has_pp3", $hasPP3);
             $stmt->execute();
             $db->closeConnection();
             return true;
