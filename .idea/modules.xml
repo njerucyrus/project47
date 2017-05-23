@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../boards/.idea/boards.iml" filepath="$PROJECT_DIR$/../boards/.idea/boards.iml" />
+      <module fileurl="file://F:\XAMPP\htdocs\boards\.idea\boards.iml" filepath="F:\XAMPP\htdocs\boards\.idea\boards.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hudutech_next.iml" filepath="$PROJECT_DIR$/.idea/hudutech_next.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../iclinic/.idea/iclinic.iml" filepath="$PROJECT_DIR$/../iclinic/.idea/iclinic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../rep_kenya/.idea/rep_kenya.iml" filepath="$PROJECT_DIR$/../rep_kenya/.idea/rep_kenya.iml" />
-      <module fileurl="file://$USER_HOME$/symfony_demo/.idea/symfony_demo.iml" filepath="$USER_HOME$/symfony_demo/.idea/symfony_demo.iml" />
+      <module fileurl="file://F:\XAMPP\htdocs\iclinic\.idea\iclinic.iml" filepath="F:\XAMPP\htdocs\iclinic\.idea\iclinic.iml" />
+      <module fileurl="file://F:\XAMPP\htdocs\rep_kenya\.idea\rep_kenya.iml" filepath="F:\XAMPP\htdocs\rep_kenya\.idea\rep_kenya.iml" />
+      <module fileurl="file://C:\Users\New LAptop\symfony_demo\.idea\symfony_demo.iml" filepath="C:\Users\New LAptop\symfony_demo\.idea\symfony_demo.iml" />
     </modules>
   </component>
 </project>
