@@ -1,0 +1,1930 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hudutech_next@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="hudutech_next">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="clinic_db"/>
+    <schema id="4" parent="1" name="clinic_db_old"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="phpmyadmin"/>
+    <schema id="9" parent="1" name="sampledb"/>
+    <schema id="10" parent="1" name="test"/>
+    <table id="11" parent="2" name="exams"/>
+    <table id="12" parent="2" name="form_four_score_sheet"/>
+    <table id="13" parent="2" name="form_one_score_sheet"/>
+    <table id="14" parent="2" name="form_three_score_sheet"/>
+    <table id="15" parent="2" name="form_two_score_sheet"/>
+    <table id="16" parent="2" name="permissions"/>
+    <table id="17" parent="2" name="point_grading"/>
+    <table id="18" parent="2" name="std_101_english_marks"/>
+    <table id="19" parent="2" name="std_102_kiswahili_marks"/>
+    <table id="20" parent="2" name="std_121_mathematics_marks"/>
+    <table id="21" parent="2" name="std_231_biology_marks"/>
+    <table id="22" parent="2" name="std_232_physics_marks"/>
+    <table id="23" parent="2" name="std_233_chemistry_marks"/>
+    <table id="24" parent="2" name="std_311_history_marks"/>
+    <table id="25" parent="2" name="std_312_geography_marks"/>
+    <table id="26" parent="2" name="std_313_cre_marks"/>
+    <table id="27" parent="2" name="std_443_agriculture_marks"/>
+    <table id="28" parent="2" name="std_565_business_marks"/>
+    <table id="29" parent="2" name="student_subjects"/>
+    <table id="30" parent="2" name="students"/>
+    <table id="31" parent="2" name="subject_grading_system"/>
+    <table id="32" parent="2" name="subjects"/>
+    <table id="33" parent="2" name="teacher_subjects"/>
+    <table id="34" parent="2" name="teachers"/>
+    <table id="35" parent="2" name="test_table"/>
+    <table id="36" parent="2" name="user_permissions"/>
+    <table id="37" parent="2" name="user_roles"/>
+    <table id="38" parent="2" name="users"/>
+    <column id="39" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="11" name="term">
+      <Position>2</Position>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="11" name="exam_name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="out_of">
+      <Position>4</Position>
+      <DataType>int(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="43" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="45" parent="12" name="year">
+      <Position>2</Position>
+      <DataType>year(4)|0</DataType>
+    </column>
+    <column id="46" parent="12" name="term">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="47" parent="12" name="stream">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="48" parent="12" name="reg_no">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="12" name="english">
+      <Position>6</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="50" parent="12" name="chemistry">
+      <Position>7</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="51" parent="12" name="geography">
+      <Position>8</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="52" parent="12" name="cre">
+      <Position>9</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="53" parent="12" name="physics">
+      <Position>10</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="54" parent="12" name="biology">
+      <Position>11</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="55" parent="12" name="history">
+      <Position>12</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="56" parent="12" name="business">
+      <Position>13</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="57" parent="12" name="agriculture">
+      <Position>14</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="58" parent="12" name="kiswahili">
+      <Position>15</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="59" parent="12" name="mathematics">
+      <Position>16</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="60" parent="12" name="total_mark">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="61" parent="12" name="total_point">
+      <Position>18</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="62" parent="12" name="grade">
+      <Position>19</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="63" parent="12" name="stream_position">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="64" parent="12" name="class_position">
+      <Position>21</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="65" parent="12" name="comment">
+      <Position>22</Position>
+      <DataType>varchar(140)|0</DataType>
+    </column>
+    <index id="66" parent="12" name="reg_no">
+      <ColNames>reg_no</ColNames>
+    </index>
+    <index id="67" parent="12" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="68" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="69" parent="12" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <UnderlyingIndexName>year</UnderlyingIndexName>
+    </key>
+    <foreign-key id="70" parent="12" name="form_four_score_sheet_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="71" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="72" parent="13" name="year">
+      <Position>2</Position>
+      <DataType>year(4)|0</DataType>
+    </column>
+    <column id="73" parent="13" name="term">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="74" parent="13" name="stream">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="75" parent="13" name="reg_no">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="13" name="english">
+      <Position>6</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="77" parent="13" name="chemistry">
+      <Position>7</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="78" parent="13" name="geography">
+      <Position>8</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="79" parent="13" name="cre">
+      <Position>9</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="80" parent="13" name="physics">
+      <Position>10</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="81" parent="13" name="biology">
+      <Position>11</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="82" parent="13" name="history">
+      <Position>12</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="83" parent="13" name="business">
+      <Position>13</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="84" parent="13" name="agriculture">
+      <Position>14</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="85" parent="13" name="kiswahili">
+      <Position>15</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="86" parent="13" name="mathematics">
+      <Position>16</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="87" parent="13" name="total_mark">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="88" parent="13" name="total_point">
+      <Position>18</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="89" parent="13" name="grade">
+      <Position>19</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="90" parent="13" name="stream_position">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="91" parent="13" name="class_position">
+      <Position>21</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="92" parent="13" name="comment">
+      <Position>22</Position>
+      <DataType>varchar(140)|0</DataType>
+    </column>
+    <index id="93" parent="13" name="reg_no">
+      <ColNames>reg_no</ColNames>
+    </index>
+    <index id="94" parent="13" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="95" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="96" parent="13" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <UnderlyingIndexName>year</UnderlyingIndexName>
+    </key>
+    <foreign-key id="97" parent="13" name="form_one_score_sheet_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="98" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="99" parent="14" name="year">
+      <Position>2</Position>
+      <DataType>year(4)|0</DataType>
+    </column>
+    <column id="100" parent="14" name="term">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="101" parent="14" name="stream">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="102" parent="14" name="reg_no">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="14" name="english">
+      <Position>6</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="104" parent="14" name="chemistry">
+      <Position>7</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="105" parent="14" name="geography">
+      <Position>8</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="106" parent="14" name="cre">
+      <Position>9</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="107" parent="14" name="physics">
+      <Position>10</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="108" parent="14" name="biology">
+      <Position>11</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="109" parent="14" name="history">
+      <Position>12</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="110" parent="14" name="business">
+      <Position>13</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="111" parent="14" name="agriculture">
+      <Position>14</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="112" parent="14" name="kiswahili">
+      <Position>15</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="113" parent="14" name="mathematics">
+      <Position>16</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="114" parent="14" name="total_mark">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="115" parent="14" name="total_point">
+      <Position>18</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="116" parent="14" name="grade">
+      <Position>19</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="117" parent="14" name="stream_position">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="118" parent="14" name="class_position">
+      <Position>21</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="119" parent="14" name="comment">
+      <Position>22</Position>
+      <DataType>varchar(140)|0</DataType>
+    </column>
+    <index id="120" parent="14" name="reg_no">
+      <ColNames>reg_no</ColNames>
+    </index>
+    <index id="121" parent="14" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="122" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="123" parent="14" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <UnderlyingIndexName>year</UnderlyingIndexName>
+    </key>
+    <foreign-key id="124" parent="14" name="form_three_score_sheet_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="125" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="126" parent="15" name="year">
+      <Position>2</Position>
+      <DataType>year(4)|0</DataType>
+    </column>
+    <column id="127" parent="15" name="term">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="128" parent="15" name="stream">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+    </column>
+    <column id="129" parent="15" name="reg_no">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="15" name="english">
+      <Position>6</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="131" parent="15" name="chemistry">
+      <Position>7</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="132" parent="15" name="geography">
+      <Position>8</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="133" parent="15" name="cre">
+      <Position>9</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="134" parent="15" name="physics">
+      <Position>10</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="135" parent="15" name="biology">
+      <Position>11</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="136" parent="15" name="history">
+      <Position>12</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="137" parent="15" name="business">
+      <Position>13</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="138" parent="15" name="agriculture">
+      <Position>14</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="139" parent="15" name="kiswahili">
+      <Position>15</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="140" parent="15" name="mathematics">
+      <Position>16</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="141" parent="15" name="total_mark">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="142" parent="15" name="total_point">
+      <Position>18</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="143" parent="15" name="grade">
+      <Position>19</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="144" parent="15" name="stream_position">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="145" parent="15" name="class_position">
+      <Position>21</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="146" parent="15" name="comment">
+      <Position>22</Position>
+      <DataType>varchar(140)|0</DataType>
+    </column>
+    <index id="147" parent="15" name="reg_no">
+      <ColNames>reg_no</ColNames>
+    </index>
+    <index id="148" parent="15" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="149" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="150" parent="15" name="year">
+      <ColNames>year
+term
+stream
+reg_no</ColNames>
+      <UnderlyingIndexName>year</UnderlyingIndexName>
+    </key>
+    <foreign-key id="151" parent="15" name="form_two_score_sheet_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="152" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="153" parent="16" name="perm_name">
+      <Position>2</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="154" parent="16" name="perm_description">
+      <Position>3</Position>
+      <DataType>varchar(250)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="155" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="156" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="157" parent="17" name="low_point">
+      <Position>2</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="158" parent="17" name="high_point">
+      <Position>3</Position>
+      <DataType>int(3)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="159" parent="17" name="grade">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="160" parent="17" name="comment">
+      <Position>5</Position>
+      <DataType>varchar(140)|0</DataType>
+    </column>
+    <key id="161" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="162" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="163" parent="18" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="164" parent="18" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="165" parent="18" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="166" parent="18" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="167" parent="18" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="168" parent="18" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="169" parent="18" name="pp3">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="170" parent="18" name="total">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="171" parent="18" name="grade">
+      <Position>10</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="172" parent="18" name="points">
+      <Position>11</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="173" parent="18" name="comment">
+      <Position>12</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="174" parent="18" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="175" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="176" parent="18" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="177" parent="18" name="std_101_english_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="178" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="179" parent="19" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="180" parent="19" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="181" parent="19" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="182" parent="19" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="183" parent="19" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="184" parent="19" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="185" parent="19" name="pp3">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="186" parent="19" name="total">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="187" parent="19" name="grade">
+      <Position>10</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="188" parent="19" name="points">
+      <Position>11</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="189" parent="19" name="comment">
+      <Position>12</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="190" parent="19" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="191" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="192" parent="19" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="193" parent="19" name="std_102_kiswahili_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="194" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="195" parent="20" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="196" parent="20" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="197" parent="20" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="198" parent="20" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="199" parent="20" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="200" parent="20" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="201" parent="20" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="202" parent="20" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="203" parent="20" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="204" parent="20" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="205" parent="20" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="206" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="207" parent="20" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="208" parent="20" name="std_121_mathematics_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="209" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="210" parent="21" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="211" parent="21" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="212" parent="21" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="213" parent="21" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="214" parent="21" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="215" parent="21" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="216" parent="21" name="pp3">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="217" parent="21" name="total">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="218" parent="21" name="grade">
+      <Position>10</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="219" parent="21" name="points">
+      <Position>11</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="220" parent="21" name="comment">
+      <Position>12</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="221" parent="21" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="222" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="223" parent="21" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="224" parent="21" name="std_231_biology_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="225" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="226" parent="22" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="227" parent="22" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="228" parent="22" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="229" parent="22" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="230" parent="22" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="231" parent="22" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="232" parent="22" name="pp3">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="233" parent="22" name="total">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="234" parent="22" name="grade">
+      <Position>10</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="235" parent="22" name="points">
+      <Position>11</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="236" parent="22" name="comment">
+      <Position>12</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="237" parent="22" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="238" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="239" parent="22" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="240" parent="22" name="std_232_physics_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="241" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="242" parent="23" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="243" parent="23" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="244" parent="23" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="245" parent="23" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="246" parent="23" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="247" parent="23" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="248" parent="23" name="pp3">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="249" parent="23" name="total">
+      <Position>9</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="250" parent="23" name="grade">
+      <Position>10</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="251" parent="23" name="points">
+      <Position>11</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="252" parent="23" name="comment">
+      <Position>12</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="253" parent="23" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="254" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="255" parent="23" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="256" parent="23" name="std_233_chemistry_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="257" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="258" parent="24" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="259" parent="24" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="260" parent="24" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="261" parent="24" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="262" parent="24" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="263" parent="24" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="264" parent="24" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="265" parent="24" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="266" parent="24" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="267" parent="24" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="268" parent="24" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="269" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="270" parent="24" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="271" parent="24" name="std_311_history_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="272" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="273" parent="25" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="274" parent="25" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="275" parent="25" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="276" parent="25" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="277" parent="25" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="278" parent="25" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="279" parent="25" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="280" parent="25" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="281" parent="25" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="282" parent="25" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="283" parent="25" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="284" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="285" parent="25" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="286" parent="25" name="std_312_geography_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="287" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="288" parent="26" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="289" parent="26" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="290" parent="26" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="291" parent="26" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="292" parent="26" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="293" parent="26" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="294" parent="26" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="295" parent="26" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="296" parent="26" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="297" parent="26" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="298" parent="26" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="299" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="300" parent="26" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="301" parent="26" name="std_313_cre_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="302" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="303" parent="27" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="304" parent="27" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="305" parent="27" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="306" parent="27" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="307" parent="27" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="308" parent="27" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="309" parent="27" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="310" parent="27" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="311" parent="27" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="312" parent="27" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="313" parent="27" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="314" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="315" parent="27" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="316" parent="27" name="std_443_agriculture_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="317" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="318" parent="28" name="reg_no">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="319" parent="28" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="320" parent="28" name="term">
+      <Position>4</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="321" parent="28" name="student_class">
+      <Position>5</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="322" parent="28" name="pp1">
+      <Position>6</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="323" parent="28" name="pp2">
+      <Position>7</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="324" parent="28" name="total">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="325" parent="28" name="grade">
+      <Position>9</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="326" parent="28" name="points">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="327" parent="28" name="comment">
+      <Position>11</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="328" parent="28" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="329" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="330" parent="28" name="reg_no">
+      <ColNames>reg_no
+year
+term
+student_class</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <foreign-key id="331" parent="28" name="std_565_business_marks_ibfk_1">
+      <ColNames>reg_no</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>reg_no</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="332" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="333" parent="29" name="student_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="334" parent="29" name="subject_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="335" parent="29" name="student_id">
+      <ColNames>student_id
+subject_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="336" parent="29" name="subject_id">
+      <ColNames>subject_id</ColNames>
+    </index>
+    <key id="337" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="338" parent="29" name="student_id">
+      <ColNames>student_id
+subject_id</ColNames>
+      <UnderlyingIndexName>student_id</UnderlyingIndexName>
+    </key>
+    <foreign-key id="339" parent="29" name="student_subjects_ibfk_2">
+      <ColNames>student_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>students</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="340" parent="29" name="student_subjects_ibfk_1">
+      <ColNames>subject_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>subjects</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="341" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="342" parent="30" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="343" parent="30" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="344" parent="30" name="other_name">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="345" parent="30" name="gender">
+      <Position>5</Position>
+      <DataType>enum(&apos;M&apos;, &apos;F&apos;)|0</DataType>
+    </column>
+    <column id="346" parent="30" name="reg_no">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="347" parent="30" name="class_joined">
+      <Position>7</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="348" parent="30" name="profile_image">
+      <Position>8</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <column id="349" parent="30" name="current_class">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="350" parent="30" name="stream">
+      <Position>10</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="351" parent="30" name="kcpe">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="352" parent="30" name="dob">
+      <Position>12</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="353" parent="30" name="date_enrolled">
+      <Position>13</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="354" parent="30" name="status">
+      <Position>14</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="355" parent="30" name="parent_name">
+      <Position>15</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="356" parent="30" name="phone_number">
+      <Position>16</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="357" parent="30" name="address">
+      <Position>17</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="358" parent="30" name="email">
+      <Position>18</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="359" parent="30" name="occupation">
+      <Position>19</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="360" parent="30" name="reg_no">
+      <ColNames>reg_no</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="361" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="362" parent="30" name="reg_no">
+      <ColNames>reg_no</ColNames>
+      <UnderlyingIndexName>reg_no</UnderlyingIndexName>
+    </key>
+    <column id="363" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="364" parent="31" name="low_mark">
+      <Position>2</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="365" parent="31" name="high_mark">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="366" parent="31" name="grade">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="367" parent="31" name="points">
+      <Position>5</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="368" parent="31" name="comment">
+      <Position>6</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="369" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="370" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="371" parent="32" name="subject_code">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="372" parent="32" name="subject_name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="373" parent="32" name="subject_group">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="374" parent="32" name="has_pp3">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="375" parent="32" name="is_active">
+      <Position>6</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="376" parent="32" name="is_compulsory">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="377" parent="32" name="subject_code">
+      <ColNames>subject_code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="378" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="379" parent="32" name="subject_code">
+      <ColNames>subject_code</ColNames>
+      <UnderlyingIndexName>subject_code</UnderlyingIndexName>
+    </key>
+    <column id="380" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="381" parent="33" name="teacher_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="382" parent="33" name="subject_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="383" parent="33" name="subject_id">
+      <ColNames>subject_id</ColNames>
+    </index>
+    <index id="384" parent="33" name="teacher_id">
+      <ColNames>teacher_id
+subject_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="385" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="386" parent="33" name="teacher_id">
+      <ColNames>teacher_id
+subject_id</ColNames>
+      <UnderlyingIndexName>teacher_id</UnderlyingIndexName>
+    </key>
+    <foreign-key id="387" parent="33" name="teacher_subjects_ibfk_1">
+      <ColNames>teacher_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>teachers</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="388" parent="33" name="teacher_subjects_ibfk_2">
+      <ColNames>subject_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>subjects</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="389" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="390" parent="34" name="sir_name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="391" parent="34" name="middle_name">
+      <Position>3</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="392" parent="34" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="393" parent="34" name="tsc_no">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="394" parent="34" name="national_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="395" parent="34" name="speciality">
+      <Position>7</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="396" parent="34" name="gender">
+      <Position>8</Position>
+      <DataType>enum(&apos;M&apos;, &apos;F&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="397" parent="34" name="date_registered">
+      <Position>9</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="398" parent="34" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="399" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="400" parent="35" name="col1">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="401" parent="35" name="col2">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="402" parent="35" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="403" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="404" parent="36" name="role_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="405" parent="36" name="permission_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="406" parent="36" name="permission_id">
+      <ColNames>permission_id</ColNames>
+    </index>
+    <index id="407" parent="36" name="role_id">
+      <ColNames>role_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="408" parent="36" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="409" parent="36" name="role_id">
+      <ColNames>role_id
+permission_id</ColNames>
+      <UnderlyingIndexName>role_id</UnderlyingIndexName>
+    </key>
+    <foreign-key id="410" parent="36" name="user_permissions_ibfk_1">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>user_roles</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="411" parent="36" name="user_permissions_ibfk_2">
+      <ColNames>permission_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>permissions</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="412" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="413" parent="37" name="role_name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="414" parent="37" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="415" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="416" parent="38" name="username">
+      <Position>2</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="417" parent="38" name="password">
+      <Position>3</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="418" parent="38" name="role_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="419" parent="38" name="ip_address">
+      <Position>5</Position>
+      <DataType>varchar(128)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="420" parent="38" name="status">
+      <Position>6</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="421" parent="38" name="last_login">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="422" parent="38" name="created_at">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="423" parent="38" name="profile_image">
+      <Position>9</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <index id="424" parent="38" name="role_id">
+      <ColNames>role_id</ColNames>
+    </index>
+    <index id="425" parent="38" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="426" parent="38" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="427" parent="38" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <foreign-key id="428" parent="38" name="users_ibfk_1">
+      <ColNames>role_id</ColNames>
+      <RefSchemaName>hudutech_next</RefSchemaName>
+      <RefTableName>user_roles</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
