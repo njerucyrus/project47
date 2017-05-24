@@ -43,7 +43,7 @@
                 <div class="user-link">
 
                     <i style="color: white; font-size: 3em; display: inline-block;width: 100%;text-align: center;"
-                       class="fa fa-user-md "></i>
+                       class="fa fa-graduation-cap"></i>
 
                     <h2 style="font-size: 1.5em; color: white; text-align: center;">Welcome,<?php echo "user"?></h2>
                     <p style="font-size: 1.2em; color: white; text-align: center;"> Logged in as (<?php echo "admin"; ?>
