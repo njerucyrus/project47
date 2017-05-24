@@ -219,10 +219,9 @@ class SubjectController implements SubjectInterface
 
         try {
 
-            $stmt = $conn->prepare("SELECT * FROM subjects WHERE id=:id");
-            $stmt->bindParam(":id", $id);
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE 1");
             $stmt->execute();
-            if ($stmt->rowCount() == 1) {
+            if ($stmt->rowCount() >0) {
                 $subjects = array();
                 while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     $subject = array(
