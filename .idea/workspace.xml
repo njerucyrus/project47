@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1f8f86-3cd0-49ee-8a34-d4134970a6a5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/sidebar.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hudutech_next.iml" afterPath="$PROJECT_DIR$/.idea/hudutech_next.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -116,8 +115,8 @@
       <file leaf-file-name="head_views.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/head_views.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state relative-caret-position="152">
+              <caret line="25" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -590,12 +589,20 @@
       <workItem from="1495184247507" duration="281000" />
       <workItem from="1495184562171" duration="126000" />
       <workItem from="1495558881795" duration="5028000" />
-      <workItem from="1495600667837" duration="10445000" />
+      <workItem from="1495600667837" duration="10986000" />
     </task>
+    <task id="LOCAL-00001" summary="added register of students">
+      <created>1495644573931</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1495644573931</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="892577000" />
+    <option name="totallyTimeSpent" value="893118000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -662,6 +669,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added register of students" />
+    <option name="LAST_COMMIT_MESSAGE" value="added register of students" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -831,8 +842,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/head_views.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        <state relative-caret-position="152">
+          <caret line="25" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>
