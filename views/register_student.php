@@ -6,6 +6,7 @@
  * Time: 3:43 PM
  */
 ?>
+<<<<<<< HEAD
 <!doctype html>
 <html>
 <head>
@@ -166,3 +167,6 @@
 <?php include 'footer_views.php'; ?>
 </body>
 </html>
+=======
+
+>>>>>>> 1a44534eb38c2696c2efe7b1fc065c332c56e455
