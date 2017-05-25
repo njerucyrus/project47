@@ -9,6 +9,10 @@
 namespace Hudutech\Entity;
 
 
+/**
+ * Class Subject
+ * @package Hudutech\Entity
+ */
 class Subject
 {
     /**
@@ -30,6 +34,19 @@ class Subject
      */
     private $subjectCode;
 
+    /**
+     * @var boolean
+     */
+    private $active;
+
+    /**
+     * @var boolean
+     */
+    private $compulsory;
+    /**
+     * @var bool
+     */
+    private $hasPP3;
     /**
      * @return int
      */
@@ -92,6 +109,54 @@ class Subject
     public function setSubjectCode($subjectCode)
     {
         $this->subjectCode = $subjectCode;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCompulsory()
+    {
+        return $this->compulsory;
+    }
+
+    /**
+     * @param bool $compulsory
+     */
+    public function setCompulsory($compulsory)
+    {
+        $this->compulsory = $compulsory;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHasPP3()
+    {
+        return $this->hasPP3;
+    }
+
+    /**
+     * @param bool $hasPP3
+     */
+    public function setHasPP3($hasPP3)
+    {
+        $this->hasPP3 = $hasPP3;
     }
 
 

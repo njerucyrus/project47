@@ -33,7 +33,7 @@ class Event {
 			$this->allDay = (bool)$array['allDay'];
 		}
 		else {
-			// Guess allDay based off of ISO8601 date strings
+			// Guess allDay based off of ISO8601 updatedAt strings
 			$this->allDay = preg_match(self::ALL_DAY_REGEX, $array['start']) &&
 				(!isset($array['end']) || preg_match(self::ALL_DAY_REGEX, $array['end']));
 		}
@@ -56,7 +56,7 @@ class Event {
 	}
 
 
-	// Returns whether the date range of our event intersects with the given all-day range.
+	// Returns whether the updatedAt range of our event intersects with the given all-day range.
 	// $rangeStart and $rangeEnd are assumed to be dates in UTC with 00:00:00 time.
 	public function isWithinDayRange($rangeStart, $rangeEnd) {
 
@@ -83,7 +83,7 @@ class Event {
 
 		$array['title'] = $this->title;
 
-		// Figure out the date format. This essentially encodes allDay into the date string.
+		// Figure out the updatedAt format. This essentially encodes allDay into the updatedAt string.
 		if ($this->allDay) {
 			$format = 'Y-m-d'; // output like "2013-12-29"
 		}
@@ -123,7 +123,7 @@ function parseDateTime($string, $timezone=null) {
 }
 
 
-// Takes the year/month/date values of the given DateTime and converts them to a new DateTime,
+// Takes the year/month/updatedAt values of the given DateTime and converts them to a new DateTime,
 // but in UTC.
 function stripTime($datetime) {
 	return new DateTime($datetime->format('Y-m-d'));

@@ -25,4 +25,5 @@ interface StudentInterface
     public static function assignSubject(array $studentId , $subjectId);
     public static function removeSubject($studentId, array $subjectId);
     public static function getStudentSubjects($studentId);
+
 }

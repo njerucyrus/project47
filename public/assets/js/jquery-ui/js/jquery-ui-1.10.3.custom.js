@@ -2048,7 +2048,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					instance: sortable,
 					shouldRevert: sortable.options.revert
 				});
-				sortable.refreshPositions();	// Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
+				sortable.refreshPositions();	// Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to updatedAt (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
 				sortable._trigger("activate", event, uiSortable);
 			}
 		});
@@ -6816,14 +6816,14 @@ var PROP_NAME = "datepicker",
 	instActive;
 
 /* Date picker manager.
-   Use the singleton instance of this class, $.datepicker, to interact with the date picker.
-   Settings for (groups of) date pickers are maintained in an instance object,
+   Use the singleton instance of this class, $.datepicker, to interact with the updatedAt picker.
+   Settings for (groups of) updatedAt pickers are maintained in an instance object,
    allowing multiple different settings on the same page. */
 
 function Datepicker() {
 	this._curInst = null; // The current instance in use
 	this._keyEvent = false; // If the last event was a key event
-	this._disabledInputs = []; // List of date picker inputs that have been disabled
+	this._disabledInputs = []; // List of updatedAt picker inputs that have been disabled
 	this._datepickerShowing = false; // True if the popup picker is showing , false if not
 	this._inDialog = false; // True if showing within a "dialog", false if not
 	this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
@@ -6854,12 +6854,12 @@ function Datepicker() {
 		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
 		yearSuffix: "" // Additional text to append to the year in the month headers
 	};
-	this._defaults = { // Global defaults for all the date picker instances
+	this._defaults = { // Global defaults for all the updatedAt picker instances
 		showOn: "focus", // "focus" for popup on focus,
 			// "button" for trigger button, or "both" for either
 		showAnim: "fadeIn", // Name of jQuery animation for popup
 		showOptions: {}, // Options for enhanced animations
-		defaultDate: null, // Used when field is blank: actual date,
+		defaultDate: null, // Used when field is blank: actual updatedAt,
 			// +/-number for offset from today, null for today
 		appendText: "", // Display text following the input box, e.g. showing the format
 		buttonText: "...", // Text for trigger button
@@ -6867,7 +6867,7 @@ function Datepicker() {
 		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
 		hideIfNoPrevNext: false, // True to hide next/previous month links
 			// if not applicable, false to just disable them
-		navigationAsDateFormat: false, // True if date formatting applied to prev/today/next links
+		navigationAsDateFormat: false, // True if updatedAt formatting applied to prev/today/next links
 		gotoCurrent: false, // True if today link goes back to current selection instead
 		changeMonth: false, // True if month can be selected directly, false if only prev/next
 		changeYear: false, // True if year can be selected directly, false if only prev/next
@@ -6882,15 +6882,15 @@ function Datepicker() {
 		shortYearCutoff: "+10", // Short year values < this are in the current century,
 			// > this are in the previous century,
 			// string value starting with "+" for current year + value
-		minDate: null, // The earliest selectable date, or null for no limit
-		maxDate: null, // The latest selectable date, or null for no limit
+		minDate: null, // The earliest selectable updatedAt, or null for no limit
+		maxDate: null, // The latest selectable updatedAt, or null for no limit
 		duration: "fast", // Duration of display/closure
-		beforeShowDay: null, // Function that takes a date and returns an array with
+		beforeShowDay: null, // Function that takes a updatedAt and returns an array with
 			// [0] = true if selectable, false if not, [1] = custom CSS class name(s) or "",
 			// [2] = cell title (optional), e.g. $.datepicker.noWeekends
 		beforeShow: null, // Function that takes an input field and
-			// returns a set of custom settings for the date picker
-		onSelect: null, // Define a callback function when a date is selected
+			// returns a set of custom settings for the updatedAt picker
+		onSelect: null, // Define a callback function when a updatedAt is selected
 		onChangeMonthYear: null, // Define a callback function when the month or year is changed
 		onClose: null, // Define a callback function when the datepicker is closed
 		numberOfMonths: 1, // Number of months to show at a time
@@ -6898,10 +6898,10 @@ function Datepicker() {
 		stepMonths: 1, // Number of months to step back/forward
 		stepBigMonths: 12, // Number of months to step back/forward for the big links
 		altField: "", // Selector for an alternate field to store selected dates into
-		altFormat: "", // The date format to use for the alternate field
-		constrainInput: true, // The input is constrained by the current date format
+		altFormat: "", // The updatedAt format to use for the alternate field
+		constrainInput: true, // The input is constrained by the current updatedAt format
 		showButtonPanel: false, // True to show button panel, false to not show it
-		autoSize: false, // True to size the input for the date format, false to leave as is
+		autoSize: false, // True to size the input for the updatedAt format, false to leave as is
 		disabled: false // The initial disabled state
 	};
 	$.extend(this._defaults, this.regional[""]);
@@ -6909,7 +6909,7 @@ function Datepicker() {
 }
 
 $.extend(Datepicker.prototype, {
-	/* Class name added to elements to indicate already configured with a date picker. */
+	/* Class name added to elements to indicate already configured with a updatedAt picker. */
 	markerClassName: "hasDatepicker",
 
 	//Keep track of the maximum number of rows displayed (see #7043)
@@ -6920,7 +6920,7 @@ $.extend(Datepicker.prototype, {
 		return this.dpDiv;
 	},
 
-	/* Override the default settings for all instances of the date picker.
+	/* Override the default settings for all instances of the updatedAt picker.
 	 * @param  settings  object - the new settings to use as defaults (anonymous object)
 	 * @return the manager object
 	 */
@@ -6929,9 +6929,9 @@ $.extend(Datepicker.prototype, {
 		return this;
 	},
 
-	/* Attach the date picker to a jQuery selection.
+	/* Attach the updatedAt picker to a jQuery selection.
 	 * @param  target	element - the target input field or division or span
-	 * @param  settings  object - the new settings to use for this date picker instance (anonymous)
+	 * @param  settings  object - the new settings to use for this updatedAt picker instance (anonymous)
 	 */
 	_attachDatepicker: function(target, settings) {
 		var nodeName, inline, inst;
@@ -6961,7 +6961,7 @@ $.extend(Datepicker.prototype, {
 			bindHover($("<div class='" + this._inlineClass + " ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>")))};
 	},
 
-	/* Attach the date picker to an input field. */
+	/* Attach the updatedAt picker to an input field. */
 	_connectDatepicker: function(target, inst) {
 		var input = $(target);
 		inst.append = $([]);
@@ -7001,10 +7001,10 @@ $.extend(Datepicker.prototype, {
 		}
 
 		showOn = this._get(inst, "showOn");
-		if (showOn === "focus" || showOn === "both") { // pop-up date picker when in the marked field
+		if (showOn === "focus" || showOn === "both") { // pop-up updatedAt picker when in the marked field
 			input.focus(this._showDatepicker);
 		}
-		if (showOn === "button" || showOn === "both") { // pop-up date picker when button clicked
+		if (showOn === "button" || showOn === "both") { // pop-up updatedAt picker when button clicked
 			buttonText = this._get(inst, "buttonText");
 			buttonImage = this._get(inst, "buttonImage");
 			inst.trigger = $(this._get(inst, "buttonImageOnly") ?
@@ -7028,7 +7028,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Apply the maximum length for the date format. */
+	/* Apply the maximum length for the updatedAt format. */
 	_autoSize: function(inst) {
 		if (this._get(inst, "autoSize") && !inst.inline) {
 			var findMax, max, maxI, i,
@@ -7056,7 +7056,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Attach an inline date picker to a div. */
+	/* Attach an inline updatedAt picker to a div. */
 	_inlineDatepicker: function(target, inst) {
 		var divSpan = $(target);
 		if (divSpan.hasClass(this.markerClassName)) {
@@ -7076,11 +7076,11 @@ $.extend(Datepicker.prototype, {
 		inst.dpDiv.css( "display", "block" );
 	},
 
-	/* Pop-up the date picker in a "dialog" box.
+	/* Pop-up the updatedAt picker in a "dialog" box.
 	 * @param  input element - ignored
-	 * @param  date	string or Date - the initial date to display
-	 * @param  onSelect  function - the function to call when a date is selected
-	 * @param  settings  object - update the dialog date picker instance's settings (anonymous object)
+	 * @param  updatedAt	string or Date - the initial updatedAt to display
+	 * @param  onSelect  function - the function to call when a updatedAt is selected
+	 * @param  settings  object - update the dialog updatedAt picker instance's settings (anonymous object)
 	 * @param  pos int[2] - coordinates for the dialog's position within the screen or
 	 *					event - with x/y coordinates or
 	 *					leave empty for default (screen centre)
@@ -7155,7 +7155,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Enable the date picker to a jQuery selection.
+	/* Enable the updatedAt picker to a jQuery selection.
 	 * @param  target	element - the target input field or division or span
 	 */
 	_enableDatepicker: function(target) {
@@ -7183,7 +7183,7 @@ $.extend(Datepicker.prototype, {
 			function(value) { return (value === target ? null : value); }); // delete entry
 	},
 
-	/* Disable the date picker to a jQuery selection.
+	/* Disable the updatedAt picker to a jQuery selection.
 	 * @param  target	element - the target input field or division or span
 	 */
 	_disableDatepicker: function(target) {
@@ -7242,7 +7242,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Update or retrieve the settings for a date picker attached to an input field or division.
+	/* Update or retrieve the settings for a updatedAt picker attached to an input field or division.
 	 * @param  target  element - the target input field or division or span
 	 * @param  name	object - the new settings to update or
 	 *				string - the name of the setting to change or retrieve,
@@ -7303,7 +7303,7 @@ $.extend(Datepicker.prototype, {
 		this._optionDatepicker(target, name, value);
 	},
 
-	/* Redraw the date picker attached to an input field or division.
+	/* Redraw the updatedAt picker attached to an input field or division.
 	 * @param  target  element - the target input field or division or span
 	 */
 	_refreshDatepicker: function(target) {
@@ -7315,7 +7315,7 @@ $.extend(Datepicker.prototype, {
 
 	/* Set the dates for a jQuery selection.
 	 * @param  target element - the target input field or division or span
-	 * @param  date	Date - the new date
+	 * @param  updatedAt	Date - the new updatedAt
 	 */
 	_setDateDatepicker: function(target, date) {
 		var inst = this._getInst(target);
@@ -7326,10 +7326,10 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Get the date(s) for the first entry in a jQuery selection.
+	/* Get the updatedAt(s) for the first entry in a jQuery selection.
 	 * @param  target element - the target input field or division or span
-	 * @param  noDefault boolean - true if no default date is to be used
-	 * @return Date - the current date
+	 * @param  noDefault boolean - true if no default updatedAt is to be used
+	 * @return Date - the current updatedAt
 	 */
 	_getDateDatepicker: function(target, noDefault) {
 		var inst = this._getInst(target);
@@ -7425,7 +7425,7 @@ $.extend(Datepicker.prototype, {
 						break; // +1 week on ctrl or command +down
 				default: handled = false;
 			}
-		} else if (event.keyCode === 36 && event.ctrlKey) { // display the date picker on ctrl+home
+		} else if (event.keyCode === 36 && event.ctrlKey) { // display the updatedAt picker on ctrl+home
 			$.datepicker._showDatepicker(this);
 		} else {
 			handled = false;
@@ -7437,7 +7437,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Filter entered characters - based on date format. */
+	/* Filter entered characters - based on updatedAt format. */
 	_doKeyPress: function(event) {
 		var chars, chr,
 			inst = $.datepicker._getInst(event.target);
@@ -7472,9 +7472,9 @@ $.extend(Datepicker.prototype, {
 		return true;
 	},
 
-	/* Pop-up the date picker for a given input field.
+	/* Pop-up the updatedAt picker for a given input field.
 	 * If false returned from beforeShow event handler do not show.
-	 * @param  input  element - the input field attached to the date picker or
+	 * @param  input  element - the input field attached to the updatedAt picker or
 	 *					event - if triggered by focus
 	 */
 	_showDatepicker: function(input) {
@@ -7530,7 +7530,7 @@ $.extend(Datepicker.prototype, {
 		// determine sizing offscreen
 		inst.dpDiv.css({position: "absolute", display: "block", top: "-1000px"});
 		$.datepicker._updateDatepicker(inst);
-		// fix width for dynamic number of date pickers
+		// fix width for dynamic number of updatedAt pickers
 		// and adjust position before showing
 		offset = $.datepicker._checkOffset(inst, offset, isFixed);
 		inst.dpDiv.css({position: ($.datepicker._inDialog && $.blockUI ?
@@ -7557,7 +7557,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Generate the date picker content. */
+	/* Generate the updatedAt picker content. */
 	_updateDatepicker: function(inst) {
 		this.maxRows = 4; //Reset the max number of rows being displayed (see #7043)
 		instActive = inst; // for delegate hover events
@@ -7639,8 +7639,8 @@ $.extend(Datepicker.prototype, {
 		return [position.left, position.top];
 	},
 
-	/* Hide the date picker from view.
-	 * @param  input  element - the input field attached to the date picker
+	/* Hide the updatedAt picker from view.
+	 * @param  input  element - the input field attached to the updatedAt picker
 	 */
 	_hideDatepicker: function(input) {
 		var showAnim, duration, postProcess, onClose,
@@ -7692,7 +7692,7 @@ $.extend(Datepicker.prototype, {
 		inst.dpDiv.removeClass(this._dialogClass).unbind(".ui-datepicker-calendar");
 	},
 
-	/* Close date picker if clicked elsewhere. */
+	/* Close updatedAt picker if clicked elsewhere. */
 	_checkExternalClick: function(event) {
 		if (!$.datepicker._curInst) {
 			return;
@@ -7711,7 +7711,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Adjust one of the date sub-fields. */
+	/* Adjust one of the updatedAt sub-fields. */
 	_adjustDate: function(id, offset, period) {
 		var target = $(id),
 			inst = this._getInst(target[0]);
@@ -7775,13 +7775,13 @@ $.extend(Datepicker.prototype, {
 			inst.currentDay, inst.currentMonth, inst.currentYear));
 	},
 
-	/* Erase the input field and hide the date picker. */
+	/* Erase the input field and hide the updatedAt picker. */
 	_clearDate: function(id) {
 		var target = $(id);
 		this._selectDate(target, "");
 	},
 
-	/* Update the input field with the selected date. */
+	/* Update the input field with the selected updatedAt. */
 	_selectDate: function(id, dateStr) {
 		var onSelect,
 			target = $(id),
@@ -7826,8 +7826,8 @@ $.extend(Datepicker.prototype, {
 	},
 
 	/* Set as beforeShowDay function to prevent selection of weekends.
-	 * @param  date  Date - the date to customise
-	 * @return [boolean, string] - is this date selectable?, what is its CSS class?
+	 * @param  updatedAt  Date - the updatedAt to customise
+	 * @return [boolean, string] - is this updatedAt selectable?, what is its CSS class?
 	 */
 	noWeekends: function(date) {
 		var day = date.getDay();
@@ -7835,8 +7835,8 @@ $.extend(Datepicker.prototype, {
 	},
 
 	/* Set as calculateWeek to determine the week of the year based on the ISO 8601 definition.
-	 * @param  date  Date - the date to get the week for
-	 * @return  number - the number of the week within the year that contains this date
+	 * @param  updatedAt  Date - the updatedAt to get the week for
+	 * @return  number - the number of the week within the year that contains this updatedAt
 	 */
 	iso8601Week: function(date) {
 		var time,
@@ -7851,18 +7851,18 @@ $.extend(Datepicker.prototype, {
 		return Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 1;
 	},
 
-	/* Parse a string value into a date object.
+	/* Parse a string value into a updatedAt object.
 	 * See formatDate below for the possible formats.
 	 *
-	 * @param  format string - the expected format of the date
-	 * @param  value string - the date in the above format
+	 * @param  format string - the expected format of the updatedAt
+	 * @param  value string - the updatedAt in the above format
 	 * @param  settings Object - attributes include:
 	 *					shortYearCutoff  number - the cutoff year for determining the century (optional)
 	 *					dayNamesShort	string[7] - abbreviated names of the days from Sunday (optional)
 	 *					dayNames		string[7] - names of the days from Sunday (optional)
 	 *					monthNamesShort string[12] - abbreviated names of the months (optional)
 	 *					monthNames		string[12] - names of the months (optional)
-	 * @return  Date - the extracted date value or null if value is blank
+	 * @return  Date - the extracted updatedAt value or null if value is blank
 	 */
 	parseDate: function (format, value, settings) {
 		if (format == null || value == null) {
@@ -7996,7 +7996,7 @@ $.extend(Datepicker.prototype, {
 		if (iValue < value.length){
 			extra = value.substr(iValue);
 			if (!/^\s+/.test(extra)) {
-				throw "Extra/unparsed characters found in date: " + extra;
+				throw "Extra/unparsed characters found in updatedAt: " + extra;
 			}
 		}
 
@@ -8022,12 +8022,12 @@ $.extend(Datepicker.prototype, {
 
 		date = this._daylightSavingAdjust(new Date(year, month - 1, day));
 		if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-			throw "Invalid date"; // E.g. 31/02/00
+			throw "Invalid updatedAt"; // E.g. 31/02/00
 		}
 		return date;
 	},
 
-	/* Standard date formats. */
+	/* Standard updatedAt formats. */
 	ATOM: "yy-mm-dd", // RFC 3339 (ISO 8601)
 	COOKIE: "D, dd M yy",
 	ISO_8601: "yy-mm-dd",
@@ -8044,7 +8044,7 @@ $.extend(Datepicker.prototype, {
 	_ticksTo1970: (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) +
 		Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000),
 
-	/* Format a date object into a string value.
+	/* Format a updatedAt object into a string value.
 	 * The format can be combinations of the following:
 	 * d  - day of month (no leading zero)
 	 * dd - day of month (two digit)
@@ -8063,14 +8063,14 @@ $.extend(Datepicker.prototype, {
 	 * "..." - literal text
 	 * '' - single quote
 	 *
-	 * @param  format string - the desired format of the date
-	 * @param  date Date - the date value to format
+	 * @param  format string - the desired format of the updatedAt
+	 * @param  updatedAt Date - the updatedAt value to format
 	 * @param  settings Object - attributes include:
 	 *					dayNamesShort	string[7] - abbreviated names of the days from Sunday (optional)
 	 *					dayNames		string[7] - names of the days from Sunday (optional)
 	 *					monthNamesShort string[12] - abbreviated names of the months (optional)
 	 *					monthNames		string[12] - names of the months (optional)
-	 * @return  string - the date in the above format
+	 * @return  string - the updatedAt in the above format
 	 */
 	formatDate: function (format, date, settings) {
 		if (!date) {
@@ -8159,7 +8159,7 @@ $.extend(Datepicker.prototype, {
 		return output;
 	},
 
-	/* Extract all possible characters from the date format. */
+	/* Extract all possible characters from the updatedAt format. */
 	_possibleChars: function (format) {
 		var iFormat,
 			chars = "",
@@ -8208,7 +8208,7 @@ $.extend(Datepicker.prototype, {
 			inst.settings[name] : this._defaults[name];
 	},
 
-	/* Parse existing date and initialise date picker. */
+	/* Parse existing updatedAt and initialise updatedAt picker. */
 	_setDateFromField: function(inst, noDefault) {
 		if (inst.input.val() === inst.lastVal) {
 			return;
@@ -8234,13 +8234,13 @@ $.extend(Datepicker.prototype, {
 		this._adjustInstDate(inst);
 	},
 
-	/* Retrieve the default date shown on opening. */
+	/* Retrieve the default updatedAt shown on opening. */
 	_getDefaultDate: function(inst) {
 		return this._restrictMinMax(inst,
 			this._determineDate(inst, this._get(inst, "defaultDate"), new Date()));
 	},
 
-	/* A date may be specified as an exact value or a relative one. */
+	/* A updatedAt may be specified as an exact value or a relative one. */
 	_determineDate: function(inst, date, defaultDate) {
 		var offsetNumeric = function(offset) {
 				var date = new Date();
@@ -8300,8 +8300,8 @@ $.extend(Datepicker.prototype, {
 	 * Hours may be non-zero on daylight saving cut-over:
 	 * > 12 when midnight changeover, but then cannot generate
 	 * midnight datetime, so jump to 1AM, otherwise reset.
-	 * @param  date  (Date) the date to check
-	 * @return  (Date) the corrected date
+	 * @param  updatedAt  (Date) the updatedAt to check
+	 * @return  (Date) the corrected updatedAt
 	 */
 	_daylightSavingAdjust: function(date) {
 		if (!date) {
@@ -8311,7 +8311,7 @@ $.extend(Datepicker.prototype, {
 		return date;
 	},
 
-	/* Set the date(s) directly. */
+	/* Set the updatedAt(s) directly. */
 	_setDate: function(inst, date, noChange) {
 		var clear = !date,
 			origMonth = inst.selectedMonth,
@@ -8330,7 +8330,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Retrieve the date(s) directly. */
+	/* Retrieve the updatedAt(s) directly. */
 	_getDate: function(inst) {
 		var startDate = (!inst.currentYear || (inst.input && inst.input.val() === "") ? null :
 			this._daylightSavingAdjust(new Date(
@@ -8375,7 +8375,7 @@ $.extend(Datepicker.prototype, {
 		});
 	},
 
-	/* Generate the HTML for the current state of the date picker. */
+	/* Generate the HTML for the current state of the updatedAt picker. */
 	_generateHTML: function(inst) {
 		var maxDraw, prevText, prev, nextText, next, currentText, gotoDate,
 			controls, buttonPanel, firstDay, showWeek, dayNames, dayNamesMin,
@@ -8509,11 +8509,11 @@ $.extend(Datepicker.prototype, {
 				numRows = (isMultiMonth ? this.maxRows > curRows ? this.maxRows : curRows : curRows); //If multiple months, use the higher number of rows (see #7043)
 				this.maxRows = numRows;
 				printDate = this._daylightSavingAdjust(new Date(drawYear, drawMonth, 1 - leadDays));
-				for (dRow = 0; dRow < numRows; dRow++) { // create date picker rows
+				for (dRow = 0; dRow < numRows; dRow++) { // create updatedAt picker rows
 					calender += "<tr>";
 					tbody = (!showWeek ? "" : "<td class='ui-datepicker-week-col'>" +
 						this._get(inst, "calculateWeek")(printDate) + "</td>");
-					for (dow = 0; dow < 7; dow++) { // create date picker days
+					for (dow = 0; dow < 7; dow++) { // create updatedAt picker days
 						daySettings = (beforeShowDay ?
 							beforeShowDay.apply((inst.input ? inst.input[0] : null), [printDate]) : [true, ""]);
 						otherMonth = (printDate.getMonth() !== drawMonth);
@@ -8537,7 +8537,7 @@ $.extend(Datepicker.prototype, {
 							(printDate.getTime() === today.getTime() ? " ui-state-highlight" : "") +
 							(printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "") + // highlight selected day
 							(otherMonth ? " ui-priority-secondary" : "") + // distinguish dates from other months
-							"' href='#'>" + printDate.getDate() + "</a>")) + "</td>"; // display selectable date
+							"' href='#'>" + printDate.getDate() + "</a>")) + "</td>"; // display selectable updatedAt
 						printDate.setDate(printDate.getDate() + 1);
 						printDate = this._daylightSavingAdjust(printDate);
 					}
@@ -8631,7 +8631,7 @@ $.extend(Datepicker.prototype, {
 		return html;
 	},
 
-	/* Adjust one of the date sub-fields. */
+	/* Adjust one of the updatedAt sub-fields. */
 	_adjustInstDate: function(inst, offset, period) {
 		var year = inst.drawYear + (period === "Y" ? offset : 0),
 			month = inst.drawMonth + (period === "M" ? offset : 0),
@@ -8646,7 +8646,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Ensure a date is within any min/max bounds. */
+	/* Ensure a updatedAt is within any min/max bounds. */
 	_restrictMinMax: function(inst, date) {
 		var minDate = this._getMinMaxDate(inst, "min"),
 			maxDate = this._getMinMaxDate(inst, "max"),
@@ -8669,7 +8669,7 @@ $.extend(Datepicker.prototype, {
 		return (numMonths == null ? [1, 1] : (typeof numMonths === "number" ? [1, numMonths] : numMonths));
 	},
 
-	/* Determine the current maximum date - ensure no time components are set. */
+	/* Determine the current maximum updatedAt - ensure no time components are set. */
 	_getMinMaxDate: function(inst, minMax) {
 		return this._determineDate(inst, this._get(inst, minMax + "Date"), null);
 	},
@@ -8696,7 +8696,7 @@ $.extend(Datepicker.prototype, {
 		return this._isInRange(inst, date);
 	},
 
-	/* Is the given date in the accepted range? */
+	/* Is the given updatedAt in the accepted range? */
 	_isInRange: function(inst, date) {
 		var yearSplit, currentYear,
 			minDate = this._getMinMaxDate(inst, "min"),
@@ -8733,7 +8733,7 @@ $.extend(Datepicker.prototype, {
 			monthNamesShort: this._get(inst, "monthNamesShort"), monthNames: this._get(inst, "monthNames")};
 	},
 
-	/* Format the given date for display. */
+	/* Format the given updatedAt for display. */
 	_formatDate: function(inst, day, month, year) {
 		if (!day) {
 			inst.currentDay = inst.selectedDay;
@@ -8799,7 +8799,7 @@ $.fn.datepicker = function(options){
 		return this;
 	}
 
-	/* Initialise the date picker. */
+	/* Initialise the updatedAt picker. */
 	if (!$.datepicker.initialized) {
 		$(document).mousedown($.datepicker._checkExternalClick);
 		$.datepicker.initialized = true;

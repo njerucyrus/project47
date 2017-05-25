@@ -471,14 +471,14 @@ function Calendar(element, instanceOptions) {
 	};
 
 
-	// Returns a copy of the given date in the current timezone of it is ambiguously zoned.
-	// This will also give the date an unambiguous time.
+	// Returns a copy of the given updatedAt in the current timezone of it is ambiguously zoned.
+	// This will also give the updatedAt an unambiguous time.
 	t.rezoneDate = function(date) {
 		return t.moment(date.toArray());
 	};
 
 
-	// Returns a moment for the current date, as defined by the client's computer,
+	// Returns a moment for the current updatedAt, as defined by the client's computer,
 	// or overridden by the `now` option.
 	t.getNow = function() {
 		var now = options.now;
@@ -506,7 +506,7 @@ function Calendar(element, instanceOptions) {
 	};
 
 
-	// Get an event's normalized end date. If not present, calculate it from the defaults.
+	// Get an event's normalized end updatedAt. If not present, calculate it from the defaults.
 	t.getEventEnd = function(event) {
 		if (event.end) {
 			return event.end.clone();
@@ -517,7 +517,7 @@ function Calendar(element, instanceOptions) {
 	};
 
 
-	// Given an event's allDay status and start date, return swhat its fallback end date should be.
+	// Given an event's allDay status and start updatedAt, return swhat its fallback end updatedAt should be.
 	t.getDefaultEventEnd = function(allDay, start) { // TODO: rename to computeDefaultEventEnd
 		var end = start.clone();
 
@@ -682,7 +682,7 @@ function Calendar(element, instanceOptions) {
 	}
 
 
-	// Renders a view because of a date change, view-type change, or for the first time
+	// Renders a view because of a updatedAt change, view-type change, or for the first time
 	function renderView(delta, viewName) {
 		ignoreWindowResize++;
 
@@ -714,8 +714,8 @@ function Calendar(element, instanceOptions) {
 			// render or rerender the view
 			if (
 				!currentView.start || // never rendered before
-				delta || // explicit date window change
-				!date.isWithin(currentView.intervalStart, currentView.intervalEnd) // implicit date window change
+				delta || // explicit updatedAt window change
+				!date.isWithin(currentView.intervalStart, currentView.intervalEnd) // implicit updatedAt window change
 			) {
 				if (elementVisible()) {
 
@@ -961,7 +961,7 @@ function Calendar(element, instanceOptions) {
 	}
 
 
-	// Forces navigation to a view for the given date.
+	// Forces navigation to a view for the given updatedAt.
 	// `viewName` can be a specific view name or a generic one like "week" or "day".
 	function zoomTo(newDate, viewName) {
 		var viewStr;
@@ -1782,7 +1782,7 @@ function EventManager(options) { // assumed to be a calendar
 			out.className = [];
 		}
 
-		start = input.start || input.date; // "date" is an alias for "start"
+		start = input.start || input.date; // "updatedAt" is an alias for "start"
 		end = input.end;
 
 		// parse as a time (Duration) if applicable
@@ -1827,7 +1827,7 @@ function EventManager(options) { // assumed to be a calendar
 					allDay = allDayDefault;
 				}
 				else {
-					// if a single date has a time, the event should not be all-day
+					// if a single updatedAt has a time, the event should not be all-day
 					allDay = !start.hasTime() && (!end || !end.hasTime());
 				}
 			}
@@ -1844,9 +1844,9 @@ function EventManager(options) { // assumed to be a calendar
 	// NOTE: mutates the given start/end moments. does not make an internal copy
 	function assignDatesToEvent(start, end, allDay, event) {
 
-		// normalize the date based on allDay
+		// normalize the updatedAt based on allDay
 		if (allDay) {
-			// neither date should have a time
+			// neither updatedAt should have a time
 			if (start.hasTime()) {
 				start.stripTime();
 			}
@@ -1909,7 +1909,7 @@ function EventManager(options) { // assumed to be a calendar
 				}
 
 				// iterate through every day in the current range
-				date = _rangeStart.clone().stripTime(); // holds the date of the current day
+				date = _rangeStart.clone().stripTime(); // holds the updatedAt of the current day
 				while (date.isBefore(_rangeEnd)) {
 
 					if (!dowHash || dowHash[date.day()]) { // if everyday, or this particular day-of-week
@@ -1952,7 +1952,7 @@ function EventManager(options) { // assumed to be a calendar
 	-----------------------------------------------------------------------------------------*/
 
 
-	// Modify the date(s) of an event and make this change propagate to all other events with
+	// Modify the updatedAt(s) of an event and make this change propagate to all other events with
 	// the same ID (related repeating events).
 	//
 	// If `newStart`/`newEnd` are not specified, the "new" dates are assumed to be `event.start` and `event.end`.
@@ -2078,7 +2078,7 @@ function EventManager(options) { // assumed to be a calendar
 				}
 			}
 
-			// ensure we have an end date if necessary
+			// ensure we have an end updatedAt if necessary
 			if (!newEnd && (options.forceEventDuration || +durationDelta)) {
 				newEnd = t.getDefaultEventEnd(newAllDay, newStart);
 			}
@@ -2302,7 +2302,7 @@ function EventManager(options) { // assumed to be a calendar
 	}
 
 
-	// Is the event's date ranged fully contained by the given range?
+	// Is the event's updatedAt ranged fully contained by the given range?
 	// start/end already assumed to have stripped zones :(
 	function eventContainsRange(event, start, end) {
 		var eventStart = event.start.clone().stripZone();
@@ -2312,7 +2312,7 @@ function EventManager(options) { // assumed to be a calendar
 	}
 
 
-	// Does the event's date range intersect with the given range?
+	// Does the event's updatedAt range intersect with the given range?
 	// start/end already assumed to have stripped zones :(
 	function eventIntersectsRange(event, start, end) {
 		var eventStart = event.start.clone().stripZone();
@@ -2885,10 +2885,10 @@ newMomentProto.time = function(time) {
 // but preserving its YMD. A moment with a stripped time will display no time
 // nor timezone offset when .format() is called.
 newMomentProto.stripTime = function() {
-	var a = this.toArray(); // year,month,date,hours,minutes,seconds as an array
+	var a = this.toArray(); // year,month,updatedAt,hours,minutes,seconds as an array
 
 	this.utc(); // set the internal UTC flag (will clear the ambig flags)
-	setUTCValues(this, a.slice(0, 3)); // set the year/month/date. time will be zero
+	setUTCValues(this, a.slice(0, 3)); // set the year/month/updatedAt. time will be zero
 
 	// Mark the time as ambiguous. This needs to happen after the .utc() call, which calls .zone(),
 	// which clears all ambig flags. Same with setUTCValues with moment-timezone.
@@ -2911,11 +2911,11 @@ newMomentProto.hasTime = function() {
 // YMD and time-of-day. A moment with a stripped timezone offset will display no
 // timezone offset when .format() is called.
 newMomentProto.stripZone = function() {
-	var a = this.toArray(); // year,month,date,hours,minutes,seconds as an array
+	var a = this.toArray(); // year,month,updatedAt,hours,minutes,seconds as an array
 	var wasAmbigTime = this._ambigTime;
 
 	this.utc(); // set the internal UTC flag (will clear the ambig flags)
-	setUTCValues(this, a); // will set the year/month/date/hours/minutes/seconds/ms
+	setUTCValues(this, a); // will set the year/month/updatedAt/hours/minutes/seconds/ms
 
 	if (wasAmbigTime) {
 		// the above call to .utc()/.zone() unfortunately clears the ambig flags, so reassign
@@ -2949,13 +2949,13 @@ newMomentProto.zone = function(tzo) {
 
 // this method implicitly marks a zone
 newMomentProto.local = function() {
-	var a = this.toArray(); // year,month,date,hours,minutes,seconds,ms as an array
+	var a = this.toArray(); // year,month,updatedAt,hours,minutes,seconds,ms as an array
 	var wasAmbigZone = this._ambigZone;
 
 	oldMomentProto.local.apply(this, arguments); // will clear ambig flags
 
 	if (wasAmbigZone) {
-		// If the moment was ambiguously zoned, the date fields were stored as UTC.
+		// If the moment was ambiguously zoned, the updatedAt fields were stored as UTC.
 		// We want to preserve these, but in local time.
 		setLocalValues(this, a);
 	}
@@ -3090,7 +3090,7 @@ function transferAmbigs(src, dest) {
 }
 
 
-// Sets the year/month/date/etc values of the moment from the given array.
+// Sets the year/month/updatedAt/etc values of the moment from the given array.
 // Inefficient because it calls each individual setter.
 function setMomentValues(mom, a) {
 	mom.year(a[0] || 0)
@@ -3102,10 +3102,10 @@ function setMomentValues(mom, a) {
 		.milliseconds(a[6] || 0);
 }
 
-// Can we set the moment's internal date directly?
+// Can we set the moment's internal updatedAt directly?
 allowValueOptimization = '_d' in moment() && 'updateOffset' in moment;
 
-// Utility function. Accepts a moment and an array of the UTC year/month/date/etc values to set.
+// Utility function. Accepts a moment and an array of the UTC year/month/updatedAt/etc values to set.
 // Assumes the given moment is already in UTC mode.
 setUTCValues = allowValueOptimization ? function(mom, a) {
 	// simlate what moment's accessors do
@@ -3113,7 +3113,7 @@ setUTCValues = allowValueOptimization ? function(mom, a) {
 	moment.updateOffset(mom, false); // keepTime=false
 } : setMomentValues;
 
-// Utility function. Accepts a moment and an array of the local year/month/date/etc values to set.
+// Utility function. Accepts a moment and an array of the local year/month/updatedAt/etc values to set.
 // Assumes the given moment is already in local mode.
 setLocalValues = allowValueOptimization ? function(mom, a) {
 	// simlate what moment's accessors do
@@ -3141,7 +3141,7 @@ function oldMomentFormat(mom, formatStr) {
 }
 
 
-// Formats `date` with a Moment formatting string, but allow our non-zero areas and
+// Formats `updatedAt` with a Moment formatting string, but allow our non-zero areas and
 // additional token.
 function formatDate(date, formatStr) {
 	return formatDateWithChunks(date, getFormatStringChunks(formatStr));
@@ -3199,10 +3199,10 @@ function formatDateWithChunk(date, chunk) {
 // -------------------------------------------------------------------------------------------------
 // TODO: make it work with timezone offset
 
-// Using a formatting string meant for a single date, generate a range string, like
+// Using a formatting string meant for a single updatedAt, generate a range string, like
 // "Sep 2 - 9 2013", that intelligently inserts a separator where the dates differ.
 // If the dates are the same as far as the format string is concerned, just return a single
-// rendering of one date, without any separator.
+// rendering of one updatedAt, without any separator.
 function formatRange(date1, date2, formatStr, separator, isRTL) {
 	var localeData;
 
@@ -3530,7 +3530,7 @@ Popover.prototype = {
 
 ;;
 
-/* A "coordinate map" converts pixel coordinates into an associated cell, which has an associated date
+/* A "coordinate map" converts pixel coordinates into an associated cell, which has an associated updatedAt
 ------------------------------------------------------------------------------------------------------------------------
 Common interface:
 
@@ -3692,11 +3692,11 @@ DragListener.prototype = {
 	isListening: false,
 	isDragging: false,
 
-	// the cell/date the mouse was over when listening started
+	// the cell/updatedAt the mouse was over when listening started
 	origCell: null,
 	origDate: null,
 
-	// the cell/date the mouse is over
+	// the cell/updatedAt the mouse is over
 	cell: null,
 	date: null,
 
@@ -3757,7 +3757,7 @@ DragListener.prototype = {
 
 			this.computeCoords(); // relies on `scrollEl`
 
-			// get info on the initial cell, date, and coordinates
+			// get info on the initial cell, updatedAt, and coordinates
 			if (ev) {
 				cell = this.getCell(ev);
 				this.origCell = cell;
@@ -4438,7 +4438,7 @@ $.extend(Grid.prototype, {
 	},
 
 
-	// Given a cell object, returns the date for that cell
+	// Given a cell object, returns the updatedAt for that cell
 	getCellDate: function(cell) {
 		// subclasses must implement
 	},
@@ -4546,7 +4546,7 @@ $.extend(Grid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders a visual indication of a event being dragged over the given date(s).
+	// Renders a visual indication of a event being dragged over the given updatedAt(s).
 	// `end` can be null, as well as `seg`. See View's documentation on renderDrag for more info.
 	// A returned value of `true` signals that a mock "helper" event has been rendered.
 	renderDrag: function(start, end, seg) {
@@ -4581,7 +4581,7 @@ $.extend(Grid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders a mock event over the given date(s).
+	// Renders a mock event over the given updatedAt(s).
 	// `end` can be null, in which case the mock event that is rendered will have a null end time.
 	// `sourceSeg` is the internal segment object involved in the drag. If null, something external is dragging.
 	renderRangeHelper: function(start, end, sourceSeg) {
@@ -4642,13 +4642,13 @@ $.extend(Grid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders an emphasis on the given date range. `start` is inclusive. `end` is exclusive.
+	// Renders an emphasis on the given updatedAt range. `start` is inclusive. `end` is exclusive.
 	renderHighlight: function(start, end) {
 		this.renderFill('highlight', this.rangeToSegs(start, end));
 	},
 
 
-	// Unrenders the emphasis on a date range
+	// Unrenders the emphasis on a updatedAt range
 	destroyHighlight: function() {
 		this.destroyFill('highlight');
 	},
@@ -4782,7 +4782,7 @@ $.extend(Grid.prototype, {
 
 		classes.unshift('fc-day', view.widgetContentClass);
 
-		return '<td class="' + classes.join(' ') + '" data-date="' + date.format() + '"></td>';
+		return '<td class="' + classes.join(' ') + '" data-updatedAt="' + date.format() + '"></td>';
 	},
 
 
@@ -5117,7 +5117,7 @@ $.extend(Grid.prototype, {
 				}
 				else {
 					// have the helper follow the mouse (no snapping) with a warning-style cursor
-					newStart = null; // mark an invalid drop date
+					newStart = null; // mark an invalid drop updatedAt
 					mouseFollower.show();
 					disableCursor();
 				}
@@ -5179,13 +5179,13 @@ $.extend(Grid.prototype, {
 			newAllDay = event.allDay; // keep it the same
 		}
 		else {
-			// if switching from day <-> timed, start should be reset to the dropped date, and the end cleared
+			// if switching from day <-> timed, start should be reset to the dropped updatedAt, and the end cleared
 			newStart = dropDate;
 			newEnd = null; // end should be cleared
 			newAllDay = !dropDate.hasTime();
 		}
 
-		// compute what the end date will appear to be
+		// compute what the end updatedAt will appear to be
 		visibleEnd = newEnd || view.calendar.getDefaultEventEnd(newAllDay, newStart);
 
 		return { start: newStart, end: newEnd, visibleEnd: visibleEnd };
@@ -5419,7 +5419,7 @@ $.extend(Grid.prototype, {
 		var start = viewStart; // the end of the previous range. the start of the new range
 		var i, normalRange;
 
-		// ranges need to be in order. required for our date-walking algorithm
+		// ranges need to be in order. required for our updatedAt-walking algorithm
 		normalRanges.sort(compareNormalRanges);
 
 		for (i = 0; i < normalRanges.length; i++) {
@@ -5649,7 +5649,7 @@ $.extend(DayGrid.prototype, {
 	},
 
 
-	// Converts a cell to a date
+	// Converts a cell to a updatedAt
 	getCellDate: function(cell) {
 		return this.view.cellToDate(cell); // leverages the View's cell system
 	},
@@ -5671,7 +5671,7 @@ $.extend(DayGrid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders a visual indication of an event hovering over the given date(s).
+	// Renders a visual indication of an event hovering over the given updatedAt(s).
 	// `end` can be null, as well as `seg`. See View's documentation on renderDrag for more info.
 	// A returned value of `true` signals that a mock "helper" event has been rendered.
 	renderDrag: function(start, end, seg) {
@@ -6334,7 +6334,7 @@ $.extend(DayGrid.prototype, {
 				var dayEl = _this.getCellDayEl(cell);
 				var allSegs = _this.getCellSegs(cell);
 
-				// rescope the segments to be within the cell's date
+				// rescope the segments to be within the cell's updatedAt
 				var reslicedAllSegs = _this.resliceDaySegs(allSegs, date);
 				var reslicedHiddenSegs = _this.resliceDaySegs(hiddenSegs, date);
 
@@ -6634,7 +6634,7 @@ $.extend(TimeGrid.prototype, {
 	},
 
 
-	// Slices up a date range into a segment for each column
+	// Slices up a updatedAt range into a segment for each column
 	rangeToSegs: function(rangeStart, rangeEnd) {
 		var view = this.view;
 		var segs = [];
@@ -6725,7 +6725,7 @@ $.extend(TimeGrid.prototype, {
 	},
 
 
-	// Computes the top coordinate, relative to the bounds of the grid, of the given date.
+	// Computes the top coordinate, relative to the bounds of the grid, of the given updatedAt.
 	// A `startOfDayDate` must be given for avoiding ambiguity over how to treat midnight.
 	computeDateTop: function(date, startOfDayDate) {
 		return this.computeTimeTop(
@@ -6783,7 +6783,7 @@ $.extend(TimeGrid.prototype, {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders a visual indication of an event being dragged over the specified date(s).
+	// Renders a visual indication of an event being dragged over the specified updatedAt(s).
 	// `end` and `seg` can be null. See View's documentation on renderDrag for more info.
 	renderDrag: function(start, end, seg) {
 		var opacity;
@@ -7194,13 +7194,13 @@ $.extend(TimeGrid.prototype, {
 
 
 // Given an array of segments that are all in the same column, sets the backwardCoord and forwardCoord on each.
-// Also reorders the given array by date!
+// Also reorders the given array by updatedAt!
 function placeSlotSegs(segs) {
 	var levels;
 	var level0;
 	var i;
 
-	segs.sort(compareSegs); // order by date
+	segs.sort(compareSegs); // order by updatedAt
 	levels = buildSlotSegLevels(segs);
 	computeForwardSlotSegs(levels);
 
@@ -7218,7 +7218,7 @@ function placeSlotSegs(segs) {
 
 
 // Builds an array of segments "levels". The first level will be the leftmost tier of segments if the calendar is
-// left-to-right, or the rightmost if the calendar is right-to-left. Assumes the segments are already ordered by date.
+// left-to-right, or the rightmost if the calendar is right-to-left. Assumes the segments are already ordered by updatedAt.
 function buildSlotSegLevels(segs) {
 	var levels = [];
 	var i, seg;
@@ -7381,12 +7381,12 @@ View.prototype = {
 	el: null, // the view's containing element. set by Calendar
 
 	// important Moments
-	start: null, // the date of the very first cell
-	end: null, // the date after the very last cell
+	start: null, // the updatedAt of the very first cell
+	end: null, // the updatedAt after the very last cell
 	intervalStart: null, // the start of the interval of time the view represents (1st of month for month view)
 	intervalEnd: null, // the exclusive end of the interval of time the view represents
 
-	// used for cell-to-date and date-to-cell calculations
+	// used for cell-to-updatedAt and updatedAt-to-cell calculations
 	rowCnt: null, // # of weeks
 	colCnt: null, // # of days displayed in a week
 
@@ -7447,7 +7447,7 @@ View.prototype = {
 
 
 	// Used to determine what happens when the users clicks next/prev. Given -1 for prev, 1 for next.
-	// Should apply the delta to `date` (a Moment) and return it.
+	// Should apply the delta to `updatedAt` (a Moment) and return it.
 	incrementDate: function(date, delta) {
 		// subclasses should implement
 	},
@@ -7609,7 +7609,7 @@ View.prototype = {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders a visual indication of an event hovering over the specified date.
+	// Renders a visual indication of an event hovering over the specified updatedAt.
 	// `end` is a Moment and might be null.
 	// `seg` might be null. if specified, it is the segment object of the event being dragged.
 	//       otherwise, an external event from outside the calendar is being dragged.
@@ -7649,14 +7649,14 @@ View.prototype = {
 				meta = getDraggedElMeta(el); // data for possibly creating an event
 				eventProps = meta.eventProps;
 
-				// listener that tracks mouse movement over date-associated pixel regions
+				// listener that tracks mouse movement over updatedAt-associated pixel regions
 				dragListener = new DragListener(this.coordMap, {
 					cellOver: function(cell, cellDate) {
 						eventStart = cellDate;
 						eventEnd = meta.duration ? eventStart.clone().add(meta.duration) : null;
 						visibleEnd = eventEnd || calendar.getDefaultEventEnd(!eventStart.hasTime(), eventStart);
 
-						// keep the start/end up to date when dragging
+						// keep the start/end up to updatedAt when dragging
 						if (eventProps) {
 							$.extend(eventProps, { start: eventStart, end: eventEnd });
 						}
@@ -7683,7 +7683,7 @@ View.prototype = {
 					_this.destroyDrag();
 					enableCursor();
 
-					if (eventStart) { // element was dropped on a valid date/time cell
+					if (eventStart) { // element was dropped on a valid updatedAt/time cell
 
 						// if dropped on an all-day cell, and element's metadata specified a time, set it
 						if (meta.startTime && !eventStart.hasTime()) {
@@ -7711,7 +7711,7 @@ View.prototype = {
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Selects a date range on the view. `start` and `end` are both Moments.
+	// Selects a updatedAt range on the view. `start` and `end` are both Moments.
 	// `ev` is the native mouse event that begin the interaction.
 	select: function(start, end, ev) {
 		this.unselect(ev);
@@ -7936,16 +7936,16 @@ function View(calendar) {
 	// ====================================================================================================
 
 
-	// For determining how a given "cell" translates into a "date":
+	// For determining how a given "cell" translates into a "updatedAt":
 	//
 	// 1. Convert the "cell" (row and column) into a "cell offset" (the # of the cell, cronologically from the first).
 	//    Keep in mind that column indices are inverted with isRTL. This is taken into account.
 	//
 	// 2. Convert the "cell offset" to a "day offset" (the # of days since the first visible day in the view).
 	//
-	// 3. Convert the "day offset" into a "date" (a Moment).
+	// 3. Convert the "day offset" into a "updatedAt" (a Moment).
 	//
-	// The reverse transformation happens when transforming a date into a cell.
+	// The reverse transformation happens when transforming a updatedAt into a cell.
 
 
 	// exports
@@ -8015,8 +8015,8 @@ function View(calendar) {
 
 
 	// Incrementing the current day until it is no longer a hidden day, returning a copy.
-	// If the initial value of `date` is not a hidden day, don't do anything.
-	// Pass `isExclusive` as `true` if you are dealing with an end date.
+	// If the initial value of `updatedAt` is not a hidden day, don't do anything.
+	// Pass `isExclusive` as `true` if you are dealing with an end updatedAt.
 	// `inc` defaults to `1` (increment one day forward each time)
 	function skipHiddenDays(date, inc, isExclusive) {
 		var out = date.clone();
@@ -8031,10 +8031,10 @@ function View(calendar) {
 
 
 	//
-	// TRANSFORMATIONS: cell -> cell offset -> day offset -> date
+	// TRANSFORMATIONS: cell -> cell offset -> day offset -> updatedAt
 	//
 
-	// cell -> date (combines all transformations)
+	// cell -> updatedAt (combines all transformations)
 	// Possible arguments:
 	// - row, col
 	// - { row:#, col: # }
@@ -8067,7 +8067,7 @@ function View(calendar) {
 
 	// cell offset -> day offset
 	function cellOffsetToDayOffset(cellOffset) {
-		var day0 = t.start.day(); // first date's day of week
+		var day0 = t.start.day(); // first updatedAt's day of week
 		cellOffset += dayToCellMap[day0]; // normlize cellOffset to beginning-of-week
 		return Math.floor(cellOffset / cellsPerWeek) * 7 + // # of days from full weeks
 			cellToDayMap[ // # of days from partial last week
@@ -8076,17 +8076,17 @@ function View(calendar) {
 			day0; // adjustment for beginning-of-week normalization
 	}
 
-	// day offset -> date
+	// day offset -> updatedAt
 	function dayOffsetToDate(dayOffset) {
 		return t.start.clone().add(dayOffset, 'days');
 	}
 
 
 	//
-	// TRANSFORMATIONS: date -> day offset -> cell offset -> cell
+	// TRANSFORMATIONS: updatedAt -> day offset -> cell offset -> cell
 	//
 
-	// date -> cell (combines all transformations)
+	// updatedAt -> cell (combines all transformations)
 	function dateToCell(date) {
 		var dayOffset = dateToDayOffset(date);
 		var cellOffset = dayOffsetToCellOffset(dayOffset);
@@ -8094,14 +8094,14 @@ function View(calendar) {
 		return cell;
 	}
 
-	// date -> day offset
+	// updatedAt -> day offset
 	function dateToDayOffset(date) {
 		return date.clone().stripTime().diff(t.start, 'days');
 	}
 
 	// day offset -> cell offset
 	function dayOffsetToCellOffset(dayOffset) {
-		var day0 = t.start.day(); // first date's day of week
+		var day0 = t.start.day(); // first updatedAt's day of week
 		dayOffset += day0; // normalize dayOffset to beginning-of-week
 		return Math.floor(dayOffset / 7) * cellsPerWeek + // # of cells from full weeks
 			dayToCellMap[ // # of cells from partial last week
@@ -8128,7 +8128,7 @@ function View(calendar) {
 
 
 	//
-	// Converts a date range into an array of segment objects.
+	// Converts a updatedAt range into an array of segment objects.
 	// "Segments" are horizontal stretches of time, sliced up by row.
 	// A segment object has the following properties:
 	// - row
@@ -8142,12 +8142,12 @@ function View(calendar) {
 		var colCnt = t.colCnt;
 		var segments = []; // array of segments to return
 
-		// day offset for given date range
+		// day offset for given updatedAt range
 		var dayRange = computeDayRange(start, end); // convert to a whole-day range
 		var rangeDayOffsetStart = dateToDayOffset(dayRange.start);
 		var rangeDayOffsetEnd = dateToDayOffset(dayRange.end); // an exclusive value
 
-		// first and last cell offset for the given date range
+		// first and last cell offset for the given updatedAt range
 		// "last" implies inclusivity
 		var rangeCellOffsetFirst = dayOffsetToCellOffset(rangeDayOffsetStart);
 		var rangeCellOffsetLast = dayOffsetToCellOffset(rangeDayOffsetEnd) - 1;
@@ -8173,7 +8173,7 @@ function View(calendar) {
 				// view might be RTL, so order by leftmost column
 				var cols = [ segmentCellFirst.col, segmentCellLast.col ].sort(compareNumbers);
 
-				// Determine if segment's first/last cell is the beginning/end of the date range.
+				// Determine if segment's first/last cell is the beginning/end of the updatedAt range.
 				// We need to compare "day offset" because "cell offsets" are often ambiguous and
 				// can translate to multiple days, and an edge case reveals itself when we the
 				// range's first cell is hidden (we don't want isStart to be true).
@@ -8195,7 +8195,7 @@ function View(calendar) {
 	}
 
 
-	// Returns the date range of the full days the given range visually appears to occupy.
+	// Returns the updatedAt range of the full days the given range visually appears to occupy.
 	// Returns object with properties `start` (moment) and `end` (moment, exclusive end).
 	function computeDayRange(start, end) {
 		var startDay = start.clone().stripTime(); // the beginning of the day the range starts
@@ -8246,7 +8246,7 @@ fc.dataAttrPrefix = '';
 // A defined `.eventProps`, even when empty, indicates that an event should be created.
 function getDraggedElMeta(el) {
 	var prefix = fc.dataAttrPrefix;
-	var eventProps; // properties for creating the event, not related to date/time
+	var eventProps; // properties for creating the event, not related to updatedAt/time
 	var startTime; // a Duration
 	var duration;
 	var stick;
@@ -8262,7 +8262,7 @@ function getDraggedElMeta(el) {
 			eventProps = {};
 		}
 
-		// pluck special-cased date/time properties
+		// pluck special-cased updatedAt/time properties
 		startTime = eventProps.start;
 		if (startTime == null) { startTime = eventProps.time; } // accept 'time' as well
 		duration = eventProps.duration;
@@ -8273,7 +8273,7 @@ function getDraggedElMeta(el) {
 		delete eventProps.stick;
 	}
 
-	// fallback to standalone attribute values for each of the date/time properties
+	// fallback to standalone attribute values for each of the updatedAt/time properties
 	if (startTime == null) { startTime = el.data(prefix + 'start'); }
 	if (startTime == null) { startTime = el.data(prefix + 'time'); } // accept 'time' as well
 	if (duration == null) { duration = el.data(prefix + 'duration'); }
@@ -8297,7 +8297,7 @@ function getDraggedElMeta(el) {
 function BasicView(calendar) {
 	View.call(this, calendar); // call the super-constructor
 	this.dayGrid = new DayGrid(this);
-	this.coordMap = this.dayGrid.coordMap; // the view's date-to-cell mapping is identical to the subcomponent's
+	this.coordMap = this.dayGrid.coordMap; // the view's updatedAt-to-cell mapping is identical to the subcomponent's
 }
 
 
@@ -8318,7 +8318,7 @@ $.extend(BasicView.prototype, {
 	// rowCnt, colCnt, and dayNumbersVisible have been calculated by a subclass and passed here.
 	render: function(rowCnt, colCnt, dayNumbersVisible) {
 
-		// needed for cell-to-date and date-to-cell calculations in View
+		// needed for cell-to-updatedAt and updatedAt-to-cell calculations in View
 		this.rowCnt = rowCnt;
 		this.colCnt = colCnt;
 
@@ -8432,7 +8432,7 @@ $.extend(BasicView.prototype, {
 		classes.unshift('fc-day-number');
 
 		return '' +
-			'<td class="' + classes.join(' ') + '" data-date="' + date.format() + '">' +
+			'<td class="' + classes.join(' ') + '" data-updatedAt="' + date.format() + '">' +
 				date.date() +
 			'</td>';
 	},
@@ -8831,7 +8831,7 @@ $.extend(AgendaView.prototype, {
 	// `colCnt` has been calculated by a subclass and passed here.
 	render: function(colCnt) {
 
-		// needed for cell-to-date and date-to-cell calculations in View
+		// needed for cell-to-updatedAt and updatedAt-to-cell calculations in View
 		this.rowCnt = 1;
 		this.colCnt = colCnt;
 

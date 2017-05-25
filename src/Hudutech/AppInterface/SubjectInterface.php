@@ -21,4 +21,6 @@ interface SubjectInterface
     public static function getId($id);
     public static function all();
     public static function getSubject($id);
+    public static function getCompulsorySubjects();
+    public static function fetchAllSubjectNames();
 }

@@ -40,7 +40,7 @@
 <p style="padding: 0 3em 0 2em"><strong>Caution</strong>: this text was written briefly after
 version 2 was initially written. It no longer (even including the
 update at the bottom) fully represents the current implementation. I'm
-leaving it here as a historic document. For more up-to-date
+leaving it here as a historic document. For more up-to-updatedAt
 information, look at the entries
 tagged <a href="http://marijnhaverbeke.nl/blog/#cm-internals">cm-internals</a>
 on my blog.</p>
@@ -269,7 +269,7 @@ determine whether something needs to be updated.</p>
 <p>CodeMirror uses two update algorithms—a full refresh, where it just
 discards the whole part of the DOM that contains the edited text and
 rebuilds it, and a patch algorithm, where it uses the information
-about changed and intact ranges to update only the out-of-date parts
+about changed and intact ranges to update only the out-of-updatedAt parts
 of the DOM. When more than 30 percent (which is the current heuristic,
 might change) of the lines need to be updated, the full refresh is
 chosen (since it's faster to do than painstakingly finding and

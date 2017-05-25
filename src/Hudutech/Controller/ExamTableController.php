@@ -14,32 +14,7 @@ use Hudutech\DBManager\DB;
 
 class ExamTableController implements ExamTableInterface
 {
-    public static function fetchSubjectNames()
-    {
-        $db = new DB();
-        $conn = $db->connect();
-        try {
-            $stmt = $conn->prepare("SELECT subject_name FROM subjects WHERE 1");
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) {
-                $subjectNames = array();
-                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                    $subjectName = array(
-                        "subject_name" => strtolower($row['subject_name'])
-                    );
-                    $subjectNames[] = $subjectName;
 
-                }
-                return $subjectNames;
-            } else {
-                return [];
-            }
-
-        } catch (\PDOException $exception) {
-            echo $exception->getMessage();
-            return [];
-        }
-    }
 
     public static function fetchStandardExamTableNames()
     {
@@ -47,7 +22,7 @@ class ExamTableController implements ExamTableInterface
         $conn = $db->connect();
 
         try {
-            $stmt = $conn->prepare("SELECT subject_code, subject_name, has_pp3 FROM subjects WHERE 1");
+            $stmt = $conn->prepare("SELECT subject_code, subject_name, has_pp3 FROM subjects WHERE is_active=1");
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 $tableNames = array();
@@ -143,7 +118,7 @@ class ExamTableController implements ExamTableInterface
         $db = new DB();
         $conn = $db->connect();
         try {
-            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name=:subject_name");
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE subject_name=:subject_name AND is_active=1");
             $subj = strtolower($subject);
             $stmt->bindParam(":subject_name", $subj);
             $stmt->execute();
@@ -164,12 +139,12 @@ class ExamTableController implements ExamTableInterface
     {
         $db = new DB();
         $conn = $db->connect();
-        $subjectNames = self::fetchSubjectNames();
+        $subjectNames = SubjectController::fetchAllSubjectNames();
         if (!empty($subjectNames)) {
 
             $column_part = '';
             foreach ($subjectNames as $column) {
-                $column_part .= $column['subject_name'] . " VARCHAR(4), ".PHP_EOL;
+                $column_part .= $column. " VARCHAR(6), ".PHP_EOL;
             }
 
             $form_1 = "CREATE TABLE IF NOT EXISTS form_one_score_sheet
@@ -180,7 +155,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -200,7 +176,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -220,7 +197,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),
@@ -240,7 +218,8 @@ class ExamTableController implements ExamTableInterface
                                    `stream` VARCHAR(32),
                                    `reg_no` VARCHAR(32) NOT NULL,
                                     $column_part
-                                    `total` INT(11),
+                                    `total_mark` INT(11),
+                                    `total_point` INT(11),
                                     `grade` VARCHAR(2),
                                     `stream_position` INT(11),
                                     `class_position` INT(11),

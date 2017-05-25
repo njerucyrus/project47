@@ -37,7 +37,7 @@
         // by default, the daterangepicker element is placed at the bottom of HTML body
         this.parentEl = 'body';
 
-        //element that triggered the date range picker
+        //element that triggered the updatedAt range picker
         this.element = $(element);
 
         //tracks visible state
@@ -341,7 +341,7 @@
                     else
                         end = moment(options.ranges[range][1]);
 
-                    // If we have a min/max date set, bound this range
+                    // If we have a min/max updatedAt set, bound this range
                     // to it, but only if it would otherwise fall
                     // outside of the min/max.
                     if (this.minDate && start.isBefore(this.minDate))
@@ -647,7 +647,7 @@
                 e.type == "focusin" ||
                 target.closest(this.element).length ||
                 target.closest(this.container).length ||
-                target.closest('.calendar-date').length
+                target.closest('.calendar-updatedAt').length
                 ) return;
             this.hide();
         },
@@ -694,7 +694,7 @@
             this.element.trigger('hideCalendar.daterangepicker', this);
         },
 
-        // when a date is typed into the start to end date textboxes
+        // when a updatedAt is typed into the start to end updatedAt textboxes
         inputsChanged: function (e) {
             var el = $(e.target);
             var date = moment(el.val(), this.format);
@@ -1001,7 +1001,7 @@
                 calendar[i] = [];
             }
 
-            //populate the calendar with date objects
+            //populate the calendar with updatedAt objects
             var startDay = daysInLastMonth - dayOfWeek + this.locale.firstDay + 1;
             if (startDay > daysInLastMonth)
                 startDay -= 7;
@@ -1067,7 +1067,7 @@
 
         renderCalendar: function (calendar, selected, minDate, maxDate, side) {
 
-            var html = '<div class="calendar-date">';
+            var html = '<div class="calendar-updatedAt">';
             html += '<table class="table-condensed">';
             html += '<thead>';
             html += '<tr>';
@@ -1126,15 +1126,15 @@
                     } else if (calendar[row][col].format('YYYY-MM-DD') == selected.format('YYYY-MM-DD')) {
                         cname += ' active ';
                         if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD')) {
-                            cname += ' start-date ';
+                            cname += ' start-updatedAt ';
                         }
                         if (calendar[row][col].format('YYYY-MM-DD') == this.endDate.format('YYYY-MM-DD')) {
-                            cname += ' end-date ';
+                            cname += ' end-updatedAt ';
                         }
                     } else if (calendar[row][col] >= this.startDate && calendar[row][col] <= this.endDate) {
                         cname += ' in-range ';
-                        if (calendar[row][col].isSame(this.startDate)) { cname += ' start-date '; }
-                        if (calendar[row][col].isSame(this.endDate)) { cname += ' end-date '; }
+                        if (calendar[row][col].isSame(this.startDate)) { cname += ' start-updatedAt '; }
+                        if (calendar[row][col].isSame(this.endDate)) { cname += ' end-updatedAt '; }
                     }
 
                     var title = 'r' + row + 'c' + col;

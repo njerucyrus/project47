@@ -23273,7 +23273,7 @@
 	    base = ' ' + RegExp.prototype.toString.call(value);
 	  }
 
-	  // Make dates with properties first say the date
+	  // Make dates with properties first say the updatedAt
 	  if (isDate(value)) {
 	    base = ' ' + Date.prototype.toUTCString.call(value);
 	  }

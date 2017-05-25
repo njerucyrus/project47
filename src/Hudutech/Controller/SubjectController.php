@@ -22,24 +22,37 @@ class SubjectController implements SubjectInterface
         $subjectName = $subject->getSubjectName();
         $subjectGroup = $subject->getSubjectGroup();
         $subjectCode = $subject->getSubjectCode();
+        $isActive = $subject->isActive();
+        $isCompulsory = $subject->isCompulsory();
+        $hasPP3 = $subject->isHasPP3();
 
         try {
 
             $stmt = $conn->prepare("INSERT INTO subjects(
                                                             subject_name,
                                                             subject_group,
-                                                            subject_code
+                                                            subject_code,
+                                                            is_active,
+                                                            is_compulsory,
+                                                            has_pp3
                                                         )
                                                         VALUES
                                                          (
                                                             :subject_name,
                                                             :subject_group,
-                                                            :subject_code
+                                                            :subject_code,
+                                                            :is_active,
+                                                            :is_compulsory,
+                                                            :has_pp3
+                                                            
                                                           )
                                                         ");
             $stmt->bindParam(":subject_name", $subjectName);
             $stmt->bindParam(":subject_group", $subjectGroup);
             $stmt->bindParam(":subject_code", $subjectCode);
+            $stmt->bindParam(":is_active", $isActive);
+            $stmt->bindParam(":is_compulsory", $isCompulsory);
+            $stmt->bindParam(":has_pp3", $hasPP3);
             $stmt->execute();
             $db->closeConnection();
             return true;
@@ -60,13 +73,17 @@ class SubjectController implements SubjectInterface
             $stmt = $conn->prepare("INSERT INTO subjects(
                                                             subject_name,
                                                             subject_group,
-                                                            subject_code
+                                                            subject_code,
+                                                            is_active,
+                                                            is_compulsory
                                                         )
                                                         VALUES
                                                          (
                                                             :subject_name,
                                                             :subject_group,
-                                                            :subject_code
+                                                            :subject_code,
+                                                            :is_active,
+                                                            :is_compulsory
                                                           )
                                                         ");
 
@@ -74,10 +91,14 @@ class SubjectController implements SubjectInterface
                 $stmt->bindParam(":subject_name", $subjectName);
                 $stmt->bindParam(":subject_group", $subjectGroup);
                 $stmt->bindParam(":subject_code", $subjectCode);
+                $stmt->bindParam(":is_active", $is_active);
+                $stmt->bindParam(":is_compulsory", $isCompulsory);
 
                 $subjectName = $subject['subject_name'];
                 $subjectGroup = $subject['subject_group'];
                 $subjectCode = $subject['subject_code'];
+                $is_active = $subject['is_active'];
+                $isCompulsory = $subject['is_compulsory'];
 
                 $stmt->execute();
             }
@@ -98,13 +119,16 @@ class SubjectController implements SubjectInterface
         $subjectName = $subject->getSubjectName();
         $subjectGroup = $subject->getSubjectGroup();
         $subjectCode = $subject->getSubjectCode();
-
+        $is_active = $subject->isActive();
+        $isCompulsory = $subject->isCompulsory();
         try {
 
             $stmt = $conn->prepare("UPDATE subjects SET 
                                                       subject_name=:subject_name,
                                                       subject_group=:subject_group,
-                                                      subject_code=:subject_code
+                                                      subject_code=:subject_code,
+                                                      is_active=:is_active,
+                                                      is_compulsory=:is_compulsory
                                                   WHERE
                                                       id=:id
                                                   ");
@@ -113,6 +137,8 @@ class SubjectController implements SubjectInterface
             $stmt->bindParam(":subject_name", $subjectName);
             $stmt->bindParam(":subject_group", $subjectGroup);
             $stmt->bindParam(":subject_code", $subjectCode);
+            $stmt->bindParam(":is_active", $is_active);
+            $stmt->bindParam(":is_compulsory", $isCompulsory);
             $stmt->execute();
             $db->closeConnection();
             return true;
@@ -171,6 +197,8 @@ class SubjectController implements SubjectInterface
                     "subject_name" => $row['subject_name'],
                     "subject_group" => $row['subject_group'],
                     "subject_code" => $row['subject_code'],
+                    "is_active"=>$row['is_active'],
+                    "is_compulsory"=>$row['is_compulsory']
                 );
                 return $subject;
             } else {
@@ -191,10 +219,9 @@ class SubjectController implements SubjectInterface
 
         try {
 
-            $stmt = $conn->prepare("SELECT * FROM subjects WHERE id=:id");
-            $stmt->bindParam(":id", $id);
+            $stmt = $conn->prepare("SELECT * FROM subjects WHERE 1");
             $stmt->execute();
-            if ($stmt->rowCount() == 1) {
+            if ($stmt->rowCount() >0) {
                 $subjects = array();
                 while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
                     $subject = array(
@@ -202,6 +229,8 @@ class SubjectController implements SubjectInterface
                         "subject_name" => $row['subject_name'],
                         "subject_group" => $row['subject_group'],
                         "subject_code" => $row['subject_code'],
+                        "is_active" => $row['is_active'],
+                        "is_compulsory"=>$row['is_compulsory']
                     );
                     $subjects[] = $subject;
                 }
@@ -235,6 +264,8 @@ class SubjectController implements SubjectInterface
                 $subject->setSubjectName($row['subject_name']);
                 $subject->setSubjectGroup($row['subject_group']);
                 $subject->setSubjectCode($row['subject_code']);
+                $subject->setCompulsory($row['is_compulsory']);
+                $subject->setActive($row['is_active']);
 
                 return $subject;
             } else {
@@ -246,5 +277,58 @@ class SubjectController implements SubjectInterface
             return null;
         }
     }
+
+    public static function getCompulsorySubjects()
+    {
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+            $stmt = $conn->prepare("SELECT `subject_name` FROM subjects WHERE `is_active`=1 AND `is_compulsory`=1");
+            $stmt->execute();
+            $compulsorySubjects = array();
+            if($stmt->rowCount()>0) {
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                    $subject = strtolower($row['subject_name']);
+                    // remove sciences from compulsory array to avoid adding its marks twice in
+                    // total computations(MarksGradingController)
+                    if ($subject !='biology' AND $subject !='chemistry' AND $subject !='physics') {
+                        $compulsorySubjects[] = $subject;
+                    }
+                }
+            }
+            $db->closeConnection();
+            return $compulsorySubjects;
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
+    public static function fetchAllSubjectNames()
+    {
+        $db = new DB();
+        $conn = $db->connect();
+        try {
+            $stmt = $conn->prepare("SELECT subject_name FROM subjects WHERE is_active=1");
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
+                $subjectNames = array();
+                while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+
+                    $subjectNames[] = strtolower($row['subject_name']);;
+
+                }
+                return $subjectNames;
+            } else {
+                return [];
+            }
+
+        } catch (\PDOException $exception) {
+            echo $exception->getMessage();
+            return [];
+        }
+    }
+
 
 }

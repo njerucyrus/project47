@@ -346,7 +346,7 @@ FixedColumns.prototype = /** @lends FixedColumns.prototype */{
 	 *      // this allows the redraw performed by DataTables fnUpdate to recalculate the row
 	 *      // height
 	 *      fc.fnRecalculateHeight();
-	 *      table.fnUpdate( $('#example tbody tr:eq(0)')[0], ["insert date", 1, 2, 3 ... ]);
+	 *      table.fnUpdate( $('#example tbody tr:eq(0)')[0], ["insert updatedAt", 1, 2, 3 ... ]);
 	 */
 	"fnRecalculateHeight": function ( nTr )
 	{

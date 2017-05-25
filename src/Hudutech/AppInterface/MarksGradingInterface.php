@@ -62,4 +62,26 @@ interface MarksGradingInterface
      * eg ['grade_letter'=>'B+', 'comment'=>'excellent']
      */
     public static function getGrade($score);
+
+    /**
+     * @param $year
+     * @param $term
+     * @param $student_class
+     * @return boolean
+     */
+    public static function getScoreSheetRegNo($year, $term, $student_class);
+
+    /**
+     * @param array $config
+     * $config = array("year"=>value, "term"=>value, "student_class", reg_no=>array())
+     * @return boolean
+     */
+    public static function getScoreSheetTotal($config);
+
+    /**
+     * @param array $config
+     * $config = array("year"=>value, "term"=>value, "student_class", reg_no=>array())
+     * @return boolean
+     */
+    public static function updateScoreSheetTotals(array $config);
 }
