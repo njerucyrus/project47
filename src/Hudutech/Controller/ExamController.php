@@ -211,5 +211,34 @@ class ExamController extends ComplexQuery implements ExamInterface
         }
     }
 
+    public static function getStudentsForExam(array $config){
+        $db = new DB();
+        $conn = $db->connect();
+
+        try{
+           $stmt = $conn->prepare("SELECT DISTINCT s.* FROM students s, student_subjects ss
+                                    INNER JOIN students st ON st.id = ss.student_id
+                                    WHERE st.id=ss.student_id AND ss.subject_id=:subject_id
+                                    AND s.current_class=:student_class AND s.stream=:stream");
+           $stmt->bindParam(":subject_id", $config['subject_id']);
+           $stmt->bindParam(":student_class", $config['student_class']);
+           $stmt->bindParam(":stream", $config['stream']);
+           $students = array();
+           if ($stmt->execute() and $stmt->rowCount() >0) {
+               while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                   $student = array(
+                       "full_name"=>$row['first_name']." ".$row['last_name']." ".$row['other_name'],
+                       "reg_no"=>$row['reg_no']
+                   );
+                   array_push($students, $student);
+               }
+           }
+           $db->closeConnection();
+           return $students;
+        } catch (\PDOException $exception){
+            echo $exception->getMessage();
+            return [];
+        }
+    }
 
 }
