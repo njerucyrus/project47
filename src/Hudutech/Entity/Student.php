@@ -94,7 +94,7 @@ class Student
      */
     private $occupation;
     /**
-     * @var \DateTime
+     * @var string
      */
     private $dateEnrolled;
 
@@ -322,7 +322,7 @@ class Student
     }
 
     /**
-     * @param \DateTime $dateEnrolled
+     * @param string
      */
     public function setDateEnrolled($dateEnrolled)
     {

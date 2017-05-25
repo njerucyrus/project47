@@ -187,7 +187,7 @@ class Teacher
     }
 
     /**
-     * @param \DateTime $dateRegistered
+     * @param String $dateRegistered
      */
     public function setDateRegistered($dateRegistered)
     {

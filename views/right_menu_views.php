@@ -15,7 +15,7 @@
             <!-- logo -->
             <div class="logo">
                 <a href="index.php">
-                    <img src="../public/assets/images/clinic.png" width="120" alt=""/>
+                    <img src="../public/assets/images/eschool.png" width="120" alt=""/>
                 </a>
             </div>
 
@@ -64,15 +64,15 @@
                 </a>
                 <ul class="visible">
                     <li>
-                        <a href="../views/register_user.php">
+                        <a href="../views/register_student.php">
                             <i class="fa fa-user-plus" style="font-size: 1.5em;"></i>
-                            <span class="title" style="font-size: 1.5em;">Register User</span>
+                            <span class="title" style="font-size: 1.5em;">Register Student</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../views/register_patient.php">
-                            <i class="fa fa-user-md" style="font-size: 1.5em;"></i>
-                            <span class="title" style="font-size: 1.5em;">Register Patient</span>
+                        <a href="../views/register_teacher.php">
+                            <i class="fa fa-user-plus" style="font-size: 1.5em;"></i>
+                            <span class="title" style="font-size: 1.5em;">Register Teacher</span>
                         </a>
                     </li>
                     <li>

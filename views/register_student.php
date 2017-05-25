@@ -5,8 +5,10 @@
  * Date: 5/23/17
  * Time: 3:43 PM
  */
+
+require_once '../vendor/autoload.php';
+require_once 'includes/register_student.inc.php';
 ?>
-<<<<<<< HEAD
 <!doctype html>
 <html>
 <head>
@@ -24,12 +26,32 @@
             <div class="panel-heading">
                 <div class="panel-title col-md-offset-3">
                     <h1>Register New Student</h1>
+                    <?php
+                    if (empty($successMsg) && !empty($errorMsg)) {
+                        ?>
+                        <div class="alert alert-danger alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <?php echo $errorMsg ?>
+                        </div>
+                        <?php
+                    } elseif (empty($errorMsg) and !empty($successMsg)) {
+                        ?>
+                        <div class="alert alert-success alert-dismissable">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <?php echo $successMsg ?>
+                        </div>
+
+                        <?php
+                    } else {
+                        echo "";
+                    }
+                    ?>
                 </div>
             </div>
 <!-- Name Section -->
 <div class="row">
     <div class="col-md-8 col-md-offset-1">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>">
             <fieldset>
 
                 <!-- Form Name -->
@@ -60,7 +82,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label for="gender"  class="control-label">Gender</label>
-                        <select id="gender" class="form-control">
+                        <select id="gender" name="gender" class="form-control">
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                            </select>
@@ -78,11 +100,11 @@
 
                     <div class="col-sm-4">
                         <label for="class_joined"  class="control-label">Class Joined</label>
-                        <input type="text" name="class_joined" placeholder="Class Joined" class="form-control">
+                        <input type="text" name="class_joined" id="class_joined" placeholder="Class Joined" class="form-control">
                     </div>
                     <div class="col-sm-4">
-                        <label for="profile_pic"  class="control-label">Profile Image</label>
-                        <input type="file" name="profile_pic" accept="image/*" class="form-control">
+                        <label for="profile_image"  class="control-label">Profile Image</label>
+                        <input type="file" id="profile_image" name="profile_image" accept="image/*" class="form-control">
                     </div>
                     <div class="col-sm-4">
                         <label for="current_class"  class="control-label">Current Class </label>
@@ -124,17 +146,30 @@
                 <!-- Text input-->
                 <div class="form-group">
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="parent_name"  class="control-label">Parent Name</label>
                         <input type="text" name="parent_name" placeholder="Parent Name" class="form-control">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label for="address"  class="control-label">Address</label>
                         <input type="text" name="address" id="address" placeholder="Address" class="form-control">
                     </div>
+
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="phone_number"  class="control-label">Phone</label>
+                        <input type="text" name="phone_number" id="phone_number" placeholder="Phone" class="form-control">
+                    </div>
+
                     <div class="col-sm-4">
                         <label for="email"  class="control-label">Email</label>
                         <input type="text" name="email" id="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="occupation"  class="control-label">Occupation</label>
+                        <input type="text" name="occupation" id="occupation" placeholder="Occupation" class="form-control">
                     </div>
                 </div>
 
@@ -146,9 +181,9 @@
                 <!-- Command -->
                 <div class="form-group">
                     <div class="col-sm-5 col-sm-offset-1">
-                        <div class="pull-right">
-                            <button type="submit" class="btn btn-danger">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="col-md-8 col-md-offset-5">
+
+                            <button type="submit" class="btn btn-lg btn-blue ">Save Student</button>
                         </div>
                     </div>
                 </div>
@@ -167,6 +202,4 @@
 <?php include 'footer_views.php'; ?>
 </body>
 </html>
-=======
 
->>>>>>> 1a44534eb38c2696c2efe7b1fc065c332c56e455
