@@ -6,8 +6,7 @@
  * Time: 3:43 PM
  */
 ?>
-<<<<<<< HEAD
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <title> Student Registration</title>
@@ -167,6 +166,4 @@
 <?php include 'footer_views.php'; ?>
 </body>
 </html>
-=======
 
->>>>>>> 1a44534eb38c2696c2efe7b1fc065c332c56e455
