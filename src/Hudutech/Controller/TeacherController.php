@@ -273,8 +273,8 @@ class TeacherController implements TeacherInterface
         $conn = $db->connect();
         try{
 
-            $stmt = $conn->prepare("SELECT * FROM teachers WHERE id=:id");
-            $stmt->bindParam(":id", $id);
+            $stmt = $conn->prepare("SELECT * FROM teachers ");
+
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
                 $teachers = array();
